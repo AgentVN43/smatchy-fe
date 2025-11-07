@@ -7,19 +7,19 @@ export default function HeroBanner() {
   return (
     <>
       <div
-        className="w-full h-[539px] bg-[#0A4A60] pt-20"
+        className="w-full h-[564px] pt-20 z-50"
         style={{
           backgroundImage: `url(${heroBanner})`,
           backgroundRepeat: "no-repeat",
-          backgroundSize: "contain", // hoặc "contain" tùy ý
-          backgroundPosition: "bottom", // QUAN TRỌNG: giữ phần cong ở dưới
+          backgroundSize: "cover",
+          backgroundPosition: "bottom",
         }}
       >
         <div className="container z-50 mx-auto">
           <div className="flex gap-20">
             <img className="z-50" src={image7} alt="" />
             <div className="flex flex-col items-center gap-6">
-              <h2 className="relative font-bold text-5xl leading-14 text-white text-center mt-16">
+              <h2 className="relative font-bold text-5xl leading-14 text-white text-center mt-24">
                 TIRED OF DOING YOUR SPORT{" "}
                 <span className="text-[#FCA13B]">ALONE</span> ?
                 <img className="absolute -top-24 -right-8" src={Yay} alt="" />
