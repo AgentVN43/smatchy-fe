@@ -37,7 +37,7 @@ const slides = [
 
 export default function CategorySlider() {
   return (
-    <div className="relative">
+    <div className="relative w-full">
       <div
         style={{
           width: "100vw",
@@ -69,22 +69,22 @@ export default function CategorySlider() {
           modules={[Autoplay]}
           spaceBetween={4}
           breakpoints={{
-            1536: {
+            1920: {
               slidesPerView: 5,
             },
+            1440: {
+              slidesPerView: 4,
+            },
             1280: {
-              slidesPerView: 4,
-            },
-            1024: {
-              slidesPerView: 4,
-            },
-            768: {
               slidesPerView: 3,
             },
-            640: {
+            1024: {
+              slidesPerView: 3,
+            },
+            768: {
               slidesPerView: 2,
             },
-            0: {
+            640: {
               slidesPerView: 1,
             },
           }}

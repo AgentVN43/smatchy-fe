@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react";
 import logo from "../../public/logo.png";
+import { useNavigate } from "react-router-dom";
 
 const menu = [
-  { title: "Home", link: "#" },
-  { title: "Team", link: "#" },
-  { title: "Investors", link: "#" },
-  { title: "Events", link: "#" },
-  { title: "Contact", link: "#" },
+  { title: "Home", link: "/" },
+  { title: "Team", link: "team" },
+  { title: "Investors", link: "investors" },
+  { title: "Events", link: "events" },
+  { title: "Contact", link: "contact" },
 ];
 
 export default function Header() {
   const [active, setActive] = useState("Home");
+  console.log("🚀 ~ Header ~ active:", active);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -41,9 +44,12 @@ export default function Header() {
               }
             `}
                 key={item.title}
-                onClick={() => setActive(item.title)}
+                onClick={() => {
+                  setActive(item.title);
+                  navigate(item.link);
+                }}
               >
-                <a href={item.link}>{item.title}</a>
+                {item.title}
               </li>
             ))}
           </ul>

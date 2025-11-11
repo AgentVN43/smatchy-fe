@@ -5,7 +5,7 @@ import CategorySlider from "../components/CategorySlider";
 import AwardsSection from "../components/AwardsSection";
 import Testimonials from "../components/Testimonials";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <div>
       <HeroBanner />
