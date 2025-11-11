@@ -79,7 +79,6 @@ export default function Testimonials() {
             backgroundPosition: "bottom",
           }}
         >
-          {" "}
           <div className="">
             <div className="flex justify-center items-center py-16">
               <h2 className="relative inline-flex text-5xl text-white font-bold">
