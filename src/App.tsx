@@ -10,22 +10,11 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <div className="relative w-full min-h-screen overflow-hidden">
-          <div className="relative container">
-            {/* Line background */}
-            <img
-              src={line}
-              alt=""
-              className="absolute w-auto top-0 left-0 scale-[7.4] origin-top-left z-20 px-1.5"
-            />
-          </div>
-
-          {/* Main content */}
-          <div className="relative">
-            <Header />
-            <AppRoutes />
-            <Footer />
-          </div>
+        {/* Main content */}
+        <div className="">
+          <Header />
+          <AppRoutes />
+          <Footer />
         </div>
       </BrowserRouter>
     </>
