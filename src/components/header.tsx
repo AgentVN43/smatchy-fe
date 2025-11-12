@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import logo from "../../public/logo.png";
+import logo from "/Logo.png";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const menu = [

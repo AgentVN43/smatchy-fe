@@ -1,0 +1,104 @@
+import Slider from "react-slick";
+import Yay3 from "/Yay3.png";
+import { FaArrowRightLong } from "react-icons/fa6";
+import avt1 from "/avt1.png";
+import avt2 from "/avt2.png";
+const testimonials = [
+  {
+    id: 1,
+    name: "Thomas Nguyen",
+    text: "J'adore cette app, elle me motive à faire du sport tous les jours.",
+    rating: 5,
+    image: avt1,
+  },
+  {
+    id: 2,
+    name: "Robin Delezenne",
+    text: "Super application avec beaucoup de sport. Trop hâte de rencontrer des cyclistes !",
+    rating: 5,
+    image: avt2,
+  },
+  {
+    id: 3,
+    name: "Alex Martin",
+    text: "Une expérience incroyable, j'ai trouvé plein de partenaires sportifs.",
+    rating: 5,
+    image: avt1,
+  },
+];
+
+const renderStars = (rating: number) => {
+  return [...Array(rating)].map((_, index) => (
+    <span key={index} className="text-yellow-400">
+      ★
+    </span>
+  ));
+};
+export default function PeopleSay() {
+  const settings = {
+    centerMode: true,
+    infinite: true,
+    centerPadding: "0px",
+    slidesToShow: 3,
+    speed: 500,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
+  return (
+    <div className="my-20">
+      <div className="flex flex-col items-center">
+        <div className=" inline-flex">
+          <h2 className="relative text-center text-5xl text-[#0A4A60] font-bold mb-8">
+            WHAT <span className="text-[#FCA13B]">PEOPLE</span> SAY
+            <img className="absolute -top-20 -right-20 " src={Yay3} alt="" />
+          </h2>
+        </div>
+        <div className="mb-10">
+          <button className="flex justify-center items-center gap-2 text-white rounded-full px-4 py-2 font-semibold bg-[#FCA13B] transition">
+            Join Our Community <FaArrowRightLong />
+          </button>
+        </div>
+      </div>
+      <div className="relative z-30">
+        <Slider {...settings}>
+          {testimonials.map((testimonial) => (
+            <div key={testimonial.id} className="px-4">
+              <div className="slide-item bg-[#E2F6F6] rounded-2xl p-8 text-center transition-all duration-300">
+                <p className="text-gray-600 mb-4 text-lg">
+                  "{testimonial.text}"
+                </p>
+                <div className="flex items-center gap-3">
+                  <img
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    className="w-20 h-20 rounded-full mb-4 object-cover"
+                  />
+                  <div>
+                    <div className="text-start text-3xl">
+                      {renderStars(testimonial.rating)}
+                    </div>
+                    <h3 className="text-[#0A4A60] text-[32px] font-semibold mb-2">
+                      - {testimonial.name}
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </Slider>
+      </div>
+    </div>
+  );
+}

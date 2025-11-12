@@ -1,0 +1,117 @@
+import { FaArrowRightLong } from "react-icons/fa6";
+import Yay3 from "/Yay3.png";
+import global from "/investors/Global.png";
+import branded from "/investors/Branded.png";
+import flashon from "/investors/Flashon.png";
+import choiseul1 from "/investors/Choiseul 01.png";
+import choiseul2 from "/investors/Choiseul 4.png";
+import choiseul3 from "/investors/Choiseul 5.png";
+
+const marketData = [
+  {
+    image: global,
+    label: "TAM (Total Addressable Market)",
+    value: "14.7B€",
+    description: "European adult sports practitioners market.",
+  },
+  {
+    image: branded,
+    label: "SAM (Serviceable Available Market)",
+    value: "2.94B€",
+    description:
+      "Segment interested in social sports and addressable by Smatchy. Assumption: 23M at 100€/year.",
+  },
+  {
+    image: flashon,
+    label: "SOM (Serviceable Obtainable Market)",
+    value: "2.9M€ (2028)",
+    description: "Smatchy’s 5-year revenue target. Assumption: 0.098% of SAM.",
+  },
+];
+
+const growthImages = [choiseul1, choiseul2, choiseul3];
+
+export default function MarketOpportunity() {
+  return (
+    <div>
+      <div className="relative w-full z-20">
+        <div
+          style={{
+            width: "100vw",
+            height: "422.38px",
+            position: "absolute",
+            top: "-50px",
+            left: "0px",
+            transform: "rotate(-4.99deg)",
+            opacity: 1,
+            backgroundColor: "#E2F6F6",
+          }}
+        ></div>
+
+        <div
+          style={{
+            width: "110vw",
+            height: "422.38px",
+            position: "absolute",
+            top: "220px",
+            left: "0px",
+            transform: "rotate(6.24deg)",
+            opacity: 1,
+            backgroundColor: "#E2F6F6",
+          }}
+        ></div>
+      </div>
+      <div className="relative z-30 container">
+        <div className="flex flex-col justify-center items-center py-12! gap-12">
+          {/* Section Title */}
+          <div className=" inline-flex">
+            <h2 className="relative z-40 text-5xl text-[#0A4A60] font-bold">
+              MARKET & <span className="text-[#FCA13B]">OPPORTUNITY</span>
+              <img className="absolute -top-20 -right-20 " src={Yay3} alt="" />
+            </h2>
+          </div>
+
+          <button className="flex justify-center items-center gap-2 text-white rounded-full px-4 py-2 font-semibold bg-[#FCA13B] transition">
+            Learn More <FaArrowRightLong />
+          </button>
+          {/* Market Metrics */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {marketData.map((item, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-2xl p-6 border shadow-sm flex flex-col items-center text-center"
+                style={{ borderColor: "#0A4A605C" }}
+              >
+                <img
+                  src={item.image}
+                  alt={item.label}
+                  className="w-14 h-14 rounded-full object-cover mb-2"
+                />
+                <div className="text-[38px] font-bold tracking-tight mb-2 text-[#0A4A60]">
+                  {item.value}
+                </div>
+                <div className="text-xl font-bold text-[#0F262E] mb-1 whitespace-pre-line">
+                  {item.label.replace("(", "\n(")}
+                </div>
+                <p className="text-sm text-[#0F262E] leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div className="relative z-40 container grid grid-cols-1 md:grid-cols-3 gap-36 justify-items-center">
+        {growthImages.map((src, index) => (
+          <div key={index} className=" rounded-full overflow-hidden shadow-lg">
+            <img
+              src={src}
+              alt={`Growth visual ${index + 1}`}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}

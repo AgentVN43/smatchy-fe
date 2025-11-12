@@ -1,14 +1,16 @@
-import Yay from "/team/Yay3.png";
+import Yay from "/Yay3.png";
 import backgroundImg from "/team/background-img.png";
 import CEO from "/team/CEO-img.png";
 
 export default function LittleStory() {
   return (
     <div className="container flex flex-col items-center relative z-50 mt-10!">
-      <h2 className="relative inline-flex text-center text-5xl text-[#0A4A60] font-bold mb-12">
-        THE LITTLE <span className="text-[#FCA13B]">STORY</span>
-        <img className="absolute -top-20 -right-20 " src={Yay} alt="" />
-      </h2>
+      <div className=" inline-flex">
+        <h2 className="relative text-center text-5xl text-[#0A4A60] font-bold mb-12">
+          THE LITTLE <span className="text-[#FCA13B] ml-2">STORY</span>
+          <img className="absolute -top-20 -right-20 " src={Yay} alt="" />
+        </h2>
+      </div>
       <div className="flex justify-end items-end gap-10 mb-64">
         <div className="flex justify-center items-center w-3/5 bg-[#E2F6F6] rounded-tl-[50px] rounded-br-[50px] rounded-tr-[150px] rounded-bl-[150px]">
           <div className="z-10 px-24 py-12 rounded-lg text-xl font-medium text-[#0A4A60] space-y-4">

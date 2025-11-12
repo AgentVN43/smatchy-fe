@@ -12,7 +12,7 @@ export default function AwardsSection() {
   ];
   return (
     <div>
-      <div className="container mt-20!">
+      <div className="container my-20!">
         <div className=" flex justify-center items-end gap-4">
           {awards.map((award) => (
             <img
