@@ -2,9 +2,9 @@ import { Route, Routes } from "react-router-dom";
 import HomePage from "../pages/home";
 import TeamPage from "../pages/team/team";
 import InvestorsPage from "../pages/investors/investors";
-import EventsPage from "../pages/event";
-import ContactPage from "../pages/contact";
-import AnNK from "../components/AnNK";
+import EventsPage from "../pages/events/event";
+import ContactPage from "../pages/contact/contact";
+// import AnNK from "../components/AnNK";
 
 export default function AppRoutes() {
   return (
@@ -14,7 +14,7 @@ export default function AppRoutes() {
       <Route path="/investors" element={<InvestorsPage />} />
       <Route path="events" element={<EventsPage />} />
       <Route path="contact" element={<ContactPage />} />
-      <Route path="annk" element={<AnNK />} />
+      {/* <Route path="annk" element={<AnNK />} /> */}
 
       {/* <Route path="/posts/:slug" element={<Navigate to=".." replace />} />
       <Route path="/pages/:slug" element={<Navigate to=".." replace />} />

@@ -1,4 +1,4 @@
-import TeamHeroBanner from "./components/heroBanner";
+import TeamHeroBanner from "./components/TeamHeroBanner";
 import LittleStory from "./components/littleStory";
 import Members from "./components/members";
 import line from "/line_bg.svg";

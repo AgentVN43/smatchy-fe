@@ -1,0 +1,74 @@
+/* Product Slider Styles - Wrapped in parent class to avoid conflicts */
+.product-slider-container {
+  /* Product Swiper Styles */
+  .product-swiper {
+    padding: 0 80px;
+  }
+
+  /* Custom Navigation Buttons for ProductSlider */
+  .custom-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 100;
+    color: #fff;
+    overflow: hidden;
+  }
+
+  .custom-nav-btn:hover {
+    background: #d9d9d9a8;
+    color: #fff;
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .custom-nav-prev {
+    left: 10px;
+  }
+
+  .custom-nav-next {
+    right: 10px;
+  }
+
+  .custom-nav-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .product-swiper {
+      padding: 0 50px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .product-swiper {
+      padding: 0 45px;
+    }
+
+    .custom-nav-btn {
+      width: 45px;
+      height: 45px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .product-swiper {
+      padding: 0 40px;
+    }
+
+    .custom-nav-btn {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
