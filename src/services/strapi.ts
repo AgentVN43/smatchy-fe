@@ -1,6 +1,14 @@
 // src/services/strapi.ts
 import axios from "axios";
-import type { IGlobalAttributes } from "./types/global";
+import type {
+  IGlobalAttributes,
+  IHomePage,
+  ITeamPage,
+  IInvestorPage,
+  IEventPage,
+  IEventDetail,
+  IContact,
+} from "./types/global";
 
 const STRAPI_URL =
   import.meta.env.VITE_STRAPI_URL || "https://strapi.annk.info/api";
@@ -25,34 +33,82 @@ const fetchStrapi = async <T, R = StrapiSingleResponse<T>>(
 };
 
 export const fetchGlobal = async () => {
-  const response = await fetchStrapi<any, StrapiSingleResponse<any>>(
-    "/global?populate=*"
-  );
-
+  const response = await fetchStrapi<
+    any,
+    { data: IGlobalAttributes; meta: any }
+  >("/global?populate=*");
   if (response.data) {
-    return response.data;
+    return response.data as IGlobalAttributes;
   }
 
   return null;
 };
 
-// export const fetchHome = () =>
-//   fetchStrapi<HomeResponse>("/home?populate[blocks][populate]=*");
+export const fetchHome = async () => {
+  const response = await fetchStrapi<any, { data: IHomePage; meta: any }>(
+    "/home?populate[blocks][populate]=*"
+  );
+  if (response.data) {
+    return response.data as IHomePage;
+  }
 
-// export const fetchTeam = () =>
-//   fetchStrapi<any>("/teams?populate[team_members][populate]=image");
+  return null;
+};
 
-// export const fetchInvestor = () =>
-//   fetchStrapi<any>("/investors?populate[banner]=*");
+export const fetchTeam = async () => {
+  const response = await fetchStrapi<any, { data: ITeamPage; meta: any }>(
+    "/teams?populate[team_members][populate]=image"
+  );
+  if (response.data) {
+    return response.data as ITeamPage;
+  }
 
-// export const fetchEventList = () =>
-//   fetchStrapi<any>("/events?populate[thumbnail]=*");
+  return null;
+};
 
-// export const fetchEventDetail = (slug: string) =>
-//   fetchStrapi<any>(
-//     `/events?filters[slug][$eq]=${encodeURIComponent(
-//       slug
-//     )}&populate[blocks][populate]=*`
-//   );
+export const fetchInvestor = async () => {
+  const response = await fetchStrapi<any, { data: IInvestorPage; meta: any }>(
+    "/investors?populate[banner]=*"
+  );
+  if (response.data) {
+    return response.data as IInvestorPage;
+  }
 
-// export const fetchContact = () => fetchStrapi<any>("/contact?populate=*");
+  return null;
+};
+
+export const fetchEventList = async () => {
+  const response = await fetchStrapi<any, { data: IEventPage; meta: any }>(
+    "/events?populate[thumbnail]=*"
+  );
+  if (response.data) {
+    return response.data as IEventPage;
+  }
+
+  return null;
+};
+
+export const fetchEventDetail = async (slug: string) => {
+  const response = await fetchStrapi<any, { data: IEventDetail; meta: any }>(
+    "/events?populate[thumbnail]=*"
+  );
+  if (response.data) {
+    return response.data as IEventDetail;
+  }
+
+  return null;
+};
+
+
+export const fetchContact = async () => {
+  const response = await fetchStrapi<any, { data: IContact; meta: any }>(
+    "/contact?populate=*"
+  );
+  if (response.data) {
+    return response.data as IContact;
+  }
+
+  return null;
+};
+
+

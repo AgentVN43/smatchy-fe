@@ -11,4 +11,54 @@ interface IGlobalAttributes {
   footer?: any;
 }
 
-export type { IGlobalAttributes };
+interface IHomePage {
+  siteName: string;
+  siteDescription: string;
+  favicon: string;
+  defaultSeo: string;
+}
+
+interface ITeamPage {
+  siteName: string;
+  siteDescription: string;
+  favicon: string;
+  defaultSeo: string;
+}
+
+interface IInvestorPage {
+  siteName: string;
+  siteDescription: string;
+  favicon: string;
+  defaultSeo: string;
+}
+
+interface IEventPage {
+  siteName: string;
+  siteDescription: string;
+  favicon: string;
+  defaultSeo: string;
+}
+
+interface IEventDetail {
+  siteName: string;
+  siteDescription: string;
+  favicon: string;
+  defaultSeo: string;
+}
+
+interface IContact {
+  siteName: string;
+  siteDescription: string;
+  favicon: string;
+  defaultSeo: string;
+}
+
+export type {
+  IGlobalAttributes,
+  IHomePage,
+  ITeamPage,
+  IInvestorPage,
+  IEventPage,
+  IEventDetail,
+  IContact,
+};
