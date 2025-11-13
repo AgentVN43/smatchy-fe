@@ -1,4 +1,5 @@
-export const formatDateEvent = (isoDate: string) => {
+export const formatDateEvent = (isoDate?: string) => {
+  if (!isoDate) return "";
   const date = new Date(isoDate);
   const day = new Intl.DateTimeFormat("en-US", { weekday: "short" }).format(
     date

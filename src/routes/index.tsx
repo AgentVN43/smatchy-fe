@@ -4,6 +4,7 @@ import TeamPage from "../pages/team/team";
 import InvestorsPage from "../pages/investors/investors";
 import EventsPage from "../pages/events/event";
 import ContactPage from "../pages/contact/contact";
+import DetailEvent from "../pages/detailEvent";
 // import AnNK from "../components/AnNK";
 
 export default function AppRoutes() {
@@ -13,6 +14,7 @@ export default function AppRoutes() {
       <Route path="/team" element={<TeamPage />} />
       <Route path="/investors" element={<InvestorsPage />} />
       <Route path="events" element={<EventsPage />} />
+      <Route path="event/:id" element={<DetailEvent />} />
       <Route path="contact" element={<ContactPage />} />
       {/* <Route path="annk" element={<AnNK />} /> */}
 

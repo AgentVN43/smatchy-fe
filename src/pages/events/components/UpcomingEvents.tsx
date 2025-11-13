@@ -8,21 +8,26 @@ import event3 from "/events/event3.jpg";
 import event4 from "/events/event4.jpg";
 import event5 from "/events/event5.png";
 import event6 from "/events/event6.jpg";
+import golf from "/events/golf.png";
 
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 import EventCard from "./EventCard";
+import { useNavigate } from "react-router-dom";
 const events = [
   {
     id: 1,
     title: "Sunday League Clash – 5-a-Side Football",
     date: "2025-02-20T10:30:00",
     location: "Menthon-Saint-Bernard",
-    iconType: "",
+    iconType: golf,
     type: "Football",
     iconLevel: "",
     level: 5,
     price: 5.0,
     image: event1,
+    participants: "12/20 registered",
+    duration: "1h00",
+    desc: "",
   },
   {
     id: 2,
@@ -33,8 +38,11 @@ const events = [
     level: 6,
     price: 50.0,
     image: event2,
-    iconType: "",
+    iconType: golf,
     iconLevel: "",
+    participants: "12/20 registered",
+    desc: "Join us for a friendly golf tournament designed for all levels. Whether you’re a beginner or an experienced player, this event is a great opportunity to enjoy a relaxing game, practice your swing, and connect with other golf enthusiasts. The course offers a scenic view and a welcoming atmosphere. Bring your clubs, good energy, and get ready for a fun day on the green!",
+    duration: "1h00",
   },
   {
     id: 3,
@@ -45,8 +53,11 @@ const events = [
     level: "Easy",
     price: 2.0,
     image: event3,
-    iconType: "",
+    iconType: golf,
     iconLevel: "",
+    participants: "12/20 registered",
+    duration: "1h00",
+    desc: "",
   },
   {
     id: 4,
@@ -57,8 +68,11 @@ const events = [
     level: 4,
     price: 10.0,
     image: event4,
-    iconType: "",
+    iconType: golf,
     iconLevel: "",
+    participants: "12/20 registered",
+    duration: "1h00",
+    desc: "",
   },
   {
     id: 5,
@@ -69,8 +83,11 @@ const events = [
     level: "Training",
     price: 20.0,
     image: event5,
-    iconType: "",
+    iconType: golf,
     iconLevel: "",
+    participants: "12/20 registered",
+    duration: "1h00",
+    desc: "",
   },
   {
     id: 6,
@@ -81,8 +98,11 @@ const events = [
     level: 4,
     price: 3.0,
     image: event6,
-    iconType: "",
+    iconType: golf,
     iconLevel: "",
+    participants: "12/20 registered",
+    duration: "1h00",
+    desc: "",
   },
   {
     id: 7,
@@ -93,8 +113,11 @@ const events = [
     level: 3,
     price: 12.5,
     image: event1,
-    iconType: "",
+    iconType: golf,
     iconLevel: "",
+    participants: "12/20 registered",
+    duration: "1h00",
+    desc: "",
   },
   {
     id: 8,
@@ -105,8 +128,11 @@ const events = [
     level: 3,
     price: 6.0,
     image: event1,
-    iconType: "",
+    iconType: golf,
     iconLevel: "",
+    participants: "12/20 registered",
+    duration: "1h00",
+    desc: "Embark on a scenic hike through the Semnoz Mountain trails. This 10 km route combines forest paths and panoramic viewpoints overlooking Lake Annecy. Ideal for hikers seeking a moderate challenge, it offers a mix of steady climbs and gentle descents. Expect breathtaking landscapes, crisp mountain air, and a rewarding sense of escape. Bring water, good shoes, and your adventurous spirit for a revitalizing outdoor experience.",
   },
   {
     id: 9,
@@ -117,8 +143,11 @@ const events = [
     level: 4,
     price: 5.0,
     image: event1,
-    iconType: "",
+    iconType: golf,
     iconLevel: "",
+    participants: "12/20 registered",
+    duration: "1h00",
+    desc: "",
   },
   {
     id: 10,
@@ -129,8 +158,11 @@ const events = [
     level: 2,
     price: 6.0,
     image: event1,
-    iconType: "",
+    iconType: golf,
     iconLevel: "",
+    participants: "12/20 registered",
+    duration: "1h00",
+    desc: "",
   },
   {
     id: 11,
@@ -141,8 +173,11 @@ const events = [
     level: 3,
     price: 5.5,
     image: event1,
-    iconType: "",
+    iconType: golf,
     iconLevel: "",
+    participants: "12/20 registered",
+    duration: "1h00",
+    desc: "",
   },
   {
     id: 12,
@@ -153,8 +188,11 @@ const events = [
     level: 4,
     price: 5.5,
     image: event1,
-    iconType: "",
+    iconType: golf,
     iconLevel: "",
+    participants: "12/20 registered",
+    duration: "1h00",
+    desc: "",
   },
   {
     id: 13,
@@ -165,8 +203,11 @@ const events = [
     level: 5,
     price: 8.5,
     image: event1,
-    iconType: "",
+    iconType: golf,
     iconLevel: "",
+    participants: "12/20 registered",
+    duration: "1h00",
+    desc: "",
   },
   {
     id: 14,
@@ -177,11 +218,15 @@ const events = [
     level: 2,
     price: null,
     image: event1,
-    iconType: "",
+    iconType: golf,
     iconLevel: "",
+    participants: "12/20 registered",
+    duration: "1h00",
+    desc: "",
   },
 ];
 export default function UpcomingEvents() {
+  const navigate = useNavigate();
   const swiperRef = useRef<any>(null);
   return (
     <div className="mb-52">
@@ -260,7 +305,9 @@ export default function UpcomingEvents() {
           >
             {events.map((event) => (
               <SwiperSlide key={event.id}>
-                <EventCard event={event} />
+                <div onClick={() => navigate(`/event/${event.id}`)}>
+                  <EventCard event={event} />
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>

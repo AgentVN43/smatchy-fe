@@ -9,7 +9,9 @@ export default function PriceActive({ price }: { price: number }) {
       </div>
       <div className="p-0.5">
         <div className="flex items-center justify-center bg-white rounded-b-lg p-1">
-          <p className="text-xl text-[#0A4A60] font-bold">{price} €</p>
+          <p className="text-xl text-[#0A4A60] font-bold">
+            {price.toFixed(2).replace(".", ",")} €
+          </p>
         </div>
       </div>
     </div>

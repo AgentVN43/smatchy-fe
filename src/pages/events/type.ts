@@ -9,4 +9,7 @@ export interface Event {
   image: string;
   iconType: string;
   iconLevel: string;
+  participants: string;
+  duration: string;
+  desc: string;
 }
