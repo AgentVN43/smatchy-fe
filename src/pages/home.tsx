@@ -6,16 +6,20 @@ import Testimonials from "../components/Testimonials";
 // import { useGlobal } from "../hooks/useGlobal";
 import line from "/line_bg.svg";
 import Yay2 from "/Yay2.png";
+//@ts-nocheck
 
-// interface SiteData {
-//   siteName: string;
-//   siteDescription: string;
-// }
-export default function HomePage() {
-  // const { data, isLoading, error } = useGlobal();
+const HomePage: React.FC = () => {
+  const { data, isLoading, error } = useGlobal();
 
-  // console.log("This is: siteName", data.siteName);
-  // console.log("This is: siteDescription", data.siteDescription);
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  console.log(data);
 
   return (
     <div className="relative w-full min-h-screen overflow-hidden">
@@ -40,4 +44,4 @@ export default function HomePage() {
       <Testimonials />
     </div>
   );
-}
+};

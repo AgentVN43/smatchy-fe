@@ -1,5 +1,14 @@
 // src/services/strapi.ts
 import axios from "axios";
+import type {
+  IGlobalAttributes,
+  IHomePage,
+  ITeamPage,
+  IInvestorPage,
+  IEventPage,
+  IEventDetail,
+  IContact,
+} from "./types/global";
 
 const STRAPI_URL =
   import.meta.env.VITE_STRAPI_URL || "https://strapi.annk.info/api";
@@ -8,54 +17,98 @@ const strapiApi = axios.create({
   baseURL: STRAPI_URL,
 });
 
+type StrapiItem<T> = { id: number; attributes: T };
+type StrapiSingleResponse<T> = { data: StrapiItem<T>; meta: any };
+
 // Hàm tiện ích
-const fetchStrapi = <T>(endpoint: string): Promise<T> =>
-  strapiApi.get<{ data: T; meta: any }>(endpoint).then((res) => res.data.data);
+const fetchStrapi = async <T, R = StrapiSingleResponse<T>>(
+  endpoint: string
+): Promise<R> => {
+  const res = await strapiApi.get<R>(endpoint);
 
-// ──────── API ENDPOINTS ────────
+  if (!res.data || !res.data.data) {
+    throw new Error(`Data is null or undefined for endpoint: ${endpoint}`);
+  }
+  return res.data;
+};
 
-// Định nghĩa kiểu rõ ràng (tốt hơn so với inline)
-interface GlobalResponse {
-  data: {
-    id: number;
-    attributes: {
-      title: string;
-      header: any;
-      footer: any;
-    };
-  };
-}
+export const fetchGlobal = async () => {
+  const response = await fetchStrapi<
+    any,
+    { data: IGlobalAttributes; meta: any }
+  >("/global?populate=*");
+  if (response.data) {
+    return response.data as IGlobalAttributes;
+  }
 
-interface HomeResponse {
-  data: {
-    id: number;
-    attributes: {
-      title: string;
-      blocks: any[];
-    };
-  };
-}
+  return null;
+};
 
-export const fetchGlobal = () =>
-  fetchStrapi<GlobalResponse>("/global?populate=*");
-
-export const fetchHome = () =>
-  fetchStrapi<HomeResponse>("/home?populate[blocks][populate]=*");
-
-export const fetchTeam = () =>
-  fetchStrapi<any>("/teams?populate[team_members][populate]=image");
-
-export const fetchInvestor = () =>
-  fetchStrapi<any>("/investors?populate[banner]=*");
-
-export const fetchEventList = () =>
-  fetchStrapi<any>("/events?populate[thumbnail]=*");
-
-export const fetchEventDetail = (slug: string) =>
-  fetchStrapi<any>(
-    `/events?filters[slug][$eq]=${encodeURIComponent(
-      slug
-    )}&populate[blocks][populate]=*`
+export const fetchHome = async () => {
+  const response = await fetchStrapi<any, { data: IHomePage; meta: any }>(
+    "/home?populate[blocks][populate]=*"
   );
+  if (response.data) {
+    return response.data as IHomePage;
+  }
 
-export const fetchContact = () => fetchStrapi<any>("/contact?populate=*");
+  return null;
+};
+
+export const fetchTeam = async () => {
+  const response = await fetchStrapi<any, { data: ITeamPage; meta: any }>(
+    "/teams?populate[team_members][populate]=image"
+  );
+  if (response.data) {
+    return response.data as ITeamPage;
+  }
+
+  return null;
+};
+
+export const fetchInvestor = async () => {
+  const response = await fetchStrapi<any, { data: IInvestorPage; meta: any }>(
+    "/investors?populate[banner]=*"
+  );
+  if (response.data) {
+    return response.data as IInvestorPage;
+  }
+
+  return null;
+};
+
+export const fetchEventList = async () => {
+  const response = await fetchStrapi<any, { data: IEventPage; meta: any }>(
+    "/events?populate[thumbnail]=*"
+  );
+  if (response.data) {
+    return response.data as IEventPage;
+  }
+
+  return null;
+};
+
+export const fetchEventDetail = async (slug: string) => {
+  const response = await fetchStrapi<any, { data: IEventDetail; meta: any }>(
+    "/events?populate[thumbnail]=*"
+  );
+  if (response.data) {
+    return response.data as IEventDetail;
+  }
+
+  return null;
+};
+
+
+export const fetchContact = async () => {
+  const response = await fetchStrapi<any, { data: IContact; meta: any }>(
+    "/contact?populate=*"
+  );
+  if (response.data) {
+    return response.data as IContact;
+  }
+
+  return null;
+};
+
+
