@@ -1,12 +1,23 @@
-import Yay2 from "/Yay2.png";
-import Presentation from "../components/presentation";
-import CategorySlider from "../components/CategorySlider";
 import AwardsSection from "../components/AwardsSection";
-import Testimonials from "../components/Testimonials";
-import line from "/line_bg.svg";
+import CategorySlider from "../components/CategorySlider";
 import HeroBanner from "../components/HeroBanner";
+import Presentation from "../components/presentation";
+import Testimonials from "../components/Testimonials";
+import { useGlobal } from "../hooks/useGlobal";
+import line from "/line_bg.svg";
+import Yay2 from "/Yay2.png";
 
-export default function HomePage() {
+interface SiteData {
+  siteName: string;
+  siteDescription: string;
+}
+
+const HomePage: React.FC<SiteData> = () => {
+  const { data, isLoading, error } = useGlobal();
+
+  console.log("This is: siteName", data.siteName);
+  console.log("This is: siteDescription", data.siteDescription);
+
   return (
     <div className="relative w-full min-h-screen overflow-hidden">
       <div className="relative container">
@@ -30,4 +41,6 @@ export default function HomePage() {
       <Testimonials />
     </div>
   );
-}
+};
+
+export default HomePage;

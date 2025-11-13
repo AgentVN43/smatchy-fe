@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const STRAPI_URL =
-  import.meta.env.VITE_STRAPI_URL || "http://localhost:1337/api";
+  import.meta.env.VITE_STRAPI_URL || "https://strapi.annk.info/api";
 
 const strapiApi = axios.create({
   baseURL: STRAPI_URL,
@@ -10,7 +10,7 @@ const strapiApi = axios.create({
 
 // Hàm tiện ích
 const fetchStrapi = <T>(endpoint: string): Promise<T> =>
-  strapiApi.get<T>(endpoint).then((res) => res.data);
+  strapiApi.get<{ data: T; meta: any }>(endpoint).then((res) => res.data.data);
 
 // ──────── API ENDPOINTS ────────
 
@@ -37,9 +37,7 @@ interface HomeResponse {
 }
 
 export const fetchGlobal = () =>
-  fetchStrapi<GlobalResponse>(
-    "/global?populate[header][populate]=*&populate[footer][populate]=*"
-  );
+  fetchStrapi<GlobalResponse>("/global?populate=*");
 
 export const fetchHome = () =>
   fetchStrapi<HomeResponse>("/home?populate[blocks][populate]=*");
