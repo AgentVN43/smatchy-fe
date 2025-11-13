@@ -3,12 +3,11 @@ import CategorySlider from "../components/CategorySlider";
 import HeroBanner from "../components/HeroBanner";
 import Presentation from "../components/presentation";
 import Testimonials from "../components/Testimonials";
-// import { useGlobal } from "../hooks/useGlobal";
+import { useGlobal } from "../hooks/useGlobal";
 import line from "/line_bg.svg";
 import Yay2 from "/Yay2.png";
 //@ts-nocheck
-
-const HomePage: React.FC = () => {
+export default function HomePage() {
   const { data, isLoading, error } = useGlobal();
 
   if (isLoading) {
@@ -44,4 +43,4 @@ const HomePage: React.FC = () => {
       <Testimonials />
     </div>
   );
-};
+}
