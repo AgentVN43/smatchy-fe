@@ -1,22 +1,25 @@
 import AwardsSection from "../components/AwardsSection";
 import CategorySlider from "../components/CategorySlider";
-import HeroBanner from "../components/HeroBanner";
+import HeroBanner from "../components/heroBanner";
 import Presentation from "../components/presentation";
 import Testimonials from "../components/Testimonials";
 import { useGlobal } from "../hooks/useGlobal";
 import line from "/line_bg.svg";
 import Yay2 from "/Yay2.png";
+//@ts-nocheck
 
-interface SiteData {
-  siteName: string;
-  siteDescription: string;
-}
-
-const HomePage: React.FC<SiteData> = () => {
+const HomePage: React.FC = () => {
   const { data, isLoading, error } = useGlobal();
 
-  console.log("This is: siteName", data.siteName);
-  console.log("This is: siteDescription", data.siteDescription);
+  console.log("This is: title", data?.data?.attributes?.title);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
 
   return (
     <div className="relative w-full min-h-screen overflow-hidden">
