@@ -11,7 +11,9 @@ import Yay2 from "/Yay2.png";
 const HomePage: React.FC = () => {
   const { data, isLoading, error } = useGlobal();
 
-  console.log("This is: title", data?.data?.attributes?.title);
+  console.log(data)
+  console.log("This is: title", data.siteName);
+  console.log("This is: title", data.siteDescription);
 
   if (isLoading) {
     return <div>Loading...</div>;
