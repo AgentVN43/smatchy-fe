@@ -18,6 +18,7 @@ interface IHomePage {
   defaultSeo: string;
 }
 
+
 interface ITeamPage {
   siteName: string;
   siteDescription: string;

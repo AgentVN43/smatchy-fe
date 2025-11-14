@@ -36,7 +36,7 @@ export const fetchGlobal = async () => {
   const response = await fetchStrapi<
     any,
     { data: IGlobalAttributes; meta: any }
-  >("/global?populate=*");
+  >("/global?fields[0]=siteName&fields[1]=siteDescription&populate[favicon][fields][0]=name&populate[favicon][fields][1]=url");
   if (response.data) {
     return response.data as IGlobalAttributes;
   }
