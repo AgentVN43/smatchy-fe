@@ -46,6 +46,23 @@ interface IContact {
   defaultSeo: string;
 }
 
+// src/services/types/hero.ts
+interface IHero {
+  id: number;
+  documentId: string;
+  title: string;
+  subtitle?: string;
+  heros: any[];
+  background?: {
+    url: string;
+    alternativeText?: string;
+  };
+  cta?: {
+    label: string;
+    link: string;
+  };
+}
+
 export type {
   IGlobalAttributes,
   IHomePage,
@@ -53,4 +70,5 @@ export type {
   IEventPage,
   IEventDetail,
   IContact,
+  IHero,
 };

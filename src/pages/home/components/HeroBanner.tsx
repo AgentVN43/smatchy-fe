@@ -18,6 +18,7 @@ export default function HeroBanner() {
   const bg = hero.background_image.url;
   const main_img = hero.main_image.url;
 
+  console.log(bg)
   return (
     <>
       <div

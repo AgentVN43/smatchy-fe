@@ -7,6 +7,7 @@ import type {
   IEventPage,
   IEventDetail,
   IContact,
+  IHero,
 } from "./types/global";
 import type { Person, Team } from "./types/team";
 import type { ContactForm, ContactPage } from "./types/contact";
@@ -92,13 +93,12 @@ export const fetchInvestor = async () => {
 };
 
 export const fetchHeroById = async (id: string) => {
-  const response = await fetchStrapi<any, { data: Hero; meta: any }>(
+  const response = await fetchStrapi<any, { data: IHero; meta: any }>(
     `/heroes/${id}?populate[heros][populate]=*`
   );
   if (response.data) {
-    return response.data as IInvestorPage;
+    return response.data as IHero;
   }
-
   return null;
 };
 
