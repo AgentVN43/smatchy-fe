@@ -9,7 +9,6 @@ import Yay2 from "/Yay2.png";
 //@ts-nocheck
 export default function HomePage() {
   const { isLoading, error, titles } = useHome();
-
   if (isLoading) {
     return <div>Loading...</div>;
   }

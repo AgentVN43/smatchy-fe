@@ -8,9 +8,11 @@ import type {
   IEventDetail,
   IContact,
   IHero,
+  ISport,
 } from "./types/global";
 import type { Person, Team } from "./types/team";
 import type { ContactForm, ContactPage } from "./types/contact";
+import type { TestimonialList } from "./types/testimonial";
 
 const STRAPI_URL =
   import.meta.env.VITE_STRAPI_URL || "https://strapi.annk.info/api";
@@ -39,7 +41,8 @@ export const fetchGlobal = async () => {
     any,
     { data: IGlobalAttributes; meta: any }
   >(
-    "/global?fields[0]=siteName&fields[1]=siteDescription&populate[favicon][fields][0]=name&populate[favicon][fields][1]=url"
+    //"/global?fields[0]=siteName&fields[1]=siteDescription&populate[favicon][fields][0]=name&populate[favicon][fields][1]=url"
+    "/global?populate=*"
   );
   if (response.data) {
     return response.data as IGlobalAttributes;
@@ -55,7 +58,6 @@ export const fetchHome = async () => {
   if (response.data) {
     return response.data as IHomePage;
   }
-
   return null;
 };
 
@@ -104,18 +106,17 @@ export const fetchHeroById = async (id: string) => {
 
 export const fetchEventList = async () => {
   const response = await fetchStrapi<any, { data: IEventPage; meta: any }>(
-    "/events?populate[thumbnail]=*"
+    "/events?populate[sports][populate]=*"
   );
   if (response.data) {
     return response.data as IEventPage;
   }
-
   return null;
 };
 
 export const fetchEventDetail = async (slug: string) => {
   const response = await fetchStrapi<any, { data: IEventDetail; meta: any }>(
-    "/events?populate[thumbnail]=*"
+    `/events?filters[slug][$eq]=${slug}&populate[sports][populate][0]=image&populate[sports][populate][1]=iconType`
   );
   if (response.data) {
     return response.data as IEventDetail;
@@ -147,4 +148,23 @@ export const postContact = async (payload: ContactForm) => {
     console.error("Error posting contact:", error);
     throw error;
   }
+};
+
+export const fetchSport = async () => {
+  const response = await fetchStrapi<any, { data: ISport; meta: any }>(
+    "/sports?fields[0]=name&populate[image][fields][0]=url"
+  );
+  if (response.data) {
+    return response.data as ISport;
+  }
+  return null;
+};
+
+export const fetchTestimonialsByPosition = async (
+  position: "home" | "investor" | "about"
+) => {
+  const res = await fetchStrapi<any, TestimonialList>(
+    `/testimonials?filters[position][$eq]=${position}&populate=*`
+  );
+  return res.data; // Testimonial[]
 };
