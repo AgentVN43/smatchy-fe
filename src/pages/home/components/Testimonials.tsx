@@ -3,32 +3,32 @@ import background from "/background.png";
 import line from "/line_bg.svg";
 import worldmap from "/world-map.png";
 import Yay from "/Yay.png";
-import avt1 from "/avt1.png";
-import avt2 from "/avt2.png";
+// import avt1 from "/avt1.png";
+// import avt2 from "/avt2.png";
 import { useTestimonials } from "../../../hooks/useTestimonials";
-const testimonials1 = [
-  {
-    id: 1,
-    name: "Thomas Nguyen",
-    text: "J'adore cette app, elle me motive à faire du sport tous les jours.",
-    rating: 5,
-    image: avt1,
-  },
-  {
-    id: 2,
-    name: "Robin Delezenne",
-    text: "Super application avec beaucoup de sport. Trop hâte de rencontrer des cyclistes !",
-    rating: 5,
-    image: avt2,
-  },
-  {
-    id: 3,
-    name: "Alex Martin",
-    text: "Une expérience incroyable, j'ai trouvé plein de partenaires sportifs.",
-    rating: 5,
-    image: avt1,
-  },
-];
+// const testimonials1 = [
+//   {
+//     id: 1,
+//     name: "Thomas Nguyen",
+//     text: "J'adore cette app, elle me motive à faire du sport tous les jours.",
+//     rating: 5,
+//     image: avt1,
+//   },
+//   {
+//     id: 2,
+//     name: "Robin Delezenne",
+//     text: "Super application avec beaucoup de sport. Trop hâte de rencontrer des cyclistes !",
+//     rating: 5,
+//     image: avt2,
+//   },
+//   {
+//     id: 3,
+//     name: "Alex Martin",
+//     text: "Une expérience incroyable, j'ai trouvé plein de partenaires sportifs.",
+//     rating: 5,
+//     image: avt1,
+//   },
+// ];
 
 const renderStars = (rating: number) => {
   return [...Array(rating)].map((_, index) => (
@@ -49,12 +49,12 @@ export default function Testimonials() {
     return <div>Error: {error.message}</div>;
   }
 
-  const testimonials = data.map((s) => ({
+  const testimonials = data?.map((s) => ({
     id: s.id,
     name: s.author,
     text: s.content,
     rating: 5, // default
-    image: s.avatar.url, // "/uploads/avatar1_d95a6afcff.png"
+    image: s.avatar?.url, // "/uploads/avatar1_d95a6afcff.png"
   }));
 
   console.log(testimonials);
@@ -108,7 +108,7 @@ export default function Testimonials() {
             </h2>
           </div>
           <Slider {...settings}>
-            {testimonials.map((testimonial) => (
+            {testimonials?.map((testimonial) => (
               <div key={testimonial.id} className="px-4">
                 <div className="slide-item bg-[#E2F6F6] rounded-2xl p-8 text-center transition-all duration-300">
                   <p className="text-gray-600 mb-4 text-lg">

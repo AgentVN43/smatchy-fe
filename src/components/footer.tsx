@@ -54,9 +54,9 @@ export default function Footer() {
                 <div>
                   <h3 className="text-2xl">Contact</h3>
                   <div className="text-[16px] space-y-1 mt-6">
-                    <p>Phone: {data.phone} </p>
-                    <p>E-mail: {data.email} </p>
-                    <p>Address: {data.address} </p>
+                    <p>Phone: {data?.phone} </p>
+                    <p>E-mail: {data?.email} </p>
+                    <p>Address: {data?.address} </p>
                   </div>
                 </div>
                 <div>

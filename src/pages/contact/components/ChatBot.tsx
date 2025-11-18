@@ -43,7 +43,7 @@ import { HiMiniXMark } from "react-icons/hi2";
 import { BsChatDotsFill } from "react-icons/bs";
 import { useEffect, useState } from "react";
 //import MiniForm from "./MiniForm";
-import ContactFormCard from "./ContactFormCard";
+//import ContactFormCard from "./ContactFormCard";
 import { useChatFlow, type ChatStep } from "../../../hooks/useChatFlow";
 import ContactFormChatBot from "./ContactFormChatBot";
 

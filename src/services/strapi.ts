@@ -1,5 +1,4 @@
 // src/services/strapi.ts
-//@ts-nocheck
 import axios from "axios";
 import type {
   IGlobalAttributes,
@@ -7,12 +6,12 @@ import type {
   IInvestorPage,
   IEventPage,
   IEventDetail,
-  IContact,
+  //IContact,
   IHero,
   ISport,
 } from "./types/global";
 import type { Person, Team } from "./types/team";
-import type { ContactForm, ContactPage } from "./types/contact";
+import type { ContactForm } from "./types/contact";
 import type { TestimonialList } from "./types/testimonial";
 
 const STRAPI_URL =
@@ -33,12 +32,12 @@ type StrapiSingleResponse<T> = {
 const fetchStrapi = async <T, R = StrapiSingleResponse<T>>(
   endpoint: string
 ): Promise<R> => {
-  const res = await strapiApi.get<R>(endpoint);
+  const res = await strapiApi.get(endpoint);
 
-  if (!res.data || !res.data.data) {
+  if (!res.data) {
     throw new Error(`Data is null or undefined for endpoint: ${endpoint}`);
   }
-  return res.data;
+  return res.data as R;
 };
 
 export const fetchGlobal = async () => {
@@ -67,11 +66,11 @@ export const fetchHome = async () => {
 };
 
 export const fetchTeamMember = async () => {
-  const response = await fetchStrapi<any, { data: Person; meta: any }>(
+  const response = await fetchStrapi<any, { data: Person[]; meta: any }>(
     "/team-members?populate=*"
   );
   if (response.data) {
-    return response.data as Person;
+    return response.data as Person[];
   }
 
   return null;

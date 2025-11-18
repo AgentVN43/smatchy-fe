@@ -3,38 +3,38 @@ import { Autoplay } from "swiper/modules";
 
 import "swiper/swiper-bundle.css";
 
-import sports1 from "/sports/badminton.png";
-import sports2 from "/sports/basketball.jpg";
-import sports3 from "/sports/bike.png";
-import sports4 from "/sports/climbing.jpg";
-import sports5 from "/sports/football.jpg";
-import sports6 from "/sports/golf.jpg";
-import sports7 from "/sports/hiking.png";
-import sports8 from "/sports/paddel.png";
-import sports9 from "/sports/running.png";
-import sports10 from "/sports/swimming.png";
-import sports11 from "/sports/table-tennis.jpg";
-import sports12 from "/sports/tennis.png";
-import sports13 from "/sports/trail.jpg";
-import sports14 from "/sports/trampoline.jpg";
+// import sports1 from "/sports/badminton.png";
+// import sports2 from "/sports/basketball.jpg";
+// import sports3 from "/sports/bike.png";
+// import sports4 from "/sports/climbing.jpg";
+// import sports5 from "/sports/football.jpg";
+// import sports6 from "/sports/golf.jpg";
+// import sports7 from "/sports/hiking.png";
+// import sports8 from "/sports/paddel.png";
+// import sports9 from "/sports/running.png";
+// import sports10 from "/sports/swimming.png";
+// import sports11 from "/sports/table-tennis.jpg";
+// import sports12 from "/sports/tennis.png";
+// import sports13 from "/sports/trail.jpg";
+// import sports14 from "/sports/trampoline.jpg";
 import { useSport } from "../../../hooks/useSport";
 
-const slides1 = [
-  { id: 1, image: sports1, name: "Badminton" },
-  { id: 2, image: sports2, name: "Basketball" },
-  { id: 3, image: sports3, name: "Bike" },
-  { id: 4, image: sports4, name: "Climbing" },
-  { id: 5, image: sports5, name: "Football" },
-  { id: 6, image: sports6, name: "Golf" },
-  { id: 7, image: sports7, name: "Hiking" },
-  { id: 8, image: sports8, name: "Paddel" },
-  { id: 9, image: sports9, name: "Running" },
-  { id: 10, image: sports10, name: "Swimming" },
-  { id: 11, image: sports11, name: "Table Tennis" },
-  { id: 12, image: sports12, name: "Tennis" },
-  { id: 13, image: sports13, name: "Trail" },
-  { id: 14, image: sports14, name: "Trampoline" },
-];
+// const slides1 = [
+//   { id: 1, image: sports1, name: "Badminton" },
+//   { id: 2, image: sports2, name: "Basketball" },
+//   { id: 3, image: sports3, name: "Bike" },
+//   { id: 4, image: sports4, name: "Climbing" },
+//   { id: 5, image: sports5, name: "Football" },
+//   { id: 6, image: sports6, name: "Golf" },
+//   { id: 7, image: sports7, name: "Hiking" },
+//   { id: 8, image: sports8, name: "Paddel" },
+//   { id: 9, image: sports9, name: "Running" },
+//   { id: 10, image: sports10, name: "Swimming" },
+//   { id: 11, image: sports11, name: "Table Tennis" },
+//   { id: 12, image: sports12, name: "Tennis" },
+//   { id: 13, image: sports13, name: "Trail" },
+//   { id: 14, image: sports14, name: "Trampoline" },
+// ];
 
 export default function CategorySlider() {
   const { data, isLoading, error } = useSport();
@@ -47,10 +47,10 @@ export default function CategorySlider() {
     return <div>Error: {error.message}</div>;
   }
 
-  console.log(data)
+  console.log(data);
 
   // 2. Helper flatten
-  const slides = data.map((s) => ({
+  const slides = (Array.isArray(data) ? data : [data]).map((s) => ({
     id: s.id,
     documentId: s.documentId,
     name: s.name,
@@ -120,7 +120,7 @@ export default function CategorySlider() {
           centeredSlides={false}
           className="w-full overflow-hidden"
         >
-          {slides.map((slide, idx) => (
+          {slides?.map((slide: any, idx: number) => (
             <SwiperSlide key={idx}>
               <div className="relative w-[342px] h-[237px] group">
                 <img

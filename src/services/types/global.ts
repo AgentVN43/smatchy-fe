@@ -9,6 +9,9 @@ interface IGlobalAttributes {
   title?: string;
   header?: any;
   footer?: any;
+  phone?: string;
+  email?: string;
+  address?: string;
 }
 
 interface IHomePage {

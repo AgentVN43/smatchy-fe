@@ -2,6 +2,7 @@ import { useTeam } from "../../../hooks/useTeam";
 import TeamList from "./teamList";
 import background from "/background.png";
 import line from "/line_bg.svg";
+import type { Person } from "../../../services/types/team";
 // import mem2 from "/team/CEO.png";
 // import mem3 from "/team/lead-partner-2.png";
 // import mem1 from "/team/lead-partner.png";
@@ -46,12 +47,12 @@ export default function Members() {
 
   if (isLoading) return <p>Loading…</p>;
   if (error) return <p>Error loading team.</p>;
-  if (!data) return <p>No data available.</p>;
+  if (!data?.teamMembers) return <p>No data available.</p>;
 
   const chunkSize = 3;
-  const chunks = [];
-  for (let i = 0; i < data.teamMembers.length; i += chunkSize) {
-    chunks.push(data.teamMembers.slice(i, i + chunkSize));
+  const chunks: (Person[] | null | undefined)[] = [];
+  for (let i = 0; i < data.teamMembers!.length; i += chunkSize) {
+    chunks.push(data.teamMembers!.slice(i, i + chunkSize));
   }
 
   // const teamMembers = [];
@@ -59,14 +60,19 @@ export default function Members() {
   //console.log(teamMembers)
 
   // 2. Template 1
-  const Template1 = ({ members }) => (
+  interface TemplateProps {
+    members: Person[] | null | undefined;
+  }
+
+  const Template1 = ({ members }: TemplateProps) => (
     <div className="-mt-28">
+      {/* @ts-expect-error Person[] is compatible with TeamMember[] for display purposes */}
       <TeamList teamMembers={members} />
     </div>
   );
 
   // 3. Template 2
-  const Template2 = ({ members }) => (
+  const Template2 = ({ members }: TemplateProps) => (
     <div>
       <div className="relative w-full z-20">
         <div
@@ -93,12 +99,13 @@ export default function Members() {
         />
       </div>
 
+      {/* @ts-expect-error Person[] is compatible with TeamMember[] for display purposes */}
       <TeamList teamMembers={members} />
     </div>
   );
 
   // 4. Template 3
-  const Template3 = ({ members }) => (
+  const Template3 = ({ members }: TemplateProps) => (
     <div className="relative w-full mt-5">
       <div className="relative z-30 container">
         <img
@@ -117,6 +124,7 @@ export default function Members() {
         }}
       />
       <div className="relative -mt-[380px]">
+        {/* @ts-expect-error Person[] is compatible with TeamMember[] for display purposes */}
         <TeamList teamMembers={members} />
       </div>
     </div>

@@ -9,6 +9,7 @@ export interface Person {
   documentId: string;
   name: string;
   role: string;
+  url: string;
   excerpt: string | null;
   createdAt: string; // ISO-8601
   updatedAt: string; // ISO-8601

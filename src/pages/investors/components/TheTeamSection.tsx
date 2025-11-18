@@ -19,7 +19,7 @@ const teamMembers = [
     name: "Romain Felix",
     title: "Growth Hacking",
     avatar: "team/growth-hacking.png",
-    bio: "C'est celle que l'on voit le plus ! Elle s’occupe de tout le monde et s'assure que le projet avance comme sur des roulettes ! La comm’ et le marketing n'ont pas de secret pour elle. Après avoir travaillé dans le monde du luxe, puis des startups digitales, elle s'est lancée en tant qu'entrepreneuse et a monté deux projets : Print Your Race et Les Bornées. Triathlète, sportive passionnée, on peut la retrouver dans les montagnes annéciennes sur son vélo ou en train de courir.",
+    bio: "C'est celle que l'on voit le plus ! Elle s'occupe de tout le monde et s'assure que le projet avance comme sur des roulettes ! La comm' et le marketing n'ont pas de secret pour elle. Après avoir travaillé dans le monde du luxe, puis des startups digitales, elle s'est lancée en tant qu'entrepreneuse et a monté deux projets : Print Your Race et Les Bornées. Triathlète, sportive passionnée, on peut la retrouver dans les montagnes annéciennes sur son vélo ou en train de courir.",
     social: {
       facebook: "https://facebook.com/maude.baudier",
       instagram: "https://instagram.com/maude.baudier",
@@ -41,7 +41,7 @@ const teamMembers = [
     name: "Maude Baudier",
     title: "CEO & Fondatrice",
     avatar: "team/CEO.png",
-    bio: "La tête pensante derrière toute l'interface de l'app. Elle imagine et crée les écrans et les parcours utilisateurs pour transcender l'expérience des membres. Quand elle ne réalise pas des recettes ou des maquettes sous Figma, on peut la retrouver dans la région d'Annecy sur son vélo, en tain de courir ou de nager. Vous l'aurez compris, c'est aussi une triathlète passionnée qui réalise de magnifique performances sur ses courses.",
+    bio: "La tête pensante derrière toute l'interface de l'app. Elle imagine et crée les écrans et les parcours utilisateurs pour transcender l'expérience des membres. Quand elle ne réalise pas des recettes ou des maquettes sous Figma, on peut la retrouver trong la région d'Annecy sur son vélo, en tain de courir ou de nager. Vous l'aurez compris, c'est aussi une triathlète passionnée qui réalise de magnifique performances sur ses courses.",
     social: {
       facebook: "https://facebook.com/emilie.fravallo",
       instagram: "https://instagram.com/emilie.fravallo",
