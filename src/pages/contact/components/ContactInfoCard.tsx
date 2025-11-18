@@ -11,7 +11,7 @@ export default function ContactInfoCard() {
     <div>
       <div className="w-full bg-[#0A4A60] border border-[#0A4A605C] text-white p-9 rounded-3xl space-y-9">
         {/* Title */}
-        <h2 className="text-3xl font-bold leading-snug">
+        <h2 className="text-xl md:text-2xl lg:text-3xl font-bold leading-snug">
           Hi! We are always here to help you.
         </h2>
 
@@ -19,16 +19,22 @@ export default function ContactInfoCard() {
           <div className="bg-[#39758A] p-6 rounded-3xl flex items-start gap-5 shadow-md">
             <img className="h-16 w-16" src={email} alt="" />
             <div>
-              <p className="text-2xl font-bold mb-2">Email</p>
-              <p className="">support@smatchy.app</p>
+              <p className="text-lg md:text-xl lg:text-2xl font-bold mb-2">
+                Email
+              </p>
+              <p className="text-xs md:text-sm lg:text-base">
+                support@smatchy.app
+              </p>
             </div>
           </div>
 
           <div className="bg-[#39758A] p-6 rounded-3xl flex items-start gap-5 shadow-md">
             <img className="h-16 w-16" src={location} alt="" />
             <div>
-              <p className="text-2xl font-bold mb-2">Address</p>
-              <p className="leading-relaxed">
+              <p className="text-lg md:text-xl lg:text-2xl font-bold mb-2">
+                Address
+              </p>
+              <p className="text-xs md:text-sm lg:text-base leading-relaxed">
                 LBDC Organisation
                 <br />
                 5 rue de l'Industrie
@@ -44,7 +50,9 @@ export default function ContactInfoCard() {
         <hr className="border-[#FFFFFF40]" />
 
         <div className="text-center space-y-3">
-          <p className="text-xl font-bold">Connect with us</p>
+          <p className="text-sm md:text-base lg:text-xl font-bold">
+            Connect with us
+          </p>
 
           <ul className="flex justify-center gap-5 mt-6">
             <li>

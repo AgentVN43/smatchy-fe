@@ -30,7 +30,7 @@ export default function InvestorsHeroBanner() {
   return (
     <>
       <div
-        className="relative w-full h-full pt-20 z-50"
+        className="relative w-full h-full pt-10 md:pt-20 z-50"
         style={{
           backgroundImage: `url(https://strapi.annk.info${listBaner[0].banner})`,
           backgroundRepeat: "no-repeat",
@@ -39,16 +39,20 @@ export default function InvestorsHeroBanner() {
         }}
       >
         <div className="container z-50 mx-auto">
-          <div className="flex flex-col items-center gap-6 py-32">
-            <div className="relative font-bold text-5xl leading-14 text-white text-center">
+          <div className="flex flex-col items-center gap-4 md:gap-6 py-16 md:py-32">
+            <div className="relative font-bold text-2xl md:text-3xl lg:text-5xl leading-8 md:leading-12 lg:leading-14 text-white text-center">
               <div
                 dangerouslySetInnerHTML={{
                   __html: slider.heading ? slider.heading : "",
                 }}
               />
-              <img className="absolute -top-24 -right-8" src={Yay} alt="" />
+              <img
+                className="absolute -top-12 -right-4 md:-top-20 md:-right-6 lg:-top-24 lg:-right-8 w-8 md:w-12 lg:w-auto"
+                src={Yay}
+                alt=""
+              />
             </div>
-            <div className="font-medium text-2xl text-white text-center">
+            <div className="font-medium text-lg md:text-xl lg:text-2xl text-white text-center">
               <div
                 dangerouslySetInnerHTML={{
                   __html: slider.sub_heading ? slider.sub_heading : "",
@@ -66,11 +70,11 @@ export default function InvestorsHeroBanner() {
               A massive market, a clear need, a unique opportunity
             </p> */}
 
-            <div className="flex gap-4">
+            <div className="flex flex-col md:flex-row gap-2 md:gap-4 w-full md:w-auto">
               {btn1.label && (
                 <a
                   href={btn1.url || "#"}
-                  className="flex justify-center items-center gap-2 px-6 py-3 rounded-full bg-[#F49F3F] text-white"
+                  className="flex justify-center items-center gap-2 px-4 md:px-6 py-2 md:py-3 rounded-full bg-[#F49F3F] text-white text-sm md:text-base"
                 >
                   <MdOutlineFileDownload size={24} /> {btn1.label}
                 </a>
@@ -78,7 +82,7 @@ export default function InvestorsHeroBanner() {
               {btn2.label && (
                 <a
                   href={btn2.url || "#"}
-                  className="flex justify-center items-center gap-2 px-6 py-3 rounded-full bg-white text-[#0A4A60]"
+                  className="flex justify-center items-center gap-2 px-4 md:px-6 py-2 md:py-3 rounded-full bg-white text-[#0A4A60] text-sm md:text-base"
                 >
                   <MdLocalPhone size={24} /> {btn2.label}
                 </a>

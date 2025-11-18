@@ -5,7 +5,7 @@ export default function TermsUse() {
   return (
     <div>
       <div
-        className="relative w-full h-24 pt-20 z-50"
+        className="relative w-full h-16 md:h-20 lg:h-24 pt-10 md:pt-16 lg:pt-20 z-50"
         style={{
           backgroundImage: `url(${heroBanner})`,
           backgroundRepeat: "no-repeat",
@@ -13,27 +13,33 @@ export default function TermsUse() {
           backgroundPosition: "top",
         }}
       ></div>
-      <div className="container ">
+      <div className="container px-4! md:px-6! lg:px-8!">
         <div className="relative container">
           {/* Line background */}
           <img
             src={line}
             alt=""
-            className="absolute w-auto -top-52 left-20 scale-[7.4] origin-top-left rotate-[2.93deg] z-20 px-1.5"
+            className="absolute w-auto -top-32 md:-top-40 lg:-top-52 left-4 md:left-10 lg:left-20 scale-[3] md:scale-[5] lg:scale-[7.4] origin-top-left rotate-[2.93deg] z-20 px-1.5"
           />
         </div>
-        <div className="relative flex flex-col gap-6 bg-[#E2F6F6] shadow rounded-2xl p-8 mt-20 mb-52 z-30">
+        <div className="relative flex flex-col gap-4 md:gap-5 lg:gap-6 bg-[#E2F6F6] shadow rounded-xl md:rounded-2xl p-4 md:p-6 lg:p-8 mt-10 md:mt-14 lg:mt-20 mb-52 z-30">
           <div className="inline-flex">
-            <h2 className="relative text-center text-5xl text-[#0A4A60] font-bold pt-4">
+            <h2 className="relative text-center text-xl md:text-2xl lg:text-5xl text-[#0A4A60] font-bold pt-2 md:pt-3 lg:pt-4">
               <span className="text-[#FCA13B]">TERMS OF </span>
               USE
-              <img className="absolute -top-16 -right-20 " src={Yay3} alt="" />
+              <img
+                className="absolute -top-8 -right-8 md:-top-12 md:-right-16 lg:-top-16 lg:-right-20 w-6 md:w-10 lg:w-auto"
+                src={Yay3}
+                alt=""
+              />
             </h2>
           </div>
 
           <div className="flex flex-col gap-2">
-            <h3 className="font-bold text-xl text-[#0A4A60]">1. Purpose</h3>
-            <p className="text-sm leading-relaxed text-[#0F262E]">
+            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
+              1. Purpose
+            </h3>
+            <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
               LBDC Organisation ("Smatchy" or "the Publisher") operates the
               mobile application and website{" "}
               <span className="text-[#0A4A60] font-bold underline">
@@ -46,40 +52,40 @@ export default function TermsUse() {
             </p>
           </div>
 
-          <div className="flex flex-col gap-2">
-            <h3 className="font-bold text-xl text-[#0A4A60]">
+          <div className="flex flex-col gap-1 md:gap-1.5 lg:gap-2">
+            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
               2. Access Conditions
             </h3>
-            <p className="text-sm leading-relaxed text-[#0F262E]">
+            <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
               Users can browse or register with an email and password. They must
               be 18 years or older; minors require guardian supervision.
             </p>
           </div>
-          <div className="flex flex-col gap-2">
-            <h3 className="font-bold text-xl text-[#0A4A60]">
+          <div className="flex flex-col gap-1 md:gap-1.5 lg:gap-2">
+            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
               3. Application Content
             </h3>
-            <p className="text-sm leading-relaxed text-[#0F262E]">
+            <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
               The application offers subscriptions to training sessions, events
               and partner experiences. Purchases follow the General Terms and
               Conditions of Sale.
             </p>
           </div>
-          <div className="flex flex-col gap-2">
-            <h3 className="font-bold text-xl text-[#0A4A60]">
+          <div className="flex flex-col gap-1 md:gap-1.5 lg:gap-2">
+            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
               4. Application Management
             </h3>
-            <p className="text-sm leading-relaxed text-[#0F262E]">
+            <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
               <span className="text-[#FCA13B] font-bold">Smatchy</span> may
               suspend access, remove illegal content or update the application
               at any time.
             </p>
           </div>
-          <div className="flex flex-col gap-2">
-            <h3 className="font-bold text-xl text-[#0A4A60]">
+          <div className="flex flex-col gap-1 md:gap-1.5 lg:gap-2">
+            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
               5. User Obligations
             </h3>
-            <p className="text-sm leading-relaxed text-[#0F262E]">
+            <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
               Users must maintain accurate data and account confidentiality, and
               report any misuse to{" "}
               <span className="text-[#0A4A60] font-bold underline">
@@ -89,28 +95,32 @@ export default function TermsUse() {
               are prohibited.
             </p>
           </div>
-          <div className="flex flex-col gap-2">
-            <h3 className="font-bold text-xl text-[#0A4A60]">6. Liability</h3>
-            <p className="text-sm leading-relaxed text-[#0F262E]">
+          <div className="flex flex-col gap-1 md:gap-1.5 lg:gap-2">
+            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
+              6. Liability
+            </h3>
+            <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
               <span className="text-[#FCA13B] font-bold">Smatchy</span> is not
               responsible for service interruptions, misuse or inaccurate
               third-party content. Claims expire after 6 months.
             </p>
           </div>
-          <div className="flex flex-col gap-2">
-            <h3 className="font-bold text-xl text-[#0A4A60]">7. Hyperlinks</h3>
-            <p className="text-sm leading-relaxed text-[#0F262E]">
+          <div className="flex flex-col gap-1 md:gap-1.5 lg:gap-2">
+            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
+              7. Hyperlinks
+            </h3>
+            <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
               <span className="text-[#FCA13B] font-bold">Smatchy</span> ensures
               there are no illegal links but disclaims any responsibility beyond
               that
             </p>
           </div>
 
-          <div className="flex flex-col gap-2">
-            <h3 className="font-bold text-xl text-[#0A4A60]">
+          <div className="flex flex-col gap-1 md:gap-1.5 lg:gap-2">
+            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
               8. Personal Data and Cookies
             </h3>
-            <p className="text-sm leading-relaxed text-[#0F262E]">
+            <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
               <span className="text-[#FCA13B] font-bold">Smatchy</span>is
               responsible for data processing. Users can consult the Privacy and
               Cookie Policies. Contact:{" "}
@@ -120,17 +130,17 @@ export default function TermsUse() {
             </p>
           </div>
 
-          <div className="flex flex-col gap-2">
-            <h3 className="font-bold text-xl text-[#0A4A60]">
+          <div className="flex flex-col gap-1 md:gap-1.5 lg:gap-2">
+            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
               9. Intellectual Property
             </h3>
-            <p className="text-sm leading-relaxed text-[#0F262E]">
+            <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
               All content belongs to Smatchy or its partners. Users only obtain
               non-transferable personal use rights.
             </p>
           </div>
-          <div className="flex flex-col gap-2">
-            <h3 className="font-bold text-xl text-[#0A4A60]">
+          <div className="flex flex-col gap-1 md:gap-1.5 lg:gap-2">
+            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
               10. General Provisions
             </h3>
             <p className="text-sm leading-relaxed text-[#0F262E]">

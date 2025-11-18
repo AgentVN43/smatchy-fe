@@ -36,7 +36,7 @@ export default function Header() {
     >
       <div className="container mx-auto px-4 flex justify-between items-center gap-4 sm:gap-6 md:gap-10">
         {/* Logo */}
-        <div className="shrink-0">
+        <div className="shrink-0 cursor-pointer" onClick={() => navigate("/")}>
           <img src={logo} alt="Logo" className="h-8 sm:h-10 md:h-12" />
         </div>
 
@@ -66,7 +66,7 @@ export default function Header() {
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="lg:hidden flex items-center gap-2">
+        <div className="flex items-center gap-2">
           <button
             className="bg-[#FCA13B] text-white rounded-3xl py-1 px-4 text-sm"
             onClick={() => alert("Get the app clicked")}
@@ -75,17 +75,22 @@ export default function Header() {
           </button>
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-white text-2xl focus:outline-none"
+            className="lg:hidden text-white text-2xl focus:outline-none"
           >
             {isOpen ? <HiX /> : <HiMenu />}
           </button>
         </div>
       </div>
-
       {/* Mobile Menu Dropdown */}
       {isOpen && (
-        <div className="lg:hidden bg-[#0A4A60]/90 text-white w-full mt-2 rounded-b-lg shadow-lg transition-all">
-          <ul className="flex flex-col p-2 gap-2">
+        <div className="lg:hidden fixed inset-0 bg-[#0A4A60]/95 text-white flex flex-col items-center justify-center z-50 transition-all">
+          <button
+            onClick={() => setIsOpen(false)}
+            className="absolute top-4 right-4 text-3xl text-white"
+          >
+            <HiX />
+          </button>
+          <ul className="flex flex-col gap-6 text-xl">
             {menu.map((item) => {
               const isActive =
                 location.pathname === item.link ||
@@ -93,12 +98,10 @@ export default function Header() {
               return (
                 <li
                   key={item.title}
-                  className={`px-4 py-2 rounded-full cursor-pointer transition text-base
-                    ${
-                      isActive
-                        ? "bg-[#D9D9D9A8] text-white"
-                        : "hover:bg-[#D9D9D9A8]"
-                    }`}
+                  className={`px-6 py-3 rounded-full cursor-pointer transition text-center
+              ${
+                isActive ? "bg-[#D9D9D9A8] text-white" : "hover:bg-[#D9D9D9A8]"
+              }`}
                   onClick={() => handleNavigate(item)}
                 >
                   {item.title}

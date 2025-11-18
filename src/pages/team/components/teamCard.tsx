@@ -37,27 +37,27 @@ export default function TeamCard({ teamMember }: { teamMember: TeamMember }) {
   const avatar = (teamMember.avatar as { url?: string })?.url;
 
   return (
-    <div className="group flex flex-col items-center text-center border-[6px] border-[#FFFFFF5C] rounded-full bg-[#ECEEEF] hover:bg-[#0A4A60] px-6 pb-20 w-full transition-colors duration-300">
+    <div className="group flex flex-col items-center text-center border-[6px] border-[#FFFFFF5C] rounded-[120px] md:rounded-full bg-[#ECEEEF] hover:bg-[#0A4A60] px-6 pb-20 w-full transition-colors duration-300">
       {/* Avatar */}
       <img
         src={`https://strapi.annk.info${avatar}`}
         //src={teamMember.avatar}
         alt={teamMember.name}
-        className="object-cover mb-6 rounded-full"
+        className="object-cover mb-3 md:mb-4 lg:mb-6 rounded-full w-20 md:w-24 lg:w-auto h-20 md:h-24 lg:h-auto"
       />
 
       {/* Name & Title */}
       <div>
-        <h3 className="text-[24px] font-bold text-[#0A4A60] group-hover:text-white mb-2 transition-colors duration-300">
+        <h3 className="text-base md:text-lg lg:text-[24px] font-bold text-[#0A4A60] group-hover:text-white mb-1 md:mb-2 transition-colors duration-300">
           {teamMember.name}
         </h3>
-        <p className="text-[16px] font-semibold text-[#FCA13B] mb-4">
+        <p className="text-xs md:text-sm lg:text-[16px] font-semibold text-[#FCA13B] mb-2 md:mb-3 lg:mb-4">
           {teamMember.role}
         </p>
       </div>
 
       {/* Bio */}
-      <p className="text-[14px] text-[#0F262E] group-hover:text-white leading-relaxed mb-6 transition-colors duration-300">
+      <p className="text-[11px] md:text-xs lg:text-[14px] text-[#0F262E] group-hover:text-white leading-relaxed mb-4 md:mb-5 lg:mb-6 transition-colors duration-300">
         {teamMember.description}
       </p>
 
@@ -80,7 +80,7 @@ export default function TeamCard({ teamMember }: { teamMember: TeamMember }) {
           );
         })}
       </div> */}
-      <div className="flex gap-4 mt-auto justify-center pt-4">
+      <div className="flex gap-2 md:gap-3 lg:gap-4 mt-auto justify-center pt-2 md:pt-3 lg:pt-4">
         {/* {teamMember.bio?.map(({ id, platform, url }) => {
           const key = platform.toLowerCase();
           const Icon = SOCIAL_ICONS[key] || SOCIAL_ICONS.website;
@@ -116,7 +116,7 @@ export default function TeamCard({ teamMember }: { teamMember: TeamMember }) {
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#0A4A60] text-white group-hover:text-[#0A4A60] p-3 rounded-full group-hover:bg-white transition"
+                className="bg-[#0A4A60] text-white group-hover:text-[#0A4A60] p-2 md:p-2.5 lg:p-3 rounded-full group-hover:bg-white transition"
               >
                 <Icon size={28} />
               </a>

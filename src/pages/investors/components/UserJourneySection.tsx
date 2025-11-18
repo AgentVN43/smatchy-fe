@@ -31,23 +31,27 @@ const UserJourneySection = () => {
   return (
     <div className="relative z-30 mb-28">
       <div className="container">
-        <div className="flex flex-col items-center mt-20">
+        <div className="flex flex-col items-center mt-10 md:mt-14 lg:mt-20">
           <div className=" inline-flex">
-            <h2 className="relative text-center text-5xl text-[#0A4A60] font-bold mb-8">
+            <h2 className="relative text-center text-2xl md:text-3xl lg:text-5xl text-[#0A4A60] font-bold mb-6 md:mb-8 lg:mb-8">
               THE USER <span className="text-[#FCA13B]">JOURNEY</span>
-              <img className="absolute -top-20 -right-20 " src={Yay3} alt="" />
+              <img
+                className="absolute -top-10 -right-8 md:-top-16 md:-right-12 lg:-top-20 lg:-right-20 w-8 md:w-12 lg:w-auto"
+                src={Yay3}
+                alt=""
+              />
             </h2>
           </div>
 
-          <div className="mb-8">
-            <button className="flex justify-center items-center gap-2 text-white rounded-full px-4 py-2 font-semibold bg-[#FCA13B] transition">
+          <div className="mb-6 md:mb-8 lg:mb-8">
+            <button className="flex justify-center items-center gap-2 text-white rounded-full px-3 md:px-4 py-2 text-sm md:text-base font-semibold bg-[#FCA13B] transition">
               Get the App <FaArrowRightLong />
             </button>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8 w-full">
             {steps.map((step, index) => (
               <div key={index}>
-                <div className="text-7xl font-medium text-[#A2ABAF] mb-2">
+                <div className="text-5xl md:text-6xl lg:text-7xl font-medium text-[#A2ABAF] mb-1 md:mb-2 lg:mb-2">
                   {step.number}
                 </div>
                 <div className="bg-[#E2F6F6] rounded-xl p-6 flex gap-4 items-start shadow-sm">

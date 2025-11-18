@@ -49,7 +49,7 @@ export default function ContactFormCard() {
   return (
     <form onSubmit={onSubmit} className="flex flex-col gap-6 p-9 w-full">
       <div className="flex flex-col gap-1">
-        <label className="text-xl text-[#0F262E] font-bold mb-2">
+        <label className="text-sm md:text-base lg:text-xl text-[#0F262E] font-bold mb-2">
           Full name
         </label>
         <input
@@ -64,7 +64,9 @@ export default function ContactFormCard() {
       </div>
 
       <div className="flex flex-col gap-1">
-        <label className="text-xl text-[#0F262E] font-bold mb-2">Email</label>
+        <label className="text-sm md:text-base lg:text-xl text-[#0F262E] font-bold mb-2">
+          Email
+        </label>
         <input
           type="email"
           name="email"
@@ -77,7 +79,9 @@ export default function ContactFormCard() {
       </div>
 
       <div className="flex flex-col gap-1">
-        <label className="text-xl text-[#0F262E] font-bold mb-2">Subject</label>
+        <label className="text-sm md:text-base lg:text-xl text-[#0F262E] font-bold mb-2">
+          Subject
+        </label>
         <input
           type="text"
           name="subject"
@@ -90,7 +94,9 @@ export default function ContactFormCard() {
       </div>
 
       <div className="flex flex-col gap-1">
-        <label className="text-xl text-[#0F262E] font-bold mb-2">Message</label>
+        <label className="text-sm md:text-base lg:text-xl text-[#0F262E] font-bold mb-2">
+          Message
+        </label>
         <textarea
           name="message"
           value={formData.message}

@@ -12,14 +12,14 @@ export default function AwardsSection() {
   ];
   return (
     <div>
-      <div className="container my-20!">
-        <div className=" flex justify-center items-end gap-4">
+      <div className="container my-12! md:my-20! px-4! md:px-6! lg:px-8!">
+        <div className="grid grid-cols-4 justify-center items-end gap-2 md:gap-4">
           {awards.map((award) => (
             <img
               key={award.id}
               src={award.image}
               alt={award.alt}
-              className="inline-block mx-4 h-auto w-full z-50"
+              className="h-auto w-auto z-50"
             />
           ))}
         </div>

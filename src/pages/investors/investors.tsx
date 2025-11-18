@@ -30,10 +30,16 @@ export default function InvestorsPage() {
         </div>
         <InvestorsHeroBanner />
         <div className="relative flex items-center justify-center mt-20 z-40">
-          <div className="relative flex items-center justify-center text-center leading-10 bg-[#F49F3F] rounded-[30px] text-white font-bold text-[32px] w-[930px] p-6 ">
-            Raising 1M€ for 20% equity to accelerate product development and
-            international growth.
-            <img className="absolute -top-3 left-1" src={Yay2} alt="" />
+          <div className="flex items-center justify-center px-4">
+            <div className="relative flex items-end justify-end text-center bg-[#F49F3F] rounded-[20px] md:rounded-[30px] text-white font-bold text-xl md:text-2xl lg:text-[32px] w-full md-[w-720px] lg:w-[930px] p-4 md:p-6">
+              Raising 1M€ for 20% equity to accelerate product development and
+              international growth.
+              <img
+                className="absolute -top-3 -left-2 md:left-1 w-14 md:w-auto"
+                src={Yay2}
+                alt=""
+              />
+            </div>
           </div>
         </div>
         <ProblemSolution />

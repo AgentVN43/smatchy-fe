@@ -83,17 +83,17 @@ export default function Testimonials() {
 
   return (
     <div className="relative w-full overflow-hidden">
-      <div className="relative container z-20">
+      <div className="relative container z-20 px-4 md:px-6 lg:px-8">
         {/* Line background */}
         <img
           src={line}
           alt=""
-          className="absolute w-auto -top-20 left-[42%] scale-[7.4] origin-top-left px-1.5 rotate-[25.67deg]"
+          className="absolute w-auto -top-20 left-[42%] scale-[3] md:scale-[5] lg:scale-[7.4] origin-top-left px-1.5 rotate-[25.67deg]"
         />
       </div>
       <div className="">
         <div
-          className="relative w-full h-[360px] z-30 bg-cover bg-bottom"
+          className="relative w-full h-auto md:h-[360px] z-30 bg-cover bg-bottom py-8 md:py-16"
           style={{
             backgroundImage: `url(${background})`,
             backgroundRepeat: "no-repeat",
@@ -101,30 +101,35 @@ export default function Testimonials() {
             backgroundPosition: "bottom",
           }}
         >
-          <div className="flex justify-center items-center py-16">
-            <h2 className="relative inline-flex text-5xl text-white font-bold">
-              YOUR <span className="text-[#FCA13B] ml-2"> TESTIMONIALS</span>
-              <img className="absolute -top-24 -right-20" src={Yay} alt="" />
+          <div className="flex justify-center items-center py-8 md:py-16">
+            <h2 className="relative inline-flex text-2xl md:text-3xl lg:text-5xl text-white font-bold text-center px-4">
+              YOUR{" "}
+              <span className="text-[#FCA13B] ml-1 md:ml-2"> TESTIMONIALS</span>
+              <img
+                className="absolute -top-6 -right-2 md:-top-20 md:-right-12 lg:-top-24 lg:-right-16 w-8 md:w-auto"
+                src={Yay}
+                alt=""
+              />
             </h2>
           </div>
           <Slider {...settings}>
             {testimonials?.map((testimonial) => (
-              <div key={testimonial.id} className="px-4">
-                <div className="slide-item bg-[#E2F6F6] rounded-2xl p-8 text-center transition-all duration-300">
-                  <p className="text-gray-600 mb-4 text-lg">
+              <div key={testimonial.id} className="px-2 md:px-4">
+                <div className="slide-item bg-[#E2F6F6] rounded-xl md:rounded-2xl p-4 md:p-8 text-center transition-all duration-300">
+                  <p className="text-gray-600 mb-3 md:mb-4 text-xs md:text-base lg:text-lg">
                     "{testimonial.text}"
                   </p>
-                  <div className="flex items-center gap-3">
+                  <div className="flex flex-col md:flex-row items-center gap-2 md:gap-3">
                     <img
                       src={`https://strapi.annk.info${testimonial.image}`}
                       alt={testimonial.name}
-                      className="w-20 h-20 rounded-full mb-4 object-cover"
+                      className="w-16 md:w-20 h-16 md:h-20 rounded-full object-cover"
                     />
-                    <div>
-                      <div className="text-start text-3xl">
+                    <div className="flex-1">
+                      <div className="text-start text-lg md:text-3xl flex justify-center md:justify-start">
                         {renderStars(testimonial.rating)}
                       </div>
-                      <h3 className="text-[#0A4A60] text-[32px] font-semibold mb-2">
+                      <h3 className="text-[#0A4A60] text-base md:text-2xl lg:text-[32px] font-semibold">
                         - {testimonial.name}
                       </h3>
                     </div>
@@ -136,8 +141,8 @@ export default function Testimonials() {
         </div>
       </div>
 
-      <div className="container px-24! py-18! relative flex justify-center z-30">
-        <img className="w-full" src={worldmap} alt="" />
+      <div className="container px-4! md:px-8! lg:px-24! pb-28! md:py-20! lg:py-18! relative flex justify-center z-30">
+        <img className="w-full h-auto" src={worldmap} alt="" />
       </div>
     </div>
   );

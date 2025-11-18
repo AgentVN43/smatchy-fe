@@ -7,7 +7,7 @@ export default function DetailHeroBanner({ detail }: { detail: Event }) {
   return (
     <div>
       <div
-        className="relative w-full h-[621px] pt-20 z-30"
+        className="relative w-full h-64 md:h-96 lg:h-[621px] pt-8 md:pt-12 lg:pt-20 z-30"
         style={{
           backgroundImage: `url(${detail?.image})`,
           backgroundRepeat: "contain",
@@ -16,18 +16,22 @@ export default function DetailHeroBanner({ detail }: { detail: Event }) {
         }}
       >
         <div className="absolute inset-0 z-40 bg-[#00000054]"></div>
-        <div className="container relative z-50 mx-auto mt-32!">
+        <div className="container relative z-50 mx-auto mt-8! md:mt-16! lg:mt-32!">
           <button
             onClick={() => navigate("/events")}
-            className="flex items-center justify-center text-[#45585E] text-xl font-medium mb-8 gap-3 bg-[#FFFFFF99] px-6 py-2 rounded-xl cursor-pointer"
+            className="flex items-center justify-center text-[#45585E] text-xs md:text-sm lg:text-xl font-medium mb-6 md:mb-8 gap-2 md:gap-3 bg-[#FFFFFF99] px-3 md:px-4 lg:px-6 py-1.5 md:py-2 rounded-lg md:rounded-xl cursor-pointer"
           >
-            <FaArrowLeft size={30} /> Back to events
+            <FaArrowLeft
+              size={20}
+              className="md:w-5 md:h-5 lg:w-[30px] lg:h-[30px]"
+            />{" "}
+            Back to events
           </button>
           <div className="z-50 w-full flex flex-col items-start justify-center">
-            <h2 className="text-5xl font-bold text-white uppercase">
+            <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold text-white uppercase">
               {detail?.title}
             </h2>
-            <p className="text-2xl font-medium text-center text-white mt-4">
+            <p className="text-sm md:text-base lg:text-2xl font-medium text-center text-white mt-2 md:mt-3 lg:mt-4">
               {formatDateEvent(detail?.date)}
             </p>
           </div>

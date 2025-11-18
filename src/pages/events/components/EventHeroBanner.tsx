@@ -57,13 +57,13 @@ export default function EventHeroBanner() {
   //console.log(data?.heros[0].heading);
 
   return (
-    <div className="relative z-30 overflow-hidden product-slider-container w-full h-[564px] mb-20">
-      <div className="absolute inset-0 z-30 bg-[#00000054]"></div>
+    <div className="relative z-30 overflow-hidden product-slider-container w-full md:h-[400px] lg:h-[564px] mb-10 md:mb-16 lg:mb-20">
+      <div className="absolute inset-0 z-30 bg-[#00000054] md:h-[400px] lg:h-[564px]"></div>
       <Swiper ref={swiperRef} modules={[Pagination]} className="">
         {listBaner.map((banner: any) => (
           <SwiperSlide key={banner.id}>
             <img
-              className="w-full"
+              className="w-full h-full object-cover"
               src={`https://strapi.annk.info${banner.banner}`}
               alt=""
             />
@@ -76,36 +76,48 @@ export default function EventHeroBanner() {
         className="custom-nav-btn custom-nav-prev"
         onClick={() => swiperRef.current?.swiper.slidePrev()}
       >
-        <FaArrowLeft size={32} />
+        <FaArrowLeft className="text-sm md:text-3xl" />
       </button>
       <button
         className="custom-nav-btn custom-nav-next"
         onClick={() => swiperRef.current?.swiper.slideNext()}
       >
-        <FaArrowRight size={32} />
+        <FaArrowRight className="text-sm md:text-3xl" />
       </button>
 
-      <div className="absolute top-1/2 left-1/2 -translate-1/2 z-30 mx-auto">
+      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-full md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-30 mx-auto">
         <div className="container">
-          <div className="flex flex-col items-center gap-5">
-            <div className="relative font-bold text-5xl leading-14 text-white text-center">
+          <div className="flex flex-col items-center gap-3 md:gap-4 lg:gap-5">
+            <div className="relative font-bold text-2xl md:text-3xl lg:text-5xl leading-8 md:leading-12 lg:leading-14 text-white text-center">
               <div
                 dangerouslySetInnerHTML={{
                   __html: data?.heros[0].heading ?? "",
                 }}
               />
-              <img className="absolute -top-20 -right-20" src={Yay} alt="" />
+              <img
+                className="absolute -top-10 -right-8 md:-top-16 md:-right-12 lg:-top-20 lg:-right-20 w-8 md:w-12 lg:w-auto"
+                src={Yay}
+                alt=""
+              />
             </div>
-            <div className="font-medium text-2xl text-white text-center">
+            <div className="font-medium text-base md:text-lg lg:text-2xl text-white text-center">
               <div
                 dangerouslySetInnerHTML={{
                   __html: data?.heros[0].sub_heading ?? "",
                 }}
               />
             </div>
-            <div className="flex gap-4">
-              <img src={AppStoreImage} alt="" />
-              <img src={image3} alt="" />
+            <div className="flex gap-2 md:gap-3 lg:gap-4 flex-wrap md:flex-nowrap">
+              <img
+                src={AppStoreImage}
+                alt=""
+                className="h-8 md:h-10 lg:h-auto w-auto"
+              />
+              <img
+                src={image3}
+                alt=""
+                className="h-8 md:h-10 lg:h-auto w-auto"
+              />
             </div>
           </div>
         </div>

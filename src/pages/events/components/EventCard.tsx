@@ -28,27 +28,31 @@ export default function EventCard({ event }: { event: Event }) {
             {event.price && <PriceActive price={event.price} />}{" "}
           </div>
           <div className="w-full group-hover:duration-1000">
-            <div className="flex flex-col gap-1  bg-white group-hover:bg-[#0A4A608C] p-4 rounded-b-2xl">
-              <p className="text-sm font-medium text-[#0A4A60] group-hover:hidden">
+            <div className="flex flex-col gap-0.5 md:gap-0.5 lg:gap-1 bg-white group-hover:bg-[#0A4A608C] p-2 md:p-3 lg:p-4 rounded-b-2xl">
+              <p className="text-xs md:text-xs lg:text-sm font-medium text-[#0A4A60] group-hover:hidden">
                 {formatDateEvent(event.date)}
               </p>
-              <h2 className="font-bold text-[#0F262E] line-clamp-1 group-hover:text-[18px] group-hover:text-white">
+              <h2 className="font-bold text-xs md:text-sm lg:text-base text-[#0F262E] line-clamp-1 group-hover:text-xs md:group-hover:text-sm lg:group-hover:text-base group-hover:text-white">
                 {event.title}
               </h2>
-              <p className="font-medium text-[#45585E] group-hover:hidden">
+              <p className="font-medium text-[10px] md:text-xs lg:text-sm text-[#45585E] group-hover:hidden">
                 {event.location}
               </p>
-              <div className="flex text-[#20363E] group-hover:text-white text-sm gap-4">
-                <p className="flex gap-1">
+              <div className="flex text-[#20363E] group-hover:text-white text-xs md:text-xs lg:text-sm gap-2 md:gap-3 lg:gap-4">
+                <p className="flex gap-0.5 md:gap-1">
                   <img
-                    className="w-[18px] h-[18px]"
+                    className="w-4 md:w-4 lg:w-[18px] h-4 md:h-4 lg:h-[18px]"
                     src={`https://strapi.annk.info${event.iconType}`}
                     alt=""
                   />{" "}
                   {event.type}
                 </p>
-                <p className="flex justify-center items-center gap-1">
-                  <img className="w-[18px] h-[18px]" src={level} alt="" />
+                <p className="flex justify-center items-center gap-0.5 md:gap-1">
+                  <img
+                    className="w-4 md:w-4 lg:w-[18px] h-4 md:h-4 lg:h-[18px]"
+                    src={level}
+                    alt=""
+                  />
                   Niv. {event.level}
                 </p>
               </div>
