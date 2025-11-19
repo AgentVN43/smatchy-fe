@@ -21,26 +21,25 @@ export default function AwardsSection() {
     return <div>Error: {error.message}</div>;
   }
 
-  console.log(sliders);
+  //console.log(sliders);
 
   const awardsItem = sliders.find(
     (item: any) => item.__component === "hero.slider" && item.title === "Awards"
   );
 
-  const awardsUrls =
-    (awardsItem?.slider_images?.map((img: any) => img) ?? []);
+  const awardsUrls = awardsItem?.slider_images?.map((img: any) => img) ?? [];
 
-    console.log(awardsUrls)
+  //console.log(awardsUrls);
 
   return (
     <div>
       <div className="container my-12! md:my-20! px-4! md:px-6! lg:px-8!">
         <div className="grid grid-cols-4 justify-center items-end gap-2 md:gap-4">
-          {awards.map((award) => (
+          {awardsUrls.map((award) => (
             <img
-              key={award.id}
-              src={award.image}
-              alt={award.alt}
+              key={award.documentId}
+              src={`https://strapi.annk.info${award.url}`}
+              alt={award.alternativeText}
               className="h-auto w-auto z-50"
             />
           ))}
