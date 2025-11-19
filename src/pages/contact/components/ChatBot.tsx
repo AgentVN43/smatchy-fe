@@ -91,7 +91,7 @@ export default function ChatBot() {
     <div className="relative z-50 flex flex-col items-end w-[400px] gap-4">
       {/* ---------- MODAL ---------- */}
       {openChatbot && (
-        <div className="absolute bottom-24 flex flex-col w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden">
+        <div className="absolute bottom-24 flex flex-col w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden max-h-[90vh]">
           {/* Header */}
           <div className="flex justify-between items-center gap-2 bg-[#FCA13B] px-4 py-3">
             <div className="flex gap-2 items-center">
@@ -105,7 +105,7 @@ export default function ChatBot() {
           </div>
 
           {/* Body – chỉ 1 dòng bot hiện tại (không lưu history) */}
-          <div className="flex-1 flex flex-col gap-2 min-h-60 max-h-96 overflow-y-auto px-4 py-4">
+          <div className="flex-1 flex flex-col gap-2 min-h-60 overflow-y-auto px-4 py-4">
             {history.map((m) => (
               <div
                 key={m.id}
@@ -122,7 +122,7 @@ export default function ChatBot() {
 
           {/* Footer – buttons hoặc form */}
           <div className="drop-shadow-2xl shadow-2xl">
-            <div className="flex flex-wrap justify-end gap-3 bg-[#FFF3E6] p-4">
+            <div className="flex flex-wrap justify-end gap-3 bg-[#FFF3E6] p-4 max-h-[40vh] overflow-y-auto">
               {actions.map((a, idx) =>
                 a.type === "button" ? (
                   <button
