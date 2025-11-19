@@ -13,7 +13,7 @@ export default function TeamHeroBanner() {
   return (
     <>
       <div
-        className="relative inset-0 bg-cover bg-bottom w-full h-[564px] pt-20 z-30"
+        className="relative inset-0 bg-cover bg-bottom w-full h-[400px] md:h-[564px] pt-10 md:pt-20 z-30"
         style={{
           backgroundImage: `url(${heroBanner})`,
           backgroundRepeat: "no-repeat",
@@ -22,13 +22,21 @@ export default function TeamHeroBanner() {
         }}
       >
         <div className="absolute inset-0 z-40 bg-[#00000054]"></div>
-        <div className="absolute z-50 top-1/2 -translate-1/2 left-1/2  flex flex-col items-center">
-          <div className="text-5xl font-bold text-white">
-            <img className="absolute -top-24 -right-20" src={Yay} alt="" />
+        <div className="absolute z-50 top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 flex flex-col items-center px-4">
+          <div className="text-xl md:text-4xl lg:text-5xl font-bold text-white text-center">
+            <img
+              className="absolute -top-16 md:-top-24 -right-8 md:-right-20 w-12 md:w-auto"
+              src={Yay}
+              alt=""
+            />
             <div dangerouslySetInnerHTML={{ __html: heading ? heading : "" }} />
           </div>
-          <div className="text-2xl font-medium text-center text-white mt-4">
-            <div dangerouslySetInnerHTML={{ __html: sub_heading ? sub_heading : "" }} />
+          <div className="text-sm md:text-xl lg:text-2xl font-medium text-center text-white mt-3 md:mt-4">
+            <div
+              dangerouslySetInnerHTML={{
+                __html: sub_heading ? sub_heading : "",
+              }}
+            />
           </div>
 
           {/* <h2 className="text-5xl font-bold text-white">

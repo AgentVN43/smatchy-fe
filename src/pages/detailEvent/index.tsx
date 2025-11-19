@@ -270,13 +270,13 @@ export default function DetailEvent() {
         <img
           src={line}
           alt=""
-          className="absolute w-auto -top-56 left-28 scale-[7] origin-top-left z-20 px-1.5 rotate-[3.5deg]"
+          className="absolute w-auto -top-28 md:-top-40 lg:-top-56 left-8 md:left-16 lg:left-28 scale-[3.5] md:scale-[5] lg:scale-[7] origin-top-left z-20 px-1.5 rotate-[3.5deg]"
         />
       </div>
       {detail && (
         <div>
           <DetailHeroBanner detail={detail} />
-          <div className="relative z-50 grid grid-cols-2 gap-12 container -mt-24! mb-40!">
+          <div className="relative z-50 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 container -mt-8! md:-mt-16! lg:-mt-24! mb-20! md:mb-32! lg:mb-40!">
             <EventInfoCard detail={detail} />
             <EventSummaryCard detail={detail} />
           </div>

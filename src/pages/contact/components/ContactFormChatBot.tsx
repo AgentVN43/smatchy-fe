@@ -49,7 +49,9 @@ export default function ContactFormChatBot() {
   return (
     <form onSubmit={onSubmit} className="flex flex-col gap-6 w-full">
       <div className="flex flex-col gap-3">
-        <label className="[#DADEDF] text-[#0F262E] mb-2">Full name</label>
+        <label className="text-xs md:text-sm lg:text-base [#DADEDF] text-[#0F262E] mb-2">
+          Full name
+        </label>
         <input
           type="text"
           name="full_name"
@@ -62,7 +64,9 @@ export default function ContactFormChatBot() {
       </div>
 
       <div className="flex flex-col gap-1">
-        <label className="[#DADEDF] text-[#0F262E] mb-2">Email</label>
+        <label className="text-xs md:text-sm lg:text-base [#DADEDF] text-[#0F262E] mb-2">
+          Email
+        </label>
         <input
           type="email"
           name="email"
@@ -75,7 +79,9 @@ export default function ContactFormChatBot() {
       </div>
 
       <div className="flex flex-col gap-1">
-        <label className="[#DADEDF] text-[#0F262E] mb-2">Company</label>
+        <label className="text-xs md:text-sm lg:text-base [#DADEDF] text-[#0F262E] mb-2">
+          Company
+        </label>
         <input
           type="text"
           name="subject"
@@ -88,7 +94,9 @@ export default function ContactFormChatBot() {
       </div>
 
       <div className="flex flex-col gap-1">
-        <label className="[#DADEDF] text-[#0F262E] mb-2">Message</label>
+        <label className="text-xs md:text-sm lg:text-base [#DADEDF] text-[#0F262E] mb-2">
+          Message
+        </label>
         <textarea
           name="message"
           value={formData.message}

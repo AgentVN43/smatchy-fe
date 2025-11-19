@@ -57,16 +57,16 @@ export default function PeopleSay() {
     ],
   };
   return (
-    <div className="my-20">
+    <div className="my-12 md:my-16 lg:my-20 px-4">
       <div className="flex flex-col items-center">
         <div className=" inline-flex">
-          <h2 className="relative text-center text-5xl text-[#0A4A60] font-bold mb-8">
+          <h2 className="relative text-center text-2xl md:text-3xl lg:text-5xl text-[#0A4A60] font-bold mb-6 md:mb-8">
             WHAT <span className="text-[#FCA13B]">PEOPLE</span> SAY
-            <img className="absolute -top-20 -right-20 " src={Yay3} alt="" />
+            <img className="absolute -top-12 -right-12 md:-top-20 md:-right-20 w-8 md:w-auto" src={Yay3} alt="" />
           </h2>
         </div>
-        <div className="mb-10">
-          <button className="flex justify-center items-center gap-2 text-white rounded-full px-4 py-2 font-semibold bg-[#FCA13B] transition">
+        <div className="mb-8 md:mb-10">
+          <button className="flex justify-center items-center gap-2 text-white rounded-full px-3 md:px-4 py-2 text-sm md:text-base font-semibold bg-[#FCA13B] transition">
             Join Our Community <FaArrowRightLong />
           </button>
         </div>
@@ -74,22 +74,22 @@ export default function PeopleSay() {
       <div className="relative z-30">
         <Slider {...settings}>
           {testimonials.map((testimonial) => (
-            <div key={testimonial.id} className="px-4">
-              <div className="slide-item bg-[#E2F6F6] rounded-2xl p-8 text-center transition-all duration-300">
-                <p className="text-gray-600 mb-4 text-lg">
+            <div key={testimonial.id} className="px-2 md:px-4">
+              <div className="slide-item bg-[#E2F6F6] rounded-xl md:rounded-2xl p-4 md:p-8 text-center transition-all duration-300">
+                <p className="text-gray-600 mb-3 md:mb-4 text-xs md:text-base lg:text-lg">
                   "{testimonial.text}"
                 </p>
-                <div className="flex items-center gap-3">
+                <div className="flex flex-col md:flex-row items-center gap-2 md:gap-3">
                   <img
                     src={testimonial.image}
                     alt={testimonial.name}
-                    className="w-20 h-20 rounded-full mb-4 object-cover"
+                    className="w-16 md:w-20 h-16 md:h-20 rounded-full object-cover"
                   />
-                  <div>
-                    <div className="text-start text-3xl">
+                  <div className="flex-1">
+                    <div className="text-start text-lg md:text-3xl flex justify-center md:justify-start">
                       {renderStars(testimonial.rating)}
                     </div>
-                    <h3 className="text-[#0A4A60] text-[32px] font-semibold mb-2">
+                    <h3 className="text-[#0A4A60] text-base md:text-2xl lg:text-[32px] font-semibold">
                       - {testimonial.name}
                     </h3>
                   </div>

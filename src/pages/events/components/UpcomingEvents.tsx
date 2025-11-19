@@ -276,7 +276,7 @@ export default function UpcomingEvents() {
       <div className="relative w-full z-20">
         <div
           style={{
-            width: "100vw",
+            width: "110vw",
             height: "422.38px",
             position: "absolute",
             top: "200px",
@@ -303,9 +303,13 @@ export default function UpcomingEvents() {
 
       <div className="flex flex-col items-center">
         <div className=" inline-flex">
-          <h2 className="relative text-center text-5xl text-[#0A4A60] font-bold mb-10">
+          <h2 className="relative text-center text-2xl md:text-3xl lg:text-5xl text-[#0A4A60] font-bold mb-10">
             UP COMMING<span className="text-[#FCA13B]"> EVENTS</span>
-            <img className="absolute -top-20 -right-20 " src={Yay3} alt="" />
+            <img
+              className="absolute -top-6 -right-6 md:-top-20 md:-right-20 w-8 md:w-auto"
+              src={Yay3}
+              alt=""
+            />
           </h2>
         </div>
       </div>
@@ -314,23 +318,23 @@ export default function UpcomingEvents() {
         <div className="relative z-30 flex justify-end items-center gap-4 mb-3">
           <div className="absolute top-1/2 left-1/2 -translate-1/2">
             <div className="inline-flex">
-              <h2 className="text-[20px] font-bold">
+              <h2 className="text-base md:text-lg lg:text-[20px] font-bold">
                 <span className="text-[#FCA13B]">{flatEvents.length}</span>{" "}
                 activities
               </h2>
             </div>
           </div>
           <button
-            className="text-[#FCA13B] h-12 w-12"
+            className="text-[#FCA13B] h-10 md:h-12 w-10 md:w-12"
             onClick={() => swiperRef.current?.swiper.slidePrev()}
           >
-            <FaArrowLeftLong size={32} />
+            <FaArrowLeftLong className="text-6 md:text-8" />
           </button>
           <button
-            className="text-[#FCA13B] h-12 w-12"
+            className="text-[#FCA13B] h-10 md:h-12 w-10 md:w-12"
             onClick={() => swiperRef.current?.swiper.slideNext()}
           >
-            <FaArrowRightLong size={32} />
+            <FaArrowRightLong className="text-6 md:text-8" />
           </button>
         </div>
 

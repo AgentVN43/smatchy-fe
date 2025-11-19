@@ -6,7 +6,7 @@ export default function LegalNotice() {
   return (
     <div>
       <div
-        className="relative w-full h-24 pt-20 z-50"
+        className="relative w-full h-16 md:h-20 lg:h-24 pt-10 md:pt-16 lg:pt-20 z-50"
         style={{
           backgroundImage: `url(${heroBanner})`,
           backgroundRepeat: "no-repeat",
@@ -14,25 +14,29 @@ export default function LegalNotice() {
           backgroundPosition: "top",
         }}
       ></div>
-      <div className="container ">
+      <div className="container px-4! md:px-6! lg:px-8!">
         <div className="relative container">
           {/* Line background */}
           <img
             src={line}
             alt=""
-            className="absolute w-auto -top-52 left-20 scale-[7.4] origin-top-left rotate-[2.93deg] z-20 px-1.5"
+            className="absolute w-auto -top-40 md:-top-48 lg:-top-52 left-10 md:left-16 lg:left-20 scale-[5] md:scale-[6.2] lg:scale-[7.4] origin-top-left rotate-[2.93deg] z-20 px-1.5"
           />
         </div>
-        <div className="relative flex flex-col gap-6 bg-[#E2F6F6] shadow rounded-2xl p-8 mt-20 mb-52 z-30">
+        <div className="relative flex flex-col gap-3 md:gap-4 lg:gap-6 bg-[#E2F6F6] shadow rounded-2xl p-4 md:p-6 lg:p-8 mt-8 md:mt-16 lg:mt-20 mb-52 z-30">
           <div className="inline-flex">
-            <h2 className="relative text-center text-5xl text-[#0A4A60] font-bold pt-4">
+            <h2 className="relative text-center text-xl md:text-2xl lg:text-5xl text-[#0A4A60] font-bold pt-2 md:pt-3 lg:pt-4">
               <span className="text-[#FCA13B]">LEGAL </span>
               NOTICE
-              <img className="absolute -top-16 -right-20 " src={Yay3} alt="" />
+              <img
+                className="absolute -top-10 md:-top-12 lg:-top-16 -right-12 md:-right-16 lg:-right-20 w-6 md:w-8 lg:w-auto"
+                src={Yay3}
+                alt=""
+              />
             </h2>
           </div>
 
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-1 md:gap-1.5 lg:gap-2">
             <div className="inline-flex">
               <p className="">
                 <span className="font-bold text-[#0F262E]">Reference: </span>
@@ -47,9 +51,11 @@ export default function LegalNotice() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-2">
-            <h3 className="font-bold text-xl text-[#0A4A60]">Publisher</h3>
-            <p className="text-sm leading-relaxed text-[#0F262E]">
+          <div className="flex flex-col gap-1 md:gap-1.5 lg:gap-2">
+            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
+              Publisher
+            </h3>
+            <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
               This website, accessible from{" "}
               <span className="text-[#0A4A60] font-semibold underline">
                 smatchyelementor.cloud
@@ -75,18 +81,20 @@ export default function LegalNotice() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-2">
-            <h3 className="font-bold text-xl text-[#0A4A60]">
+          <div className="flex flex-col gap-1 md:gap-1.5 lg:gap-2">
+            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
               Publication Director
             </h3>
-            <p className="text-sm leading-relaxed text-[#0F262E]">
+            <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
               Maude BAUDIER, acting as legal representative.
             </p>
           </div>
 
-          <div className="flex flex-col gap-2">
-            <h3 className="font-bold text-xl text-[#0A4A60]">Web Host</h3>
-            <p className="text-sm leading-relaxed text-[#0F262E]">
+          <div className="flex flex-col gap-1 md:gap-1.5 lg:gap-2">
+            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
+              Web Host
+            </h3>
+            <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
               3 & 1 IONOS SARL, specialized in professional web hosting,
               registered with the Sarreguemines Trade and Companies Register
               under number 8 431 303 775, VAT number FR 134 310 775.
@@ -106,11 +114,11 @@ export default function LegalNotice() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-2">
-            <h3 className="font-bold text-xl text-[#0A4A60]">
+          <div className="flex flex-col gap-1 md:gap-1.5 lg:gap-2">
+            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
               Application Database Host
             </h3>
-            <p className="text-sm leading-relaxed text-[#0F262E]">
+            <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
               MongoDB Limited, registered in the United States, with servers in
               Europe (Frankfurt).
             </p>
@@ -130,11 +138,11 @@ export default function LegalNotice() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-2">
-            <h3 className="font-bold text-xl text-[#0A4A60]">
+          <div className="flex flex-col gap-1 md:gap-1.5 lg:gap-2">
+            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
               Application Image Host
             </h3>
-            <p className="text-sm leading-relaxed text-[#0F262E]">
+            <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
               AWS, registered in the United States, with servers in Central
               Europe.
             </p>

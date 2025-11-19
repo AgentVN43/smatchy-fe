@@ -63,7 +63,7 @@ export default function CategorySlider() {
     <div className="relative w-full">
       <div
         style={{
-          width: "100vw",
+          width: "110vw",
           height: "422.38px",
           position: "absolute",
           top: "-240px",
@@ -94,21 +94,27 @@ export default function CategorySlider() {
           breakpoints={{
             1920: {
               slidesPerView: 5,
+              spaceBetween: 16,
             },
             1440: {
               slidesPerView: 4,
+              spaceBetween: 12,
             },
             1280: {
               slidesPerView: 3,
+              spaceBetween: 12,
             },
             1024: {
               slidesPerView: 3,
+              spaceBetween: 10,
             },
             768: {
               slidesPerView: 2,
+              spaceBetween: 8,
             },
             640: {
               slidesPerView: 1,
+              spaceBetween: 4,
             },
           }}
           loop={true}
@@ -122,14 +128,14 @@ export default function CategorySlider() {
         >
           {slides?.map((slide: any, idx: number) => (
             <SwiperSlide key={idx}>
-              <div className="relative w-[342px] h-[237px] group">
+              <div className="relative w-[342px] h-[237px] aspect-video md:aspect-237/342 group">
                 <img
                   src={`https://strapi.annk.info${slide.image}`}
                   alt={slide.name}
-                  className="w-full h-full rounded-[30px] object-cover"
+                  className="w-full h-full rounded-[15px] md:rounded-[30px] object-cover"
                 />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent rounded-[30px] p-4 flex items-end h-24">
-                  <p className="text-white font-semibold text-2xl text-right w-full">
+                <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/80 to-transparent rounded-[15px] md:rounded-[30px] p-3 md:p-4 flex items-end h-16 md:h-24">
+                  <p className="text-white font-semibold text-sm md:text-2xl text-right w-full">
                     {slide.name}
                   </p>
                 </div>

@@ -37,7 +37,7 @@ export default function MarketOpportunity() {
       <div className="relative w-full z-20">
         <div
           style={{
-            width: "100vw",
+            width: "110vw",
             height: "422.38px",
             position: "absolute",
             top: "-50px",
@@ -61,21 +61,25 @@ export default function MarketOpportunity() {
           }}
         ></div>
       </div>
-      <div className="relative z-30 container">
-        <div className="flex flex-col justify-center items-center py-12! gap-12">
+      <div className="relative z-30 container px-4 md:px-6 lg:px-8">
+        <div className="flex flex-col justify-center items-center py-8 md:py-10 lg:py-12 gap-8 md:gap-10 lg:gap-12">
           {/* Section Title */}
           <div className=" inline-flex">
-            <h2 className="relative z-40 text-5xl text-[#0A4A60] font-bold">
-              MARKET & <span className="text-[#FCA13B]">OPPORTUNITY</span>
-              <img className="absolute -top-20 -right-20 " src={Yay3} alt="" />
+            <h2 className="relative z-40 text-2xl md:text-3xl lg:text-5xl text-[#0A4A60] font-bold">
+              MARKET & <span className="text-[#FCA13B]\">OPPORTUNITY</span>
+              <img
+                className="absolute -top-10 -right-8 md:-top-16 md:-right-12 lg:-top-20 lg:-right-20 w-8 md:w-12 lg:w-auto"
+                src={Yay3}
+                alt=""
+              />
             </h2>
           </div>
 
-          <button className="flex justify-center items-center gap-2 text-white rounded-full px-4 py-2 font-semibold bg-[#FCA13B] transition">
+          <button className="flex justify-center items-center gap-2 text-white rounded-full px-3 md:px-4 py-2 text-sm md:text-base font-semibold bg-[#FCA13B] transition">
             Learn More <FaArrowRightLong />
           </button>
           {/* Market Metrics */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 lg:gap-6">
             {marketData.map((item, index) => (
               <div
                 key={index}
@@ -85,15 +89,15 @@ export default function MarketOpportunity() {
                 <img
                   src={item.image}
                   alt={item.label}
-                  className="w-14 h-14 rounded-full object-cover mb-2"
+                  className="w-10 md:w-12 lg:w-14 h-10 md:h-12 lg:h-14 rounded-full object-cover mb-2"
                 />
-                <div className="text-[38px] font-bold tracking-tight mb-2 text-[#0A4A60]">
+                <div className="text-2xl md:text-3xl lg:text-[38px] font-bold tracking-tight mb-2 text-[#0A4A60]">
                   {item.value}
                 </div>
-                <div className="text-xl font-bold text-[#0F262E] mb-1 whitespace-pre-line">
+                <div className="text-base md:text-lg lg:text-xl font-bold text-[#0F262E] mb-1 whitespace-pre-line">
                   {item.label.replace("(", "\n(")}
                 </div>
-                <p className="text-sm text-[#0F262E] leading-relaxed">
+                <p className="text-xs md:text-sm lg:text-sm text-[#0F262E] leading-relaxed">
                   {item.description}
                 </p>
               </div>
@@ -101,7 +105,7 @@ export default function MarketOpportunity() {
           </div>
         </div>
       </div>
-      <div className="relative z-40 container grid grid-cols-1 md:grid-cols-3 gap-36 justify-items-center">
+      <div className="relative z-40 container px-4 md:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-20 lg:gap-36 justify-items-center">
         {growthImages.map((src, index) => (
           <div key={index} className=" rounded-full overflow-hidden shadow-lg">
             <img

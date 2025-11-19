@@ -28,10 +28,14 @@ export default function HomePage() {
         />
       </div>
       <HeroBanner />
-      <div className="flex items-center justify-center mt-28">
-        <div className="relative flex items-center justify-center bg-[#F49F3F] rounded-[30px] text-white font-bold text-[32px] w-[504px] p-6">
+      <div className="flex items-center justify-center mt-12 md:mt-20 lg:mt-28 px-4">
+        <div className="relative flex items-center justify-center bg-[#F49F3F] rounded-[20px] md:rounded-[30px] text-white font-bold text-xl md:text-2xl lg:text-[32px] w-full md:w-[504px] p-4 md:p-6">
           {titles[0].title}
-          <img className="absolute top-0 left-0" src={Yay2} alt="" />
+          <img
+            className="absolute -top-2 left-4 md:-top-3 md:left-1 w-12 md:w-16 lg:w-auto"
+            src={Yay2}
+            alt=""
+          />
         </div>
       </div>
       <Presentation />

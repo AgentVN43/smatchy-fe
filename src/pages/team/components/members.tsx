@@ -77,7 +77,7 @@ export default function Members() {
       <div className="relative w-full z-20">
         <div
           style={{
-            width: "100vw",
+            width: "110vw",
             height: "422.38px",
             position: "absolute",
             top: "-240px",
@@ -111,11 +111,11 @@ export default function Members() {
         <img
           src={line}
           alt=""
-          className="absolute w-auto -top-64 left-[80%] scale-[8] origin-top-left px-1.5 rotate-[40.67deg]"
+          className="absolute w-auto -top-32 md:-top-48 lg:-top-64 left-[60%] md:left-[70%] lg:left-[80%] scale-[4] md:scale-[6] lg:scale-[8] origin-top-left px-1.5 rotate-[40.67deg]"
         />
       </div>
       <div
-        className="relative z-20 w-full h-[360px] bg-cover bg-bottom"
+        className="relative z-20 w-full h-[300px] lg:h-[360px] bg-cover bg-bottom"
         style={{
           backgroundImage: `url(${background})`,
           backgroundRepeat: "no-repeat",
@@ -123,7 +123,7 @@ export default function Members() {
           backgroundPosition: "bottom",
         }}
       />
-      <div className="relative -mt-[380px]">
+      <div className="relative -mt-[300px] lg:-mt-[380px]">
         {/* @ts-expect-error Person[] is compatible with TeamMember[] for display purposes */}
         <TeamList teamMembers={members} />
       </div>
