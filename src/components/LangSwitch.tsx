@@ -5,28 +5,45 @@ const flags = {
   en: "https://flagcdn.com/w40/gb.png",
   fr: "https://flagcdn.com/w40/fr.png",
 };
+
+const LABELS: Record<keyof typeof flags, string> = {
+  en: "English",
+  fr: "France",
+};
+
 export default function LangSwitch() {
   const { locale, setLocale } = useLocale();
   const [open, setOpen] = useState(false);
 
   return (
     <div className="relative inline-block">
-      {/* Nút hình tròn hiện cờ đang chọn */}
       <button
         onClick={() => setOpen((o) => !o)}
-        className="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow focus:outline-none"
+        className="flex items-center gap-2 rounded-full border-2 border-white bg-white/80 px-1 py-1 shadow focus:outline-none"
         aria-label="Change language"
       >
         <img
           src={flags[locale as keyof typeof flags]}
-          alt={locale}
-          className="w-full h-full object-cover"
+          alt={LABELS[locale as keyof typeof flags]}
+          className="w-8 h-8 rounded-full object-cover"
         />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="w-4 h-4 text-[#0A4A60]"
+          aria-hidden="true"
+        >
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
       </button>
 
-      {/* Dropdown list */}
       {open && (
-        <div className="absolute top-12 right-0 bg-white rounded-lg shadow-lg py-1 z-50 min-w-[60px]">
+        <div className="absolute top-12 right-0 bg-white rounded-lg shadow-lg py-1 z-50 min-w-[110px] text-black">
           {(Object.keys(flags) as Array<keyof typeof flags>).map((lng) => (
             <button
               key={lng}
@@ -35,15 +52,15 @@ export default function LangSwitch() {
                 setOpen(false);
               }}
               className={`w-full flex items-center gap-3 px-3 py-2 hover:bg-gray-100 transition ${
-                lng === locale ? "bg-blue-50 font-semibold" : ""
+                lng === locale ? "bg-blue-50 font-semibold text-black" : ""
               }`}
             >
               <img
                 src={flags[lng]}
-                alt={lng}
+                alt={LABELS[lng]}
                 className="w-5 h-5 rounded-full"
               />
-              <span className="text-sm uppercase">{lng}</span>
+              <span className="text-sm">{LABELS[lng]}</span>
             </button>
           ))}
         </div>

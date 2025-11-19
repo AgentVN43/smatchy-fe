@@ -42,7 +42,7 @@ export default function Header() {
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden lg:flex flex-1">
+        <div className="hidden lg:flex flex-1 justify-center">
           <ul className="flex flex-wrap justify-start items-center border rounded-full p-2 gap-2 sm:gap-3 md:gap-4 border-[#E2E8F0]">
             {menu.map((item) => {
               const isActive =
@@ -66,25 +66,15 @@ export default function Header() {
           </ul>
         </div>
 
-        {/* Desktop Buttons */}
-        <div className="hidden lg:flex items-center gap-2">
+        {/* Mobile Menu Button */}
+        <div className="flex items-center gap-2">
           <button
-            className="bg-[#FCA13B] text-white rounded-3xl py-1 px-4 text-sm"
+            className="bg-[#FCA13B] text-white rounded-3xl py-3 px-4 text-sm"
             onClick={() => alert("Get the app clicked")}
           >
             Get the app
           </button>
           <LangSwitch />
-        </div>
-
-        {/* Mobile Menu Button */}
-        <div className="flex items-center gap-2">
-          <button
-            className="bg-[#FCA13B] text-white rounded-3xl py-1 px-4 text-sm"
-            onClick={() => alert("Get the app clicked")}
-          >
-            Get the app
-          </button>
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden text-white text-2xl focus:outline-none"
@@ -92,6 +82,18 @@ export default function Header() {
             {isOpen ? <HiX /> : <HiMenu />}
           </button>
         </div>
+
+        {/* Desktop Buttons */}
+        {/* <div className="hidden lg:flex items-center gap-2">
+          <button
+            className="bg-[#FCA13B] text-white rounded-3xl py-1 px-4 text-sm"
+            onClick={() => alert("Get the app clicked")}
+          >
+            Get the app
+          </button>
+          <LangSwitch />
+        </div> */}
+
       </div>
       {/* Mobile Menu Dropdown */}
       {isOpen && (
