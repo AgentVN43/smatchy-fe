@@ -1,6 +1,6 @@
 import Loading from "../../../components/Loading";
 import { useHero } from "../../../hooks/useHero";
-import heroBanner from "/hero-banner.png";
+//import heroBanner from "/hero-banner.png";
 import Yay from "/Yay.png";
 export default function ContactHeroBanner() {
   const { data, isLoading, error } = useHero("k8pxj4vdpa46rs41wsc94o63");

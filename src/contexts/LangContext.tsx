@@ -1,12 +1,7 @@
 // contexts/LangContext.tsx
 import { useQueryClient } from "@tanstack/react-query";
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-  ReactNode,
-} from "react";
+import { useEffect, useState } from "react";
+import { createContext, useContext, type ReactNode } from "react";
 
 type Lang = "en" | "fr" | "vi";
 interface ILang {
