@@ -37,11 +37,11 @@ export default function Presentation() {
               return (
                 <div key={item.id} className={paddedClass}>
                   <div className="inline-flex min-w-[150px] md:min-w-[218px] items-center justify-center bg-[#0A4A60] text-white rounded-[5px] px-2 md:px-3 py-1 md:py-0">
-                    {item.title}
+                    {item.heading}
                   </div>
                   <div
                     className="lg:pl-32 text-[#172E36] text-xs md:text-sm lg:text-base"
-                    dangerouslySetInnerHTML={{ __html: item.content }}
+                    dangerouslySetInnerHTML={{ __html: item.description }}
                   />
                 </div>
               );

@@ -1,22 +1,24 @@
+import AmbitionVisionSection from "./components/AmbitionVisionSection";
+import BusinessMetrics from "./components/BusinessMetrics";
+import BusinessModelSection from "./components/BusinessModelSection";
+import DifferentiationSection from "./components/DifferentiationSection";
+import InvestorsHeroBanner from "./components/InvestorsHeroBanner";
+import JoinSmatchy from "./components/JoinSmatchy";
+import MarketOpportunity from "./components/MarketOpportunity";
+import PeopleSay from "./components/PeopleSay";
+import ProblemSolution from "./components/ProblemSolution";
+import ProductFeatures from "./components/ProductFeatures";
+import RoadmapSection from "./components/RoadmapSection";
+import TheTeamSection from "./components/TheTeamSection";
+import TractionProofSection from "./components/TractionProofSection";
+import UserJourneySection from "./components/UserJourneySection";
+import WhySmatchyWins from "./components/WhySmatchyWins";
 import line from "/line_bg.svg";
 import Yay2 from "/Yay2.png";
-import ProblemSolution from "./components/ProblemSolution";
-import BusinessMetrics from "./components/BusinessMetrics";
-import MarketOpportunity from "./components/MarketOpportunity";
-import WhySmatchyWins from "./components/WhySmatchyWins";
-import DifferentiationSection from "./components/DifferentiationSection";
-import TractionProofSection from "./components/TractionProofSection";
-import PeopleSay from "./components/PeopleSay";
-import ProductFeatures from "./components/ProductFeatures";
-import UserJourneySection from "./components/UserJourneySection";
-import BusinessModelSection from "./components/BusinessModelSection";
-import RoadmapSection from "./components/RoadmapSection";
-import AmbitionVisionSection from "./components/AmbitionVisionSection";
-import TheTeamSection from "./components/TheTeamSection";
-import JoinSmatchy from "./components/JoinSmatchy";
-import InvestorsHeroBanner from "./components/InvestorsHeroBanner";
 
 export default function InvestorsPage() {
+ 
+
   return (
     <div>
       <div className="relative w-full min-h-screen">

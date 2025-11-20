@@ -95,7 +95,7 @@ export const fetchTeam = async () => {
 
 export const fetchInvestor = async () => {
   const response = await fetchStrapi<any, { data: IInvestorPage; meta: any }>(
-    "/investors?populate[banner]=*"
+    "/investor?populate[blocks][populate]=*"
   );
   if (response.data) {
     return response.data as IInvestorPage;
