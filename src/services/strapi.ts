@@ -97,6 +97,7 @@ export enum InvestorPopulateType {
   BASIC = "basic",
   STATS = "stats",
   FULL = "full",
+  TITLE = "title",
 }
 
 const investorEndpoints: Record<InvestorPopulateType, string> = {
@@ -104,6 +105,8 @@ const investorEndpoints: Record<InvestorPopulateType, string> = {
   [InvestorPopulateType.STATS]:
     "/investor?populate[blocks][on][blocks.stats][populate][stats_item][populate][button]=*",
   [InvestorPopulateType.FULL]: "/investor?populate=*",
+  [InvestorPopulateType.TITLE]:
+    "/investor?populate[blocks][on][blocks.title][populate]=*",
 };
 
 export const fetchInvestor = async (

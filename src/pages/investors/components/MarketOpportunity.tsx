@@ -6,6 +6,9 @@ import flashon from "/investors/Flashon.png";
 import choiseul1 from "/investors/Choiseul 01.png";
 import choiseul2 from "/investors/Choiseul 4.png";
 import choiseul3 from "/investors/Choiseul 5.png";
+import { useInvestor } from "../../../hooks/useInvestor";
+import Loading from "../../../components/Loading";
+import { InvestorPopulateType } from "../../../services/strapi";
 
 const marketData = [
   {
@@ -32,6 +35,28 @@ const marketData = [
 const growthImages = [choiseul1, choiseul2, choiseul3];
 
 export default function MarketOpportunity() {
+  const { data, isLoading, error } = useInvestor(InvestorPopulateType.TITLE);
+
+  if (isLoading) return <Loading />;
+  if (error) return null;
+
+  //console.log(data);
+
+  const block = data?.blocks?.find((b: any) => b.id === 156);
+
+  if (!block) return null;
+
+  console.log(block);
+
+  // const marketData1 = block.stats_item.map((item: any) => ({
+  //   title: item.title,
+  //   heading: item.heading,
+  //   btn_label: item.button.label,
+  //   btn_url: item.button.link,
+  // }));
+
+  //console.log(metrics);
+
   return (
     <div>
       <div className="relative w-full z-20">
@@ -69,19 +94,46 @@ export default function MarketOpportunity() {
         <div className="flex flex-col justify-center items-center py-8 md:py-10 lg:py-12 gap-8 md:gap-10 lg:gap-12">
           {/* Section Title */}
           <div className=" inline-flex">
-            <h2 className="relative z-40 text-2xl md:text-3xl lg:text-5xl text-[#0A4A60] font-bold">
+            <div className="relative z-40 text-2xl md:text-3xl lg:text-5xl text-[#0A4A60] font-bold uppercase">
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: block.title ? block.title : "",
+                }}
+              />
+              <img
+                className="absolute -top-10 -right-8 md:-top-16 md:-right-12 lg:-top-20 lg:-right-20 w-8 md:w-12 lg:w-auto"
+                src={Yay3}
+                alt=""
+              />
+            </div>
+            {/* <h2 className="relative z-40 text-2xl md:text-3xl lg:text-5xl text-[#0A4A60] font-bold">
               MARKET & <span className="text-[#FCA13B]\">OPPORTUNITY</span>
               <img
                 className="absolute -top-10 -right-8 md:-top-16 md:-right-12 lg:-top-20 lg:-right-20 w-8 md:w-12 lg:w-auto"
                 src={Yay3}
                 alt=""
               />
-            </h2>
+            </h2> */}
           </div>
+          {block.button.map((item: any, id: number) => (
+            <>
+              {/* <button className="flex justify-center items-center gap-2 text-white rounded-full px-3 md:px-4 py-2 text-sm md:text-base font-semibold bg-[#FCA13B] transition">
+              {item.label} <FaArrowRightLong />
+            </button> */}
+              <button
+                key={id}
+                onClick={() =>
+                  item.link &&
+                  window.open(item.link, "_blank", "noopener,noreferrer")
+                }
+                disabled={!item.link}
+                className="flex justify-center items-center gap-2 text-white rounded-full px-3 md:px-4 py-2 text-sm md:text-base font-semibold bg-[#FCA13B] transition"
+              >
+                {item.label} <FaArrowRightLong />
+              </button>
+            </>
+          ))}
 
-          <button className="flex justify-center items-center gap-2 text-white rounded-full px-3 md:px-4 py-2 text-sm md:text-base font-semibold bg-[#FCA13B] transition">
-            Learn More <FaArrowRightLong />
-          </button>
           {/* Market Metrics */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 lg:gap-6">
             {marketData.map((item, index) => (

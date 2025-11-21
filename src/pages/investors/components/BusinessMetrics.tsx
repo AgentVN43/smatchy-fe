@@ -24,7 +24,7 @@ const BusinessMetrics = () => {
     btn_url: item.button.link,
   }));
 
-  console.log(metrics);
+  //console.log(metrics);
   return (
     <div
       className="relative z-40 container"
