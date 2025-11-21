@@ -1,3 +1,5 @@
+import Loading from "../../components/Loading";
+import { useInvestor } from "../../hooks/useInvestor";
 import AmbitionVisionSection from "./components/AmbitionVisionSection";
 import BusinessMetrics from "./components/BusinessMetrics";
 import BusinessModelSection from "./components/BusinessModelSection";
@@ -17,8 +19,20 @@ import line from "/line_bg.svg";
 import Yay2 from "/Yay2.png";
 
 export default function InvestorsPage() {
- 
+  const { data, isLoading, error } = useInvestor();
 
+  if (isLoading) return <Loading />;
+  if (error) return null;
+
+  //console.log(data);
+
+  const block = data?.blocks?.find(
+    (b: any) => b.__component === "blocks.title"
+  );
+
+  if (!block) return null;
+
+  //console.log(block.title);
   return (
     <div>
       <div className="relative w-full min-h-screen">
@@ -38,8 +52,7 @@ export default function InvestorsPage() {
         >
           <div className="flex items-center justify-center px-4">
             <div className="relative flex items-end justify-end text-center bg-[#F49F3F] rounded-[20px] md:rounded-[30px] text-white font-bold text-xl md:text-2xl lg:text-[32px] w-full md-[w-720px] lg:w-[930px] p-4 md:p-6">
-              Raising 1M€ for 20% equity to accelerate product development and
-              international growth.
+              {block.title}
               <img
                 className="absolute -top-3 -left-2 md:left-1 w-14 md:w-auto"
                 src={Yay2}

@@ -93,9 +93,25 @@ export const fetchTeam = async () => {
   return null;
 };
 
-export const fetchInvestor = async () => {
+export enum InvestorPopulateType {
+  BASIC = "basic",
+  STATS = "stats",
+  FULL = "full",
+}
+
+const investorEndpoints: Record<InvestorPopulateType, string> = {
+  [InvestorPopulateType.BASIC]: "/investor?populate[blocks][populate]=*",
+  [InvestorPopulateType.STATS]:
+    "/investor?populate[blocks][on][blocks.stats][populate][stats_item][populate][button]=*",
+  [InvestorPopulateType.FULL]: "/investor?populate=*",
+};
+
+export const fetchInvestor = async (
+  type: InvestorPopulateType = InvestorPopulateType.BASIC
+) => {
+  const endpoint = investorEndpoints[type];
   const response = await fetchStrapi<any, { data: IInvestorPage; meta: any }>(
-    "/investor?populate[blocks][populate]=*"
+    endpoint
   );
   if (response.data) {
     return response.data as IInvestorPage;

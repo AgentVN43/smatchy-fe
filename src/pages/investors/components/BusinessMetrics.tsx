@@ -1,21 +1,30 @@
 import { FaArrowRightLong } from "react-icons/fa6";
-
-const metrics = [
-  {
-    value: "10%",
-    description: "Commission per booking",
-  },
-  {
-    value: "2.9M€",
-    description: "BY 2028 Projected revenue growth",
-  },
-  {
-    value: "85%",
-    description: "Gross margin target",
-  },
-];
+import { useInvestor } from "../../../hooks/useInvestor";
+import Loading from "../../../components/Loading";
+import { InvestorPopulateType } from "../../../services/strapi";
 
 const BusinessMetrics = () => {
+  const { data, isLoading, error } = useInvestor(InvestorPopulateType.STATS);
+
+  if (isLoading) return <Loading />;
+  if (error) return null;
+
+  //console.log(data);
+
+  const block = data?.blocks?.find((b: any) => b.id === 130);
+
+  if (!block) return null;
+
+  //console.log(block);
+
+  const metrics = block.stats_item.map((item: any) => ({
+    title: item.title,
+    heading: item.heading,
+    btn_label: item.button.label,
+    btn_url: item.button.link,
+  }));
+
+  console.log(metrics);
   return (
     <div
       className="relative z-40 container"
@@ -35,14 +44,26 @@ const BusinessMetrics = () => {
             >
               <div className="text-center">
                 <h3 className="text-xl md:text-2xl lg:text-[38px] font-bold">
-                  {metric.value}
+                  {metric.title}
                 </h3>
                 <p className="text-[#B0C4D4] text-xs md:text-sm lg:text-[18px]">
-                  {metric.description}
+                  {metric.heading}
                 </p>
               </div>
-              <button className="flex justify-center items-center gap-2 text-white rounded-full px-3 md:px-4 py-2 text-xs md:text-sm lg:text-base font-semibold bg-[#D9D9D9A8] transition">
-                Learn More <FaArrowRightLong />
+              {/* <a href={metric.btn_url} target="_blank" rel="noopener noreferrer">
+                <button className="flex justify-center items-center gap-2 text-white rounded-full px-3 md:px-4 py-2 text-xs md:text-sm lg:text-base font-semibold bg-[#D9D9D9A8] transition">
+                  {metric.btn_label} <FaArrowRightLong />
+                </button>
+              </a> */}
+              <button
+                onClick={() =>
+                  metric.btn_url &&
+                  window.open(metric.btn_url, "_blank", "noopener,noreferrer")
+                }
+                disabled={!metric.btn_url}
+                className="flex justify-center items-center gap-2 text-white rounded-full px-3 md:px-4 py-2 text-xs md:text-sm lg:text-base font-semibold bg-[#D9D9D9A8] transition"
+              >
+                {metric.btn_label} <FaArrowRightLong />
               </button>
             </div>
           ))}
