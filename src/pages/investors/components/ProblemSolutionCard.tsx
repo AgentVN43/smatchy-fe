@@ -16,7 +16,7 @@ export default function ProblemSolutionCard({
       <img
         src={item.icon}
         alt={item.title}
-        className="w-10 md:w-12 lg:w-14 h-10 md:h-12 lg:h-14 object-contain flex-shrink-0"
+        className="w-10 md:w-12 lg:w-14 h-10 md:h-12 lg:h-14 object-contain shrink-0"
       />
       <div>
         <h3 className="text-sm md:text-base lg:text-xl font-bold">

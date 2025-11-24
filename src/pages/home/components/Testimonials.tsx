@@ -4,6 +4,8 @@ import worldmap from "/world-map.png";
 import Yay from "/Yay.png";
 // import avt1 from "/avt1.png";
 // import avt2 from "/avt2.png";
+import quotation from "/quotation.png";
+import quotation2 from "/quotation2.png";
 import Loading from "../../../components/Loading";
 import { useTestimonials } from "../../../hooks/useTestimonials";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -109,18 +111,38 @@ export default function Testimonials() {
           </div>
 
           <Swiper
+            initialSlide={1}
             modules={[EffectCoverflow]}
             effect="coverflow"
             grabCursor={true}
             centeredSlides={true}
             slidesPerView="auto"
-            spaceBetween={100}
             coverflowEffect={{
               rotate: 0,
               stretch: 0,
               depth: 100,
               modifier: 2.5,
               slideShadows: false,
+            }}
+            breakpoints={{
+              640: {
+                coverflowEffect: {
+                  rotate: 0,
+                  stretch: 0,
+                  depth: 150,
+                  modifier: 2.5,
+                  slideShadows: false,
+                },
+              },
+              1024: {
+                coverflowEffect: {
+                  rotate: 0,
+                  stretch: 700,
+                  depth: 250,
+                  modifier: 2.5,
+                  slideShadows: false,
+                },
+              },
             }}
             className="mySwiper"
             ref={swiperRef}
@@ -136,20 +158,32 @@ export default function Testimonials() {
                   data-aos-duration="1000"
                 >
                   <div className="slide-item bg-[#E2F6F6] rounded-xl md:rounded-2xl p-4 md:p-8 text-center transition-all duration-300">
-                    <p className="text-gray-600 mb-3 md:mb-4 text-xs md:text-base lg:text-lg">
-                      "{testimonial.text}"
-                    </p>
-                    <div className="flex flex-col md:flex-row items-center gap-2 md:gap-3">
+                    <div className="relative">
+                      <img
+                        className="absolute top-0 left-0 w-4 md:w-10 "
+                        src={quotation}
+                        alt=""
+                      />
+                      <p className="text-[#0A4A60] font-semibold mb-3 md:mb-4 text-xs md:text-base lg:text-xl px-6 md:px-12 line-clamp-2">
+                        {testimonial.text}
+                      </p>
+                      <img
+                        className="absolute bottom-0 right-0 w-4 md:w-10 "
+                        src={quotation2}
+                        alt=""
+                      />
+                    </div>
+                    <div className="flex  md:flex-row items-center gap-2 md:gap-3">
                       <img
                         src={`https://strapi.annk.info${testimonial.image}`}
                         alt={testimonial.name}
-                        className="w-16 md:w-20 h-16 md:h-20 rounded-full object-cover"
+                        className="w-10 h-10 md:w-20 md:h-20 rounded-full object-cover"
                       />
                       <div className="flex-1">
-                        <div className="text-start text-lg md:text-3xl flex justify-center md:justify-start">
+                        <div className="text-lg md:text-3xl flex justify-start">
                           {renderStars(testimonial.rating)}
                         </div>
-                        <h3 className="text-[#0A4A60] text-base md:text-2xl lg:text-[32px] font-semibold">
+                        <h3 className="text-[#0A4A60] text-start text-xs md:text-2xl lg:text-[32px] font-semibold">
                           - {testimonial.name}
                         </h3>
                       </div>
