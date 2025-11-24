@@ -12,6 +12,8 @@ interface IGlobalAttributes {
   phone?: string;
   email?: string;
   address?: string;
+  blocks?: any[];
+  url: string;
 }
 
 interface IHomePage {
@@ -26,6 +28,7 @@ interface IInvestorPage {
   siteDescription: string;
   favicon: string;
   defaultSeo: string;
+  blocks?: any[];
 }
 
 interface IEventPage {

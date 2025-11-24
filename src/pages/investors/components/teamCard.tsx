@@ -25,7 +25,7 @@ export default function TeamCard({ teamMember }: { teamMember: TeamMember }) {
     >
       {/* Avatar */}
       <img
-        src={teamMember.avatar}
+        src={typeof teamMember.avatar === "string" ? teamMember.avatar : (teamMember.avatar as any).url}
         alt={teamMember.name}
         className="object-cover mb-6 rounded-full"
       />
@@ -47,7 +47,7 @@ export default function TeamCard({ teamMember }: { teamMember: TeamMember }) {
 
       {/* Social Icons */}
       <div className="flex gap-4 mt-auto">
-        {socialIcons.map(({ name, icon: Icon }) => {
+        {teamMember.social && socialIcons.map(({ name, icon: Icon }) => {
           const url = teamMember.social[name as keyof typeof teamMember.social];
           if (!url) return null;
 

@@ -27,24 +27,26 @@ export default function WhySmatchyWins() {
   const { data, isLoading, error } = useInvestor(InvestorPopulateType.BASIC);
   if (isLoading) return <Loading />;
   if (error) return null;
-  console.log(data);
+  //console.log(data);
 
   const titleBlock = data?.blocks?.find(
     (block: any): block is any =>
-      block.__component === "blocks.title" && block.id === 159
+      block.__component === "blocks.title" &&
+      block.title === "Section: Why Smatchy Wins"
   );
 
   const benefits = data?.blocks?.find(
     (block: any): block is any =>
-      block.__component === "blocks.stats" && block.id === 132
+      block.__component === "blocks.stats" && block.title === "Why Smatchy Wins"
   );
 
   const attachment = data?.blocks?.find(
     (block: any): block is any =>
-      block.__component === "shared.media" && block.id === 32
+      block.__component === "shared.media" &&
+      block.title === "Image: Why Smatchy Wins"
   );
 
-  console.log(attachment.file.url);
+  //console.log(attachment.file.url);
 
   return (
     <div className="relative w-full mt-2 md:mt-3 lg:mt-5">
@@ -89,7 +91,7 @@ export default function WhySmatchyWins() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center bg-white shadow-xl rounded-2xl">
                 <div className="p-4 md:p-5 lg:p-6">
                   <ul className="list-disc marker:text-[#0A4A60] pl-4 md:pl-5 lg:pl-6 flex flex-col gap-4 md:gap-5 lg:gap-6">
-                    {benefits.stats_item.map((item, index) => (
+                    {benefits.stats_item.map((item: any, index: number) => (
                       <li key={index}>
                         <h3 className="text-sm md:text-base lg:text-xl font-bold text-[#0F262E] mb-1">
                           {item.heading}

@@ -3,9 +3,9 @@ import Yay3 from "/Yay3.png";
 // import global from "/investors/Global.png";
 // import branded from "/investors/Branded.png";
 // import flashon from "/investors/Flashon.png";
-import choiseul1 from "/investors/Choiseul 01.png";
-import choiseul2 from "/investors/Choiseul 4.png";
-import choiseul3 from "/investors/Choiseul 5.png";
+// import choiseul1 from "/investors/Choiseul 01.png";
+// import choiseul2 from "/investors/Choiseul 4.png";
+// import choiseul3 from "/investors/Choiseul 5.png";
 import { useInvestor } from "../../../hooks/useInvestor";
 import Loading from "../../../components/Loading";
 import { InvestorPopulateType } from "../../../services/strapi";
@@ -48,22 +48,25 @@ export default function MarketOpportunity() {
   if (isLoadingStats) return <Loading />;
   if (errorStats) return null;
 
-  //console.log(data);
+  //=console.log(data);
   //  console.log(stats);
 
   const titleBlock = data?.blocks?.find(
     (block: any): block is any =>
-      block.__component === "blocks.title" && block.id === 158
+      block.__component === "blocks.title" &&
+      block.title === "Title: Market Opportunity"
   );
 
   const marketData = stats?.blocks?.find(
     (block: any): block is any =>
-      block.__component === "blocks.stats" && block.id === 134
+      block.__component === "blocks.stats" &&
+      block.title === "Item: Market Opportunity"
   );
 
   const growthImages = data?.blocks?.find(
     (block: any): block is any =>
-      block.__component === "hero.slider" && block.id === 115
+      block.__component === "hero.slider" &&
+      block.title === "Image: Market Opportunity"
   );
 
   //console.log(growthImages);
@@ -116,7 +119,7 @@ export default function MarketOpportunity() {
             <div className="relative z-40 text-2xl md:text-3xl lg:text-5xl text-[#0A4A60] font-bold uppercase">
               <div
                 dangerouslySetInnerHTML={{
-                  __html: titleBlock.title ? titleBlock.title : "",
+                  __html: titleBlock.title ? titleBlock.heading : "",
                 }}
               />
               <img
@@ -150,7 +153,7 @@ export default function MarketOpportunity() {
 
           {/* Market Metrics */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 lg:gap-6">
-            {marketData.stats_icon.map((item: any, index) => (
+            {marketData.stats_icon.map((item: any, index: number) => (
               <div
                 key={index}
                 className="bg-white rounded-2xl p-6 border shadow-sm flex flex-col items-center text-center"

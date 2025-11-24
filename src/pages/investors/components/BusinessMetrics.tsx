@@ -33,7 +33,7 @@ const BusinessMetrics = () => {
     >
       <div className="bg-[#0A4A60] p-4 md:p-5 lg:p-6 rounded-2xl">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 lg:gap-5">
-          {metrics.map((metric, index) => (
+          {metrics.map((metric: any, index: number) => (
             <div
               key={index}
               className={`flex flex-col justify-between text-white gap-3 md:gap-4 pr-2 md:pr-5 ${

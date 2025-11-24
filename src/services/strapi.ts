@@ -93,19 +93,21 @@ export const fetchTeam = async () => {
   return null;
 };
 
-export enum InvestorPopulateType {
-  BASIC = "basic",
-  STATS = "stats",
-  FULL = "full",
-  TITLE = "title",
-}
+export const InvestorPopulateType = {
+  BASIC: "basic",
+  STATS: "stats",
+  FULL: "full",
+  TITLE: "title",
+} as const;
+
+export type InvestorPopulateType = typeof InvestorPopulateType[keyof typeof InvestorPopulateType];
 
 const investorEndpoints: Record<InvestorPopulateType, string> = {
-  [InvestorPopulateType.BASIC]: "/investor?populate[blocks][populate]=*",
-  [InvestorPopulateType.STATS]:
+  basic: "/investor?populate[blocks][populate]=*",
+  stats:
     "/investor?populate[blocks][populate]=*&populate[blocks][on][blocks.stats][populate][stats_item][populate]=*&populate[blocks][on][blocks.stats][populate][stats_icon][populate]=*",
-  [InvestorPopulateType.FULL]: "/investor?populate=*",
-  [InvestorPopulateType.TITLE]:
+  full: "/investor?populate=*",
+  title:
     "/investor?populate[blocks][on][blocks.title][populate]=*",
 };
 
