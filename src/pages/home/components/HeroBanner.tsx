@@ -14,13 +14,13 @@ export default function HeroBanner() {
     return <div>Error: {error.message}</div>;
   }
 
-  console.log(hero);
+  //console.log(hero);
 
-  const bg2 = hero?.background_image.url;
+  //const bg2 = hero?.background_image.url;
   const bg = hero?.background_image.url;
   const main_img = hero?.main_image.formats?.medium.url;
 
-  console.log(bg);
+ // console.log(bg);
   return (
     <>
       <div
