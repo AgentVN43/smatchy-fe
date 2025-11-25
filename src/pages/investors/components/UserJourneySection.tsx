@@ -118,9 +118,22 @@ const UserJourneySection = () => {
                 </div>
                 <div className="bg-[#E2F6F6] rounded-xl p-6 flex gap-4 items-start shadow-sm">
                   <div>
-                    <div className="text-sm inline-flex font-semibold py-1 px-6 rounded-2xl bg-[#D9D9D9A8] bg-linear-to-r from-[#0A4A60]/.88 via-[#7F9EA6]/31 to-[#0A4A60]/65 mb-6">
+                    {/* <div className="text-sm inline-flex font-semibold py-1 px-6 rounded-2xl bg-[#D9D9D9A8] bg-linear-to-r from-[#0A4A60]/.88 via-[#7F9EA6]/31 to-[#0A4A60]/65 mb-6">
+                      {step.heading}
+                    </div> */}
+                    <div
+                      className="text-sm inline-flex font-semibold py-1 px-6 rounded-2xl mb-6"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(90deg, rgba(10,74,96,0.88) 0%, rgba(127,158,166,0.31) 50.11%, rgba(10,74,96,0.65) 100%)," +
+                          "linear-gradient(0deg, rgba(217,217,217,0.66), rgba(217,217,217,0.66))",
+                        backgroundRepeat: "no-repeat",
+                        backgroundSize: "100% 100%",
+                      }}
+                    >
                       {step.heading}
                     </div>
+
                     <div>
                       <h3 className="text-2xl font-bold text-[#0A4A60] mb-1">
                         {step.sub_heading}

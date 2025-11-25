@@ -110,13 +110,26 @@ export default function RoadmapSection() {
               <div className="h-12 md:h-14 lg:h-16 w-12 md:w-14 lg:w-16 flex items-center justify-center text-base md:text-lg lg:text-xl text-white font-bold bg-[#0A4A60] rounded-full">
                 {Object.values(quarterItems)[index]}
               </div>
-              <h3 className="text-base md:text-lg lg:text-xl font-bold text-[#0A4A60]">
+
+              <h3 className="text-base md:text-lg lg:text-xl font-bold text-[#0A4A60] max-w-[200px]">
                 {step.title}
               </h3>
-              <ul className="list-disc marker:text-base md:marker:text-lg lg:marker:text-xl marker:text-[#0A4A60] pl-4 md:pl-5 lg:pl-6 flex flex-col gap-1 text-xs md:text-sm lg:text-sm text-[#0F262E] space-y-0.5 md:space-y-1">
+
+              <ul
+                className="
+                  list-disc
+                  marker:text-base md:marker:text-lg lg:marker:text-xl marker:text-[#0A4A60]
+                  pl-4 md:pl-5 lg:pl-6
+                  flex flex-col
+                  gap-0.5 md:gap-1
+                  text-xs md:text-sm lg:text-sm
+                  text-[#0F262E]
+                "
+              >
                 <li>{step.heading}</li>
                 <li>{step.sub_heading}</li>
               </ul>
+
               {/* <ul className="list-disc marker:text-base md:marker:text-lg lg:marker:text-xl marker:text-[#0A4A60] pl-4 md:pl-5 lg:pl-6 flex flex-col gap-1 text-xs md:text-sm lg:text-sm text-[#0F262E] space-y-0.5 md:space-y-1">
                 {step.items.map((item, i) => (
                   <li key={i}>{item}</li>

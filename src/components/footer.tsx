@@ -53,18 +53,48 @@ export default function Footer() {
               alt=""
             />
             <div className="flex-1 text-white font-bold">
-              <div className="flex flex-col gap-4 md:flex-row justify-between md:items-center items-start md:text-left">
-                <div>
+              {/*<div className="flex flex-col gap-4 md:flex-row justify-between md:items-center items-start md:text-left">
+                 <div>
                   <h3 className="text-base md:text-2xl">Contact</h3>
                   <div className="text-xs md:text-base space-y-1 mt-1 md:mt-6">
                     <p>Phone: {data?.phone} </p>
                     <p>E-mail: {data?.email} </p>
                     <p>Address: {data?.address} </p>
                   </div>
-                </div>
-                <div>
+                </div> 
+                <div className="flex flex-col items-center">
                   <h3 className="text-base md:text-2xl">Our social networks</h3>
-                  <ul className="flex gap-2 md:gap-5 mt-1 md:mt-6">
+                  <ul className="flex gap-2 md:gap-5 mt-1 md:mt-6 justify-center">
+                    <li className="h-6 w-6 md:h-14 md:w-14 cursor-pointer">
+                      <img src={instagram} alt="" />
+                    </li>
+                    <li className="h-6 w-6 md:h-14 md:w-14 cursor-pointer">
+                      <img src={Tiktok} alt="" />
+                    </li>
+                    <li className="h-6 w-6 md:h-14 md:w-14 cursor-pointer">
+                      <img src={LinkedIn} alt="" />
+                    </li>
+                    <li className="h-6 w-6 md:h-14 md:w-14 cursor-pointer">
+                      <img src={Facebook} alt="" />
+                    </li>
+                    <li className="h-6 w-6 md:h-14 md:w-14 cursor-pointer">
+                      <img src={Youtube} alt="" />
+                    </li>
+                  </ul>
+                </div>
+              </div>*/}
+              <div className="flex flex-col gap-8 md:flex-row justify-center items-center text-center">
+                {/* <div className="flex flex-col items-center">
+    <h3 className="text-base md:text-2xl">Contact</h3>
+    <div className="text-xs md:text-base space-y-1 mt-1 md:mt-6">
+      <p>Phone: {data?.phone}</p>
+      <p>E-mail: {data?.email}</p>
+      <p>Address: {data?.address}</p>
+    </div>
+  </div> */}
+                <div className="flex flex-col items-center">
+                  <h3 className="text-base md:text-2xl">Our social networks</h3>
+                  <ul className="flex gap-2 md:gap-5 mt-1 md:mt-6 justify-center">
                     <li className="h-6 w-6 md:h-14 md:w-14 cursor-pointer">
                       <img src={instagram} alt="" />
                     </li>

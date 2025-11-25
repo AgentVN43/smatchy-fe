@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import logo from "/Logo.png";
+import logo from "/logo3.png";
 import { useLocation, useNavigate } from "react-router-dom";
 import { HiMenu, HiX } from "react-icons/hi";
 import LangSwitch from "./LangSwitch";
@@ -9,6 +9,8 @@ const menu = [
   { title: "Team", link: "/team" },
   { title: "Investors", link: "/investors" },
   { title: "Events", link: "/events" },
+  { title: "Professional", link: "/professional" },
+  { title: "Blog", link: "/blog" },
   { title: "Contact", link: "/contact" },
 ];
 
@@ -35,7 +37,7 @@ export default function Header() {
         isScrolled ? "bg-[#0A4A60]/90 text-white" : "bg-transparent text-white"
       }`}
     >
-      <div className="container mx-auto px-4 flex justify-between items-center gap-4 sm:gap-6 md:gap-10">
+      <div className="container mx-auto px-4! flex justify-between items-center gap-4 sm:gap-6 md:gap-10">
         {/* Logo */}
         <div className="shrink-0 cursor-pointer" onClick={() => navigate("/")}>
           <img src={logo} alt="Logo" className="h-8 sm:h-10 md:h-12" />

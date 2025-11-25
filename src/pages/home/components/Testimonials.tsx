@@ -1,6 +1,6 @@
 import background from "/background.png";
 import line from "/line_bg.svg";
-import worldmap from "/world-map.png";
+import worldmap from "/world-map.svg";
 import Yay from "/Yay.png";
 // import avt1 from "/avt1.png";
 // import avt2 from "/avt2.png";

@@ -38,12 +38,16 @@ import Loading from "../../../components/Loading";
 // ];
 
 const gradientColors = [
-  "linear-gradient(135deg, #FCA13BE0 0%, #FDBD764F 50%, #FCA13BA6 100%)",
-  "linear-gradient(135deg, #C73F3FE0 0%, #D879794F 50%, #C73F3FA6 100%)",
-  "linear-gradient(135deg, #1A7D9CE0 0%, #5FA4BA4F 50%, #1A7D9CA6 100%)",
+  "linear-gradient(90deg, rgba(252, 161, 59, 0.88) 0%, rgba(253, 189, 118, 0.31) 50.11%, rgba(252, 161, 59, 0.65) 100%),linear-gradient(0deg, rgba(255, 246, 235, 0.66), rgba(255, 246, 235, 0.66))",
+  "linear-gradient(90deg, rgba(199, 63, 63, 0.88) 0%, rgba(216, 121, 121, 0.31) 50.11%, rgba(199, 63, 63, 0.65) 100%),linear-gradient(0deg, rgba(249, 236, 236, 0.66), rgba(249, 236, 236, 0.66))",
+  "linear-gradient(90deg, rgba(26, 125, 156, 0.88) 0%, rgba(95, 164, 186, 0.31) 50.11%, rgba(26, 125, 156, 0.65) 100%),linear-gradient(0deg, rgba(232, 242, 245, 0.66), rgba(232, 242, 245, 0.66))",
 ];
 
-const fontColors = ["#FCA13B", "#C73F3F", "#1A7D9C"];
+const fontColors = [
+  "rgba(252, 161, 59, 1)",
+  "rgba(199, 63, 63, 1)",
+  "rgba(26, 125, 156, 1)",
+];
 
 export default function BusinessModelSection() {
   const { data, isLoading, error } = useInvestor(InvestorPopulateType.BASIC);
@@ -141,11 +145,34 @@ export default function BusinessModelSection() {
                 {item.description}
               </p>
 
+              {/* <span
+                className="text-xs md:text-sm lg:text-sm font-semibold px-4 md:px-5 lg:px-6 py-1.5 md:py-2 lg:py-2 rounded-full"
+                // style={{
+                //   background: `rgba(255, 246, 235, 0.66), ${
+                //     gradientColors[index % gradientColors.length]
+                //   }`,
+                //   color: fontColors[index % fontColors.length],
+                //   backgroundBlendMode: "lighten",
+                // }}
+                style={{
+                  backgroundImage: `
+                    linear-gradient(90deg, #FFF6EB 0%, #FFF6EB 66%, transparent 66%),
+                    linear-gradient(90deg, #FCA13B 0%, #FDBD76 31%, #FCA13B 65%)
+                  `,
+                  color: fontColors?.[index % fontColors.length],
+                }}
+              >
+                {item.sub_heading}
+              </span> */}
               <span
                 className="text-xs md:text-sm lg:text-sm font-semibold px-4 md:px-5 lg:px-6 py-1.5 md:py-2 lg:py-2 rounded-full"
                 style={{
-                  background: gradientColors[index % gradientColors.length],
-                  color: fontColors[index % fontColors.length],
+                  color: fontColors?.[index % fontColors.length],
+                  backgroundImage:
+                    gradientColors[index % gradientColors.length],
+                  //backgroundColor: "rgba(255, 246, 235)",
+                  backgroundBlendMode: "lighten", // hòa màu + làm sáng gradient
+                  opacity: "100%", // chính là 66% opacity
                 }}
               >
                 {item.sub_heading}
