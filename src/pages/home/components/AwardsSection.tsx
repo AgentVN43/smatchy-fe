@@ -32,7 +32,7 @@ export default function AwardsSection() {
 
   return (
     <div data-aos="fade-up" data-aos-duration="1000">
-      <div className="container my-12! md:my-20! px-4! md:px-6! lg:px-8!">
+      <div className="container my-12! md:my-20!">
         <div className="grid grid-cols-4 justify-center items-end gap-2 md:gap-4">
           {awardsUrls.map((award) => (
             <img

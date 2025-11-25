@@ -45,7 +45,7 @@ export default function Footer() {
           backgroundPosition: "top",
         }}
       >
-        <div className="container px-4! pt-6! md:pt-10!">
+        <div className="container pt-6! md:pt-10!">
           <div className="flex flex-col md:flex-row md:space-x-20 lg:space-x-48 items-start md:items-center">
             <img
               className="h-10 w-10 md:h-32 md:w-32 mb-6 md:mb-0"

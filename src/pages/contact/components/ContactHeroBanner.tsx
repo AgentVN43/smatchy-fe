@@ -29,7 +29,7 @@ export default function ContactHeroBanner() {
           backgroundPosition: "bottom",
         }}
       >
-        <div className="container z-50 mx-auto px-4 md:px-6 lg:px-8">
+        <div className="container z-50 mx-auto">
           <div
             className="flex flex-col items-center gap-4 md:gap-6 py-16 md:py-24 lg:py-32"
             data-aos="fade-up"

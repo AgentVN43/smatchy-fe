@@ -163,23 +163,23 @@ export default function TheTeamSection() {
             </button>
           </div>
 
-          <div className="container relative z-50 px-2 md:px-4 lg:px-6">
+          <div className="container relative z-50">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 lg:gap-8">
               {data.teamMembers.map((member: any, index) => {
-                 // Convert bio array [{platform, url}] to social object {platform: url}
-                 const social =
-                   member.bio?.reduce((acc: any, item: any) => {
-                     acc[item.platform] = item.url;
-                     return acc;
-                   }, {} as Record<string, string>) || {};
+                // Convert bio array [{platform, url}] to social object {platform: url}
+                const social =
+                  member.bio?.reduce((acc: any, item: any) => {
+                    acc[item.platform] = item.url;
+                    return acc;
+                  }, {} as Record<string, string>) || {};
 
-                 let avatarUrl = "";
-                 if (typeof member.avatar === "object" && member.avatar) {
-                   const avatar = member.avatar as { url: string };
-                   avatarUrl = `https://strapi.annk.info${avatar.url}`;
-                 } else if (typeof member.avatar === "string") {
-                   avatarUrl = member.avatar;
-                 }
+                let avatarUrl = "";
+                if (typeof member.avatar === "object" && member.avatar) {
+                  const avatar = member.avatar as { url: string };
+                  avatarUrl = `https://strapi.annk.info${avatar.url}`;
+                } else if (typeof member.avatar === "string") {
+                  avatarUrl = member.avatar;
+                }
 
                 const teamMember = {
                   name: member.name,

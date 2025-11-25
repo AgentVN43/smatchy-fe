@@ -13,7 +13,7 @@ export default function CookiePolicy() {
           backgroundPosition: "top",
         }}
       ></div>
-      <div className="container px-4! md:px-6! lg:px-8!">
+      <div className="container">
         <div className="relative container">
           {/* Line background */}
           <img

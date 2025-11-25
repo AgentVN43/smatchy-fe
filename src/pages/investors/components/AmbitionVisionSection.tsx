@@ -62,7 +62,7 @@ export default function AmbitionVisionSection() {
 
   return (
     <div className="relative z-30 w-full mb-20 md:mb-28 lg:mb-40">
-      <div className="container pt-8! md:pt-12! lg:pt-20! px-4! md:px-6! lg:px-8!">
+      <div className="container pt-8! md:pt-12! lg:pt-20!">
         <div
           className="flex flex-col items-center"
           data-aos="fade-up"

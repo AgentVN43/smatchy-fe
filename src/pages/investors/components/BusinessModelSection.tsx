@@ -80,7 +80,7 @@ export default function BusinessModelSection() {
 
   return (
     <div className="relative z-30 w-full min-h-[400px] md:min-h-[500px] lg:min-h-[640px] mb-20 md:mb-28 lg:mb-40">
-      <div className="relative z-30 container px-4 md:px-6 lg:px-8">
+      <div className="relative z-30 container">
         <img
           src={line}
           alt=""
@@ -120,7 +120,7 @@ export default function BusinessModelSection() {
           </div>
         </div>
         <div
-          className="container grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 lg:gap-8 px-4 md:px-6 lg:px-8"
+          className="container grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 lg:gap-8"
           data-aos="zoom-in-up"
           data-aos-duration="1000"
         >

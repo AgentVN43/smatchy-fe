@@ -19,12 +19,9 @@
 
 @media (min-width: 1024px) {
   .container {
-    padding: 0 40px;
+    padding: 0 16px;
   }
 }
-
-
-
 
 /* 
 .container {

@@ -64,7 +64,7 @@ export default function Testimonials() {
 
   return (
     <div className="relative w-full overflow-hidden">
-      <div className="relative container z-20 px-4 md:px-6 lg:px-8">
+      <div className="relative container z-20">
         {/* Line background */}
         <img
           src={line}
@@ -197,7 +197,7 @@ export default function Testimonials() {
       </div>
 
       <div
-        className="container px-4! md:px-8! lg:px-24! pb-28! md:py-20! lg:py-18! relative flex justify-center z-30"
+        className="container pb-28! md:py-20! lg:py-18! relative flex justify-center z-30"
         data-aos="fade-up"
         data-aos-duration="2000"
       >

@@ -109,7 +109,7 @@ export default function MarketOpportunity() {
         ></div>
       </div>
       <div
-        className="relative z-30 container px-4 md:px-6 lg:px-8"
+        className="relative z-30 container"
         data-aos="fade-up"
         data-aos-duration="1000"
       >
@@ -181,7 +181,7 @@ export default function MarketOpportunity() {
         </div>
       </div>
       <div
-        className="relative z-40 container px-4 md:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-20 lg:gap-36 justify-items-center"
+        className="relative z-40 container grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-20 lg:gap-36 justify-items-center"
         data-aos="fade-up"
         data-aos-duration="1000"
       >

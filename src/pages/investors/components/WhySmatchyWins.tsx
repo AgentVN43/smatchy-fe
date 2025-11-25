@@ -68,7 +68,7 @@ export default function WhySmatchyWins() {
           }}
         >
           <div
-            className="container py-8! md:py-12! lg:py-16! px-4! md:px-6! lg:px-8!"
+            className="container py-8! md:py-12! lg:py-16!"
             data-aos="fade-up"
             data-aos-duration="1000"
           >

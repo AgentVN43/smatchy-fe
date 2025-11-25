@@ -38,7 +38,7 @@ export default function InvestorsHeroBanner() {
         }}
       >
         <div
-          className="container z-50 mx-auto"
+          className="container z-50"
           data-aos="fade-up"
           data-aos-duration="1000"
         >

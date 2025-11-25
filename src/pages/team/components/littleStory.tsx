@@ -4,7 +4,7 @@ import CEO from "/team/CEO-img.png";
 
 export default function LittleStory() {
   return (
-    <div className="container flex flex-col items-center relative z-50 mt-6! md:mt-8! lg:mt-10! px-4! md:px-6! lg:px-8!">
+    <div className="container flex flex-col items-center relative z-50 mt-6! md:mt-8! lg:mt-10!">
       <div className=" inline-flex" data-aos="fade-up" data-aos-duration="1000">
         <h2 className="relative text-center text-2xl md:text-3xl lg:text-5xl text-[#0A4A60] font-bold mb-8 md:mb-10 lg:mb-12">
           THE LITTLE <span className="text-[#FCA13B] ml-1 md:ml-2">STORY</span>

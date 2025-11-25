@@ -9,8 +9,8 @@ const menu = [
   { title: "Team", link: "/team" },
   { title: "Investors", link: "/investors" },
   { title: "Events", link: "/events" },
-  { title: "Professional", link: "/professional" },
-  { title: "Blog", link: "/blog" },
+  // { title: "Professional", link: "/professional" },
+  // { title: "Blog", link: "/blog" },
   { title: "Contact", link: "/contact" },
 ];
 
@@ -37,7 +37,7 @@ export default function Header() {
         isScrolled ? "bg-[#0A4A60]/90 text-white" : "bg-transparent text-white"
       }`}
     >
-      <div className="container mx-auto px-4! flex justify-between items-center gap-4 sm:gap-6 md:gap-10">
+      <div className="container mx-auto flex justify-between items-center gap-4 sm:gap-6 md:gap-10">
         {/* Logo */}
         <div className="shrink-0 cursor-pointer" onClick={() => navigate("/")}>
           <img src={logo} alt="Logo" className="h-8 sm:h-10 md:h-12" />
@@ -53,7 +53,7 @@ export default function Header() {
               return (
                 <li
                   key={item.title}
-                  className={`px-4 py-2 rounded-full cursor-pointer transition text-sm sm:text-base
+                  className={`px-4 py-2 rounded-full cursor-pointer transition text-xs xl:text-sm
                     ${
                       isActive
                         ? "bg-[#D9D9D9A8] text-white"
@@ -76,7 +76,9 @@ export default function Header() {
           >
             Get the app
           </button>
-          <LangSwitch />
+          <div className="hidden md:block">
+            <LangSwitch />
+          </div>
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden text-white text-2xl focus:outline-none"
@@ -105,7 +107,7 @@ export default function Header() {
           >
             <HiX />
           </button>
-          <ul className="flex flex-col gap-6 text-xl">
+          <ul className="flex flex-col gap-2 text-xl">
             {menu.map((item) => {
               const isActive =
                 location.pathname === item.link ||
@@ -123,6 +125,9 @@ export default function Header() {
                 </li>
               );
             })}
+            <li className="text-center md:hidden">
+              <LangSwitch />
+            </li>
           </ul>
         </div>
       )}
