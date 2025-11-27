@@ -23,8 +23,8 @@ export default function InvestorsHeroBanner() {
   const btn1 = buttons[0] || {};
   const btn2 = buttons[1] || {};
 
-  // console.log("Button 1:", btn1);
-  // console.log("Button 2:", btn2);
+  console.log("Button 1:", btn1);
+  console.log("Button 2:", btn2);
 
   return (
     <>
@@ -76,7 +76,7 @@ export default function InvestorsHeroBanner() {
             <div className="flex flex-col md:flex-row gap-2 md:gap-4 w-full md:w-auto">
               {btn1.label && (
                 <a
-                  href={btn1.url || "#"}
+                  href={btn1.link || "#"}
                   className="flex justify-center items-center gap-2 px-4 md:px-6 py-2 md:py-3 rounded-full bg-[#F49F3F] text-white text-sm md:text-base"
                 >
                   <MdOutlineFileDownload size={24} /> {btn1.label}
@@ -84,7 +84,7 @@ export default function InvestorsHeroBanner() {
               )}
               {btn2.label && (
                 <a
-                  href={btn2.url || "#"}
+                  href={btn2.link || "#"}
                   className="flex justify-center items-center gap-2 px-4 md:px-6 py-2 md:py-3 rounded-full bg-white text-[#0A4A60] text-sm md:text-base"
                 >
                   <MdLocalPhone size={24} /> {btn2.label}

@@ -48,7 +48,7 @@ export default function MarketOpportunity() {
   if (isLoadingStats) return <Loading />;
   if (errorStats) return null;
 
-  //=console.log(data);
+  //console.log(data);
   //  console.log(stats);
 
   const titleBlock = data?.blocks?.find(
