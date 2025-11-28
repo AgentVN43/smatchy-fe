@@ -14,6 +14,7 @@ interface IGlobalAttributes {
   address?: string;
   blocks?: any[];
   url: string;
+  social?: any[];
 }
 
 interface IHomePage {
