@@ -25,8 +25,8 @@ export default function AppRoutes() {
       <Route path="professional" element={<Professional />} />
       <Route path="blog" element={<Blog />} />
       <Route path="contact" element={<ContactPage />} />
-      <Route path="legal-otice" element={<LegalNotice />} />
-      <Route path="terms-use" element={<TermsUse />} />
+      <Route path="legal-notice" element={<LegalNotice />} />
+      <Route path="terms-of-use" element={<TermsUse />} />
       <Route path="privacy-policy" element={<PrivacyPolicy />} />
       <Route path="cookie-policy" element={<CookiePolicy />} />
       {/* <Route path="annk" element={<AnNK />} /> */}

@@ -13,6 +13,7 @@ import type {
 import type { Person, Team } from "./types/team";
 import type { ContactForm } from "./types/contact";
 import type { TestimonialList } from "./types/testimonial";
+import type { Post, PostsResponse, Category } from "./types/post";
 
 const STRAPI_URL =
   import.meta.env.VITE_STRAPI_URL || "https://strapi.annk.info/api";
@@ -198,4 +199,57 @@ export const fetchTestimonialsByPosition = async (
     `/testimonials?filters[position][$eq]=${position}&populate=*`
   );
   return res.data; // Testimonial[]
+};
+
+
+export const fetchPost = async (
+  categories?: string | string[],
+  populate: string = "*"
+) => {
+  const endpoint = buildPostsEndpoint(categories, populate);
+  const response = await fetchStrapi<any, { data: Post[]; meta: any }>(
+    endpoint
+  );
+  return response as PostsResponse;
+};
+
+/**
+ * Helper function to build posts endpoint URL
+ */
+const buildPostsEndpoint = (
+  categories?: string | string[],
+  populate: string = "*"
+): string => {
+  const params = new URLSearchParams();
+  params.append("populate", populate);
+
+  if (categories) {
+    if (Array.isArray(categories)) {
+      params.append("filters[categories][slug][$in]", categories.join(","));
+    } else {
+      params.append("filters[categories][slug][$eq]", categories);
+    }
+  }
+
+  return `/posts?${params.toString()}`;
+};
+
+/**
+ * Fetch single post by slug
+ */
+export const fetchPostBySlug = async (slug: string) => {
+  const response = await fetchStrapi<any, { data: Post[]; meta: any }>(
+    `/posts?filters[slug][$eq]=${slug}&populate=*`
+  );
+  return response as PostsResponse;
+};
+
+/**
+ * Fetch all categories
+ */
+export const fetchCategories = async (): Promise<Category[]> => {
+  const response = await fetchStrapi<any, { data: Category[]; meta: any }>(
+    "/categories?populate=*"
+  );
+  return response.data || [];
 };

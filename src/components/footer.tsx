@@ -1,16 +1,27 @@
-import backgroundFooter from "/background-footer.png";
-import logo from "/logo2.png";
-import instagram from "/Instagram.png";
-import Tiktok from "/Tiktok.png";
-import Facebook from "/Facebook.png";
-import Youtube from "/Youtube.png";
-import LinkedIn from "/LinkedIn.png";
 import { useNavigate } from "react-router-dom";
-import Loading from "./Loading";
 import { useGlobal } from "../hooks/useGlobal";
+import { usePost } from "../hooks/usePost";
+import Loading from "./Loading";
+import backgroundFooter from "/background-footer.png";
+import Facebook from "/Facebook.png";
+import instagram from "/Instagram.png";
+import LinkedIn from "/LinkedIn.png";
+import logo from "/logo2.png";
+import Tiktok from "/Tiktok.png";
+import Youtube from "/Youtube.png";
+import { useReorder } from "../hooks/useReorder";
 
 export default function Footer() {
   const { data, isLoading, error } = useGlobal();
+  const { data: postsResponse } = usePost();
+  const posts = postsResponse?.data || [];
+  //console.log(posts);
+  const sortedLegal = useReorder(
+    posts,
+    ["legal-notices", "terms-of-use", "privacy-policy", "cookies"],
+    "slug"
+  );
+
   const navigate = useNavigate();
   if (isLoading) return <Loading />;
 
@@ -18,7 +29,7 @@ export default function Footer() {
     return <div>Error: {error.message}</div>;
   }
 
-  console.log(data);
+  //console.log(sortedLegal);
 
   // Icon mapping by platform
   const platformIcons: Record<string, string> = {
@@ -31,12 +42,12 @@ export default function Footer() {
 
   const socialData = data?.social || [];
 
-  const legalLinks = [
-    { label: "Legal Notices", path: "/legal-notice" },
-    { label: "Terms of Use", path: "/terms-use" },
-    { label: "Privacy Policy", path: "/privacy-policy" },
-    { label: "Cookies", path: "/cookie-policy" },
-  ];
+  // const legalLinks = [
+  //   { label: "Legal Notices", path: "/legal-notice" },
+  //   { label: "Terms of Use", path: "/terms-use" },
+  //   { label: "Privacy Policy", path: "/privacy-policy" },
+  //   { label: "Cookies", path: "/cookie-policy" },
+  // ];
 
   return (
     // <div className="relative w-full">
@@ -187,13 +198,16 @@ export default function Footer() {
                 className="border-t border-white/20 pt-4 md:pt-6"
               >
                 <ul className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 text-xs md:text-sm">
-                  {legalLinks.map((link) => (
-                    <li key={link.path} className="text-center md:text-left">
+                  {sortedLegal.map((link) => (
+                    <li
+                      key={link.documentId}
+                      className="text-center md:text-left"
+                    >
                       <button
-                        onClick={() => navigate(link.path)}
+                        onClick={() => navigate(link.slug)}
                         className="text-white/90 hover:text-white transition-colors py-2 px-1 hover:underline underline-offset-4 w-full md:w-auto"
                       >
-                        {link.label}
+                        {link.title}
                       </button>
                     </li>
                   ))}

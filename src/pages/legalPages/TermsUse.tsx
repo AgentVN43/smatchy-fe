@@ -1,7 +1,18 @@
 import line from "/line_bg.svg";
 import heroBanner from "/hero-banner.png";
 import Yay3 from "/Yay3.png";
+import { usePostBySlug } from "../../hooks/usePost";
+import Loading from "../../components/Loading";
 export default function TermsUse() {
+  const { data, isLoading, isError, error } = usePostBySlug("terms-of-use");
+  const post = data?.data?.[0];
+
+  if (isLoading) return <Loading />;
+
+  if (isError) {
+    return <div className="container">Error: {error?.message}</div>;
+  }
+  console.log(post);
   return (
     <div>
       <div
@@ -28,7 +39,7 @@ export default function TermsUse() {
             data-aos="fade-up"
             data-aos-duration="1000"
           >
-            <h2 className="relative text-center text-xl md:text-2xl lg:text-5xl text-[#0A4A60] font-bold pt-2 md:pt-3 lg:pt-4">
+            <div className="relative text-center text-xl md:text-2xl lg:text-5xl text-[#0A4A60] font-bold pt-2 md:pt-3 lg:pt-4">
               <span className="text-[#FCA13B]">TERMS OF </span>
               USE
               <img
@@ -36,10 +47,14 @@ export default function TermsUse() {
                 src={Yay3}
                 alt=""
               />
-            </h2>
+            </div>
           </div>
 
-          <div
+          <div>
+            <div dangerouslySetInnerHTML={{__html: post?.contents ? post?.contents : ''}} />
+          </div>
+
+          {/* <div
             className="flex flex-col gap-2"
             data-aos="fade-up"
             data-aos-duration="1000"
@@ -73,6 +88,7 @@ export default function TermsUse() {
               be 18 years or older; minors require guardian supervision.
             </p>
           </div>
+          
           <div
             className="flex flex-col gap-1 md:gap-1.5 lg:gap-2"
             data-aos="fade-up"
@@ -87,6 +103,7 @@ export default function TermsUse() {
               Conditions of Sale.
             </p>
           </div>
+          
           <div
             className="flex flex-col gap-1 md:gap-1.5 lg:gap-2"
             data-aos="fade-up"
@@ -101,6 +118,7 @@ export default function TermsUse() {
               at any time.
             </p>
           </div>
+          
           <div
             className="flex flex-col gap-1 md:gap-1.5 lg:gap-2"
             data-aos="fade-up"
@@ -119,6 +137,7 @@ export default function TermsUse() {
               are prohibited.
             </p>
           </div>
+          
           <div
             className="flex flex-col gap-1 md:gap-1.5 lg:gap-2"
             data-aos="fade-up"
@@ -133,6 +152,7 @@ export default function TermsUse() {
               third-party content. Claims expire after 6 months.
             </p>
           </div>
+          
           <div
             className="flex flex-col gap-1 md:gap-1.5 lg:gap-2"
             data-aos="fade-up"
@@ -179,6 +199,7 @@ export default function TermsUse() {
               non-transferable personal use rights.
             </p>
           </div>
+          
           <div
             className="flex flex-col gap-1 md:gap-1.5 lg:gap-2"
             data-aos="fade-up"
@@ -193,6 +214,7 @@ export default function TermsUse() {
               the others
             </p>
           </div>
+          
           <div
             className="flex flex-col gap-2"
             data-aos="fade-up"
@@ -205,7 +227,7 @@ export default function TermsUse() {
               The Terms of Use are governed by French law. Disputes fall under
               the jurisdiction of Annecy courts.
             </p>
-          </div>
+          </div> */}
 
           <div
             className="p-6 rounded-xl bg-[#0A4A6026]"
@@ -218,6 +240,7 @@ export default function TermsUse() {
                  March 12, 2025
               </p>
             </div>
+          
           </div>
         </div>
       </div>
