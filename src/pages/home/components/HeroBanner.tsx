@@ -8,7 +8,7 @@ import { useHome } from "../../../hooks/useHome";
 
 export default function HeroBanner() {
   const { isLoading, error, hero } = useHome();
- const assetUrl = import.meta.env.VITE_STRAPI_ASSET_URL;
+  const assetUrl = import.meta.env.VITE_STRAPI_ASSET_URL;
   if (isLoading) return <Loading />;
 
   if (error) {
@@ -16,8 +16,6 @@ export default function HeroBanner() {
   }
 
   //console.log(hero);
-
- 
 
   //const bg2 = hero?.background_image.url;
   const bg = hero?.background_image.url;

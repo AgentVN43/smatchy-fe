@@ -1,6 +1,5 @@
 import ContactFormCard from "./components/ContactFormCard";
 import ContactHeroBanner from "./components/ContactHeroBanner";
-import ContactInfoCard from "./components/ContactInfoCard";
 import line from "/line_bg.svg";
 import Yay2 from "/Yay2.png";
 import ChatBot from "./components/ChatBot";
