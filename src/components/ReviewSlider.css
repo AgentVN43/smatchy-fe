@@ -1,0 +1,10 @@
+/* Giảm opacity cho các slide không ở center */
+.review-slide.swiper-slide-item {
+  opacity: 0.5;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Slide ở center có opacity full */
+.review-slide.swiper-slide-item.swiper-slide-active {
+  opacity: 1;
+}

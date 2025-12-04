@@ -78,7 +78,7 @@ export default function PeopleSay() {
   //console.log(testimonials)
 
   return (
-    <div className="my-12 md:my-16 lg:my-20 px-4 z-30">
+    <div className="my-12 md:my-16 lg:my-32 px-4 z-30">
       <div
         className="relative flex flex-col items-center z-30"
         data-aos="fade-up"

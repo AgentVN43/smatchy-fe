@@ -41,6 +41,7 @@ import LogoFondjaune from "/contact/Logo_fondjaune.svg";
 import Logo3Blanc from "/contact/Logo3_blanc.png";
 import { HiMiniXMark } from "react-icons/hi2";
 import { BsChatDotsFill } from "react-icons/bs";
+import { TbReload } from "react-icons/tb";
 import { useEffect, useState } from "react";
 //import MiniForm from "./MiniForm";
 //import ContactFormCard from "./ContactFormCard";
@@ -54,13 +55,15 @@ interface Message {
 }
 
 let msgId = 0; // đơn giản tạo id unique
+let initialBotText = ""; // lưu message đầu tiên
 
 export default function ChatBot() {
   const [openChatbot, setOpenChatbot] = useState(false);
   const { botText, actions, setStep } = useChatFlow();
-  const [history, setHistory] = useState<Message[]>([
-    { id: ++msgId, sender: "bot", text: botText },
-  ]);
+  const [history, setHistory] = useState<Message[]>(() => {
+    initialBotText = botText;
+    return [{ id: ++msgId, sender: "bot", text: botText }];
+  });
 
   // khi step thay đổi => thêm tin nhắn bot mới
   useEffect(() => {
@@ -72,6 +75,12 @@ export default function ChatBot() {
 
   const addUserMsg = (text: string) =>
     setHistory((prev) => [...prev, { id: ++msgId, sender: "user", text }]);
+
+  const handleReset = () => {
+    msgId = 0;
+    setHistory([]);
+    setStep("INIT");
+  };
 
   const handleBtn = (label: string, next: ChatStep | "EXTERNAL") => {
     addUserMsg(label); // hiển thị lựa chọn user
@@ -106,10 +115,16 @@ export default function ChatBot() {
                 alt=""
               />
             </div>
-            <HiMiniXMark
-              onClick={() => setOpenChatbot(false)}
-              className="text-white h-6 w-6 cursor-pointer"
-            />
+            <div className="flex gap-2">
+              <TbReload
+                onClick={handleReset}
+                className="text-white h-6 w-6 cursor-pointer hover:rotate-180 transition-transform"
+              />
+              <HiMiniXMark
+                onClick={() => setOpenChatbot(false)}
+                className="text-white h-6 w-6 cursor-pointer"
+              />
+            </div>
           </div>
 
           {/* Body – chỉ 1 dòng bot hiện tại (không lưu history) */}

@@ -98,14 +98,9 @@ export default function ContactFormCard() {
       </Form.Item>
 
       <Form.Item>
-        <Button
-          type="primary"
-          htmlType="submit"
-          loading={loading}
-          className="w-full rounded-full bg-[#FCA13B] border-[#FCA13B]"
-        >
+        <button className="w-full rounded-full text-white font-medium text-xl py-4 bg-[#FCA13B] border-[#FCA13B]">
           Send Message
-        </Button>
+        </button>
       </Form.Item>
     </Form>
   );

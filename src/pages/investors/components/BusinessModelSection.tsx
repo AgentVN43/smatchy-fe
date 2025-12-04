@@ -1,5 +1,5 @@
 import background from "/investors/background.png";
-import line from "/line_bg.svg";
+import line from "/line_bg2.svg";
 import Yay from "/Yay.png";
 // import salesCommission from "/investors/sales-commission.png";
 // import targeted from "/investors/targeted.png";
@@ -86,11 +86,11 @@ export default function BusinessModelSection() {
         <img
           src={line}
           alt=""
-          className="absolute w-auto top-[-300px] md:-top-[350px] lg:top-[-390px] left-full scale-[5] md:scale-[7] lg:scale-[10] origin-top-left px-1.5 rotate-[46.67deg]"
+          className="absolute w-auto top-[-300px] left-[30%] scale-[5] origin-top-left px-1.5 rotate-0"
         />
       </div>
       <div
-        className="relative h-[300px] md:h-[400px] lg:h-[640px] z-20 inset-0 bg-cover bg-bottom"
+        className="relative h-[300px] md:h-[400px] lg:h-[668px] z-20 inset-0 bg-cover bg-bottom"
         style={{
           backgroundImage: `url(${background})`,
           backgroundRepeat: "no-repeat",
@@ -98,7 +98,7 @@ export default function BusinessModelSection() {
           backgroundPosition: "bottom",
         }}
       ></div>
-      <div className="relative -mt-[300px] md:-mt-[400px] lg:-mt-[640px] z-30">
+      <div className="relative -mt-[300px] md:-mt-[400px] lg:-mt-[668px] z-30">
         <div
           className="container pt-8! md:pt-12! lg:pt-20! mb-3! md:mb-4! lg:mb-4!"
           data-aos="fade-up"

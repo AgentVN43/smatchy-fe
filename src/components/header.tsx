@@ -100,7 +100,7 @@ export default function Header() {
       </div>
       {/* Mobile Menu Dropdown */}
       {isOpen && (
-        <div className="lg:hidden fixed inset-0 bg-[#0A4A60]/95 text-white flex flex-col items-center justify-center z-50 transition-all">
+        <div className="xl:hidden fixed inset-0 bg-[#0A4A60]/95 text-white flex flex-col items-center justify-center z-50 transition-all">
           <button
             onClick={() => setIsOpen(false)}
             className="absolute top-4 right-4 text-3xl text-white"

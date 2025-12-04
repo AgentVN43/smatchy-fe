@@ -25,7 +25,7 @@ import { useInvestor } from "../../../hooks/useInvestor";
 // ];
 export default function WhySmatchyWins() {
   const { data, isLoading, error } = useInvestor(InvestorPopulateType.BASIC);
-   const assetUrl = import.meta.env.VITE_STRAPI_ASSET_URL;
+  const assetUrl = import.meta.env.VITE_STRAPI_ASSET_URL;
   if (isLoading) return <Loading />;
   if (error) return null;
   //console.log(data);
@@ -50,7 +50,7 @@ export default function WhySmatchyWins() {
   //console.log(attachment.file.url);
 
   return (
-    <div className="relative w-full mt-2 md:mt-3 lg:mt-5">
+    <div className="relative w-full mt-2 md:mt-3 lg:mt-12">
       <div className="relative z-30 container">
         <img
           src={line}
@@ -89,8 +89,8 @@ export default function WhySmatchyWins() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center bg-white shadow-xl rounded-2xl">
-                <div className="p-4 md:p-5 lg:p-6">
+              <div className="flex flex-col md:flex-row gap-6 md:gap-8 lg:gap-12 items-center bg-white shadow-xl rounded-2xl p-4 md:p-9">
+                <div className="md:w-1/2">
                   <ul className="list-disc marker:text-[#0A4A60] pl-4 md:pl-5 lg:pl-6 flex flex-col gap-4 md:gap-5 lg:gap-6">
                     {benefits.stats_item.map((item: any, index: number) => (
                       <li key={index}>
@@ -105,7 +105,7 @@ export default function WhySmatchyWins() {
                   </ul>
                 </div>
 
-                <div className="flex justify-center px-2 md:px-0">
+                <div className="md:w-1/2 flex justify-end px-2 md:px-0">
                   <img
                     src={`${assetUrl}${attachment.file.url}`}
                     alt="Smatchy App"

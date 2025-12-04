@@ -25,7 +25,7 @@ export default function HeroBanner() {
   return (
     <>
       <div
-        className="w-full pt-10 md:pt-20 z-50"
+        className="w-full pt-10 md:pt-20 z-50 max-h-[768px]"
         style={{
           backgroundImage: `url(${assetUrl}${bg})`,
           backgroundRepeat: "no-repeat",
@@ -38,7 +38,7 @@ export default function HeroBanner() {
             <img
               data-aos="fade-right"
               data-aos-duration="1000"
-              className="z-50 w-full md:w-1/2 lg:w-auto h-auto hidden md:block"
+              className="z-50 w-full md:w-2/5 lg:w-auto h-auto hidden md:block"
               src={`${assetUrl}${main_img}`}
               //src={image7}
               alt=""
@@ -48,7 +48,7 @@ export default function HeroBanner() {
               data-aos-duration="1000"
               className="flex flex-col mb-8 md:mb-0 items-center gap-6 md:gap-10 w-full md:w-1/2 z-50"
             >
-              <div className="relative font-bold text-3xl md:text-4xl lg:text-5xl leading-10 md:leading-[50px] lg:leading-[55px] text-white text-center mt-8 md:mt-14 lg:mt-32">
+              <div className="relative font-bold text-3xl md:text-4xl lg:text-5xl leading-10 md:leading-[50px] lg:leading-[55px] text-white text-center mt-8 md:mt-20 lg:mt-48">
                 <img
                   className="absolute -top-8 right-0 sm:-right-8 md:-top-14 lg:-top-24 md:right-4 lg:-right-12 w-12 md:w-20 lg:w-auto"
                   src={Yay}

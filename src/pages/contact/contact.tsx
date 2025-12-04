@@ -50,24 +50,6 @@ export default function ContactPage() {
               <ContactFormCard />
             </div>
           </div>
-          {/* <div className="relative z-40 flex flex-col lg:flex-row gap-6 md:gap-8 lg:gap-0">
-            <div
-              className="h-full -bg-conic-0 bg-white border border-[#d8d9da5c] rounded-2xl md:rounded-3xl shadow-2xl w-full lg:w-3/4"
-              data-aos="fade-up"
-              data-aos-duration="1000"
-            >
-              <div className="w-full">
-                <ContactFormCard />
-              </div>
-            </div>
-            {/* <div
-              className="w-full lg:absolute lg:top-32 lg:right-0 lg:w-1/2"
-              data-aos="zoom-out-up"
-              data-aos-duration="1000"
-            >
-              <ContactInfoCard />
-            </div> *
-          </div> */}
         </div>
       </div>
       <div className="flex justify-end z-40 px-4 md:px-6 lg:px-10">

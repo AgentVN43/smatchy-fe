@@ -80,14 +80,14 @@ export default function RoadmapSection() {
       {/* Tiêu đề */}
       <div className="flex flex-col items-center">
         <div className="inline-flex">
-          <div className="relative text-center text-2xl md:text-3xl lg:text-5xl text-[#0A4A60] font-bold mb-6 md:mb-7 lg:mb-8">
+          <div className="relative text-center text-2xl md:text-3xl lg:text-5xl text-[#0A4A60] font-bold mb-6 md:mb-7 lg:mb-12">
             <div
               dangerouslySetInnerHTML={{
                 __html: titleBlock.heading ? titleBlock.heading : "",
               }}
             />{" "}
             <img
-              className="absolute -top-8 -right-8 md:-top-10 md:-right-10 lg:-top-10 lg:-right-10 w-12 md:w-16 lg:w-auto"
+              className="absolute -top-8 -right-8 md:-top-10 md:-right-10 lg:-top-20 lg:-right-20 w-12 md:w-16 lg:w-auto"
               src={Yay3}
               alt="decor"
             />
@@ -97,11 +97,11 @@ export default function RoadmapSection() {
 
       {/* Các khối Q1–Q4 */}
       <div className="bg-[#E2F6F6] p-4 md:p-5 lg:p-6 rounded-2xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
           {roadmap.stats_item.map((step: any, index: number) => (
             <div
               key={index}
-              className={`flex flex-col justify-between text-white gap-2 md:gap-3 pr-2 md:pr-4 lg:pr-5 ${
+              className={`flex flex-col text-white gap-2 md:gap-3 pr-2 md:pr-4 lg:pr-5 ${
                 index < roadmap.length - 1
                   ? "md:border-b lg:border-b-0 lg:border-r lg:border-[#0A4A6026]"
                   : ""
@@ -111,7 +111,7 @@ export default function RoadmapSection() {
                 {Object.values(quarterItems)[index]}
               </div>
 
-              <h3 className="text-base md:text-lg lg:text-xl font-bold text-[#0A4A60] max-w-[200px]">
+              <h3 className="text-base md:text-lg lg:text-xl min-h-8 xl:min-h-14 font-bold text-[#0A4A60]">
                 {step.title}
               </h3>
 

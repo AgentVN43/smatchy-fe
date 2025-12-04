@@ -60,9 +60,9 @@ const UserJourneySection = () => {
   //console.log(steps);
 
   return (
-    <div className="relative z-30 mb-28">
+    <div className="relative z-30 mb-32">
       <div className="container">
-        <div className="flex flex-col items-center mt-10 md:mt-14 lg:mt-20">
+        <div className="flex flex-col items-center mt-10 md:mt-14 lg:mt-16">
           <div className=" inline-flex">
             <div
               className="relative text-center text-2xl md:text-3xl lg:text-5xl text-[#0A4A60] font-bold mb-6 md:mb-8 lg:mb-8"

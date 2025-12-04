@@ -198,7 +198,7 @@ export default function Footer() {
                                 <img
                                   src={icon}
                                   alt={social.platform}
-                                  className="h-6 w-6 md:h-10 md:w-10 object-contain"
+                                  className="h-10 w-10 md:h-16 md:w-16 object-contain"
                                   loading="lazy"
                                 />
                               )}
@@ -212,10 +212,7 @@ export default function Footer() {
               </div>
 
               {/* Legal links row */}
-              <nav
-                aria-label="Legal pages"
-                className="border-t border-white/20 pt-4 md:pt-6"
-              >
+              <nav aria-label="Legal pages" className="pt-2 md:pt-4">
                 <ul className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 text-xs md:text-sm">
                   {sortedLegal.map((link) => (
                     <li

@@ -29,7 +29,7 @@ export default function ProductFeatures() {
         <div
           style={{
             width: "110vw",
-            height: "422.38px",
+            height: "468.38px",
             position: "absolute",
             top: "-50px",
             left: "0px",
@@ -42,7 +42,7 @@ export default function ProductFeatures() {
         <div
           style={{
             width: "110vw",
-            height: "868.38px",
+            height: "896.38px",
             position: "absolute",
             top: "220px",
             left: "0px",
@@ -53,7 +53,7 @@ export default function ProductFeatures() {
         ></div>
       </div>
       <div
-        className="container relative z-30 py-8! md:py-10! lg:py-12!"
+        className="container relative z-30 py-8! md:py-10!"
         data-aos="fade-up"
         data-aos-duration="1000"
       >

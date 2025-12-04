@@ -1,6 +1,8 @@
 import Yay from "/Yay3.png";
 import backgroundImg from "/team/background-img.png";
 import CEO from "/team/CEO-img.png";
+import quotation from "/quotation.png";
+import quotation2 from "/quotation2.png";
 
 export default function LittleStory() {
   return (
@@ -9,7 +11,7 @@ export default function LittleStory() {
         <h2 className="relative text-center text-2xl md:text-3xl lg:text-5xl text-[#0A4A60] font-bold mb-8 md:mb-10 lg:mb-12">
           THE LITTLE <span className="text-[#FCA13B] ml-1 md:ml-2">STORY</span>
           <img
-            className="absolute -top-10 -right-8 md:-top-14 md:-right-14 lg:-top-20 lg:-right-20 w-8 md:w-20 lg:w-auto"
+            className="absolute -top-6 -right-6 md:-top-14 md:-right-14 lg:-top-20 lg:-right-20 w-8 md:w-20 lg:w-auto"
             src={Yay}
             alt=""
           />
@@ -20,33 +22,46 @@ export default function LittleStory() {
           <div
             data-aos="fade-up"
             data-aos-duration="2000"
-            className="z-10 px-6 md:px-12 lg:px-24 py-8 md:py-10 lg:py-12 rounded-lg text-sm md:text-base lg:text-xl font-medium text-[#0A4A60] space-y-3 md:space-y-3 lg:space-y-4"
+            className="relaive z-10 px-12 lg:px-24 py-8 md:py-10 lg:py-12 rounded-lg text-sm md:text-base lg:text-xl font-medium text-[#0A4A60] space-y-3 md:space-y-3 lg:space-y-4"
           >
-            <p>
-              Pendant la période COVID, Maude demande à sa communauté Les
-              Bornées pourquoi ils font du sport avec eux. Une question très
-              simple qui va être à la naissance du projet Smatchy, car la
-              réponse la plus donnée par ses membres est d’une simplicité
-              enfantine :
-              <span className="text-[#FCA13B]">
-                {" "}
-                « Je n’aime pas faire du sport seul(e)«{" "}
-              </span>
-            </p>
-            <p>
-              Piquée par la curiosité et par cette idée, Maude fait des
-              recherches et
-              <span className="text-[#FCA13B]">
-                {" "}
-                ne trouve pas d’application qui réponde vraiment à ce besoin.{" "}
-              </span>
-              C’est là qu’est née l’idée de Smatchy.
-            </p>
-            <p>
-              Il aura fallu deux années de travail et de développement pour
-              sortir la première version de l’application en
-              <span className="text-[#FCA13B]"> Décembre 2023.</span>
-            </p>
+            <img
+              className="absolute left-4 lg:left-10 h-4 lg:h-auto"
+              src={quotation}
+              alt=""
+            />
+            <div>
+              <p>
+                Pendant la période COVID, Maude demande à sa communauté Les
+                Bornées pourquoi ils font du sport avec eux. Une question très
+                simple qui va être à la naissance du projet Smatchy, car la
+                réponse la plus donnée par ses membres est d’une simplicité
+                enfantine :
+                <span className="text-[#FCA13B]">
+                  {" "}
+                  « Je n’aime pas faire du sport seul(e)«{" "}
+                </span>
+              </p>
+              <p>
+                Piquée par la curiosité et par cette idée, Maude fait des
+                recherches et
+                <span className="text-[#FCA13B]">
+                  {" "}
+                  ne trouve pas d’application qui réponde vraiment à ce besoin.{" "}
+                </span>
+                C’est là qu’est née l’idée de Smatchy.
+              </p>
+              <p>
+                Il aura fallu deux années de travail et de développement pour
+                sortir la première version de l’application en
+                <span className="text-[#FCA13B]"> Décembre 2023.</span>
+              </p>
+            </div>
+
+            <img
+              className="absolute right-10 h-4 lg:h-auto"
+              src={quotation2}
+              alt=""
+            />
           </div>
         </div>
         <div className="relative w-full lg:w-2/5 mt-20 md:mt-0 h-auto">

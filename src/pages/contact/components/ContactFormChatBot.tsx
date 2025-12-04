@@ -92,14 +92,9 @@ export default function ContactFormChatBot() {
       </Form.Item>
 
       <Form.Item>
-        <Button
-          type="primary"
-          htmlType="submit"
-          loading={loading}
-          className="w-full rounded-full bg-[#FCA13B] border-[#FCA13B]"
-        >
-          Send Message
-        </Button>
+        <button className="w-full rounded-full text-white font-medium text-xl py-3 bg-[#FCA13B] border-[#FCA13B]">
+          Submit
+        </button>
       </Form.Item>
     </Form>
   );

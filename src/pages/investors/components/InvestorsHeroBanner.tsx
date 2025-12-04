@@ -50,7 +50,7 @@ export default function InvestorsHeroBanner() {
                 }}
               />
               <img
-                className="absolute -top-10 right-0 sm:-right-8 md:-top-16 md:-right-14 lg:-top-24 lg:-right-8 w-12 md:w-20 lg:w-auto"
+                className="absolute -top-10 right-0 sm:-right-8 md:-top-16 md:-right-14 lg:-top-24 lg:-right-20 w-12 md:w-20 lg:w-auto"
                 src={Yay}
                 alt=""
               />

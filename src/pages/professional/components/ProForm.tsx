@@ -47,13 +47,18 @@ export default function ProForm() {
   };
 
   const tagRender = (props: any) => {
-    const { label, closable, onClose } = props;
+    const { label } = props;
     return (
       <Tag
-        color="cyan"
-        closable={closable}
-        onClose={onClose}
-        style={{ marginInlineEnd: 4, borderRadius: 8 }}
+        color="#E2F6F6"
+        closable={false}
+        style={{
+          marginInlineEnd: 4,
+          borderRadius: 8,
+          color: "#0F262E",
+          borderColor: "#0A4A60",
+          padding: "3px 6px",
+        }}
       >
         {label}
       </Tag>
@@ -82,6 +87,7 @@ export default function ProForm() {
           rules={proFormConfig.full_name.rules as any}
         >
           <Input
+            size="large"
             placeholder={proFormConfig.full_name.placeholder}
             className="rounded-xl"
           />
@@ -97,6 +103,7 @@ export default function ProForm() {
           rules={proFormConfig.email.rules as any}
         >
           <Input
+            size="large"
             placeholder={proFormConfig.email.placeholder}
             className="rounded-xl"
           />
@@ -112,6 +119,7 @@ export default function ProForm() {
           rules={proFormConfig.role.rules as any}
         >
           <Select
+            size="large"
             placeholder={proFormConfig.role.placeholder}
             className="rounded-xl"
             onChange={handleRoleChange}
@@ -134,6 +142,7 @@ export default function ProForm() {
           rules={proFormConfig.sport.rules as any}
         >
           <Select
+            size="large"
             mode="multiple"
             tagRender={tagRender}
             placeholder={proFormConfig.sport.placeholder}
@@ -155,23 +164,19 @@ export default function ProForm() {
           }
         >
           <TextArea
+            size="large"
             rows={4}
             maxLength={300}
             showCount
             placeholder="Tell us more about your experience, goals, or what you expect from Smatchy Pro"
-            className="rounded-xl"
+            className="rounded-xl mb-4"
           />
         </Form.Item>
 
         <Form.Item>
-          <Button
-            type="primary"
-            htmlType="submit"
-            loading={loading}
-            className="w-full rounded-full bg-[#FCA13B] border-[#FCA13B]"
-          >
+          <button className="w-full rounded-full text-white font-medium text-xl py-4 bg-[#FCA13B] border-[#FCA13B]">
             Submit
-          </Button>
+          </button>
         </Form.Item>
       </Form>
 
