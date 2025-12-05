@@ -34,7 +34,7 @@ export default function Header() {
   };
 
   const handleGetAppClick = () => {
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const userAgent = navigator.userAgent || navigator.vendor;
 
     // iOS detection
     if (/iPad|iPhone|iPod/.test(userAgent)) {
