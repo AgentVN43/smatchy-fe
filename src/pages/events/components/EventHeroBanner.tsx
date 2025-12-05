@@ -16,6 +16,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 import { Autoplay } from "swiper/modules";
 import Loading from "../../../components/Loading";
 import { useHero } from "../../../hooks/useHero";
+import { Link } from "react-router-dom";
 
 // const listBaner = [
 //   {
@@ -127,20 +128,24 @@ export default function EventHeroBanner() {
               />
             </div>
             <div className="flex gap-2 md:gap-3 lg:gap-4 flex-wrap md:flex-nowrap">
-              <img
-                src={AppStoreImage}
-                alt=""
-                data-aos="fade-right"
-                data-aos-duration="1000"
-                className="h-8 md:h-10 lg:h-auto w-auto"
-              />
-              <img
-                src={image3}
-                alt=""
-                data-aos="fade-left"
-                data-aos-duration="1000"
-                className="h-8 md:h-10 lg:h-auto w-auto"
-              />
+              <Link to="https://apps.apple.com/us/app/smatchy/id6473653332">
+                <img
+                  src={AppStoreImage}
+                  alt=""
+                  data-aos="fade-right"
+                  data-aos-duration="1000"
+                  className="h-8 md:h-10 lg:h-auto w-auto"
+                />
+              </Link>
+              <Link to="https://play.google.com/store/apps/details?id=com.smatchy.app">
+                <img
+                  src={image3}
+                  alt=""
+                  data-aos="fade-left"
+                  data-aos-duration="1000"
+                  className="h-8 md:h-10 lg:h-auto w-auto"
+                />
+              </Link>
             </div>
           </div>
         </div>

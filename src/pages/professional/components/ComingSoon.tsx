@@ -3,6 +3,7 @@ import AppStoreImage from "/App_Store_Image.png";
 import image3 from "/image 3.png";
 import Yay from "/Yay.png";
 import line from "/line_bg.svg";
+import { Link } from "react-router-dom";
 export default function ComingSoon() {
   return (
     <div className="relative w-full overflow-hidden">
@@ -64,8 +65,16 @@ export default function ComingSoon() {
               data-aos-duration="1000"
               className="flex gap-2 md:gap-4 flex-wrap md:flex-nowrap w-full md:w-auto justify-center md:justify-start mb-20"
             >
-              <img src={AppStoreImage} alt="" className="h-10 lg:h-12 w-auto" />
-              <img src={image3} alt="" className="h-10 lg:h-12 w-auto" />
+              <Link to="https://apps.apple.com/us/app/smatchy/id6473653332">
+                <img
+                  src={AppStoreImage}
+                  alt=""
+                  className="h-10 lg:h-12 w-auto"
+                />
+              </Link>
+              <Link to="https://play.google.com/store/apps/details?id=com.smatchy.app">
+                <img src={image3} alt="" className="h-10 lg:h-12 w-auto" />
+              </Link>
             </div>
           </div>
         </div>
