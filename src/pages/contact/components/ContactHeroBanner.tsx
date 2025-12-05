@@ -4,6 +4,8 @@ import { useHero } from "../../../hooks/useHero";
 import Yay from "/Yay.png";
 export default function ContactHeroBanner() {
   const { data, isLoading, error } = useHero("k8pxj4vdpa46rs41wsc94o63");
+  const assetUrl = import.meta.env.VITE_STRAPI_ASSET_URL;
+
   if (isLoading) return <Loading />;
 
   if (error) {
@@ -23,7 +25,7 @@ export default function ContactHeroBanner() {
       <div
         className="relative w-full h-full pt-10 md:pt-20 z-50"
         style={{
-          backgroundImage: `url(https://strapi.annk.info${listBaner[0].banner})`,
+          backgroundImage: `url(${assetUrl}${listBaner[0].banner})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "bottom",

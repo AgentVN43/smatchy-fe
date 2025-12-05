@@ -38,7 +38,7 @@ export default function UpcomingEvents() {
       location: api.location?.replaceAll(" ", "-") ?? api.location,
       type: api.type || sport.name || "",
       level: levelNum,
-      price: api.price ?? 0,
+      price: api.price,
       participants: api.participants,
       duration: api.duration,
       desc: api.desc,

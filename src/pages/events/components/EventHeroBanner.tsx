@@ -150,6 +150,18 @@ export default function EventHeroBanner() {
           </div>
         </div>
       </div>
+      <div
+        className="
+    pointer-events-none
+    absolute inset-x-0 bottom-0
+    h-16 sm:h-24
+    z-40
+  "
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(255,255,255,0) 8.24%, #FBFBFB 84.56%)",
+        }}
+      />
     </div>
   );
 }

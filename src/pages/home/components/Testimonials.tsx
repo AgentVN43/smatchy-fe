@@ -7,9 +7,11 @@ import { useTestimonials } from "../../../hooks/useTestimonials";
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import { useRef, useState } from "react";
 import ReviewSlider from "../../../components/ReviewSlider";
+import { useHome } from "../../../hooks/useHome";
 
 export default function Testimonials() {
   const { data, isLoading, error } = useTestimonials("home");
+  const { isLoading: isLoadingHome, error: errorHome, titles } = useHome();
   const swiperRef = useRef<any>(null);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
@@ -19,6 +21,22 @@ export default function Testimonials() {
   if (error) {
     return <div>Error: {error.message}</div>;
   }
+
+  if (isLoadingHome) return <Loading />;
+
+  if (errorHome) {
+    return <div>Error: {errorHome.message}</div>;
+  }
+
+  console.log(titles);
+
+  const titleBlock = titles?.find(
+    (block: any): block is any =>
+      block.__component === "blocks.title" &&
+      block.title === "YOUR TESTIMONIALS"
+  );
+
+  console.log(titleBlock);
 
   const testimonials = data?.map((s) => ({
     id: s.id,
@@ -62,15 +80,18 @@ export default function Testimonials() {
             >
               <BsArrowLeftShort className="text-2xl md:text-6xl" />
             </button>
-            <h2 className="relative inline-flex text-2xl md:text-3xl lg:text-5xl text-white font-bold text-center px-4">
-              YOUR
-              <span className="text-[#FCA13B] ml-1 md:ml-2"> TESTIMONIALS</span>
+            <div className="relative inline-flex text-2xl md:text-3xl lg:text-5xl text-white font-bold text-center px-4">
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: titleBlock.heading ? titleBlock.heading : "",
+                }}
+              />
               <img
                 className="absolute -top-8 -right-4 md:-top-14 md:-right-10 lg:-top-24 lg:-right-16 w-12 md:w-20 lg:w-auto"
                 src={Yay}
                 alt=""
               />
-            </h2>
+            </div>
             <button
               className={`cursor-pointer absolute right-0 top-1/2 z-10 transform -translate-y-1/2 px-4 py-2 rounded-full ${
                 isEnd ? "text-[#C7CDCF]/60" : "text-[#FCA13B]"

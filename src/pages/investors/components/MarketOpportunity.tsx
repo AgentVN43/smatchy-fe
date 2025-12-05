@@ -50,7 +50,7 @@ export default function MarketOpportunity() {
   if (errorStats) return null;
 
   //console.log(data);
-  //  console.log(stats);
+  console.log(stats);
 
   const titleBlock = data?.blocks?.find(
     (block: any): block is any =>
