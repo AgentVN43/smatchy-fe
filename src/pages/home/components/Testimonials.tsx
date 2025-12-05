@@ -36,7 +36,11 @@ export default function Testimonials() {
       block.title === "YOUR TESTIMONIALS"
   );
 
-  console.log(titleBlock);
+  if (!titleBlock) {
+    return <div>No testimonials section found</div>;
+  }
+
+  console.log(titleBlock.heading);
 
   const testimonials = data?.map((s) => ({
     id: s.id,
