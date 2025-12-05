@@ -9,18 +9,17 @@ import LinkedIn from "/LinkedIn.png";
 import logo from "/logo2.png";
 import Tiktok from "/Tiktok.png";
 import Youtube from "/Youtube.png";
-import { useReorder } from "../hooks/useReorder";
 
 export default function Footer() {
   const { data, isLoading, error } = useGlobal();
   const { data: postsResponse } = usePost();
   const posts = postsResponse?.data || [];
   //console.log(posts);
-  const sortedLegal = useReorder(
-    posts,
-    ["legal-notices", "terms-of-use", "privacy-policy", "cookies"],
-    "slug"
-  );
+  // const sortedLegal = useReorder(
+  //   posts,
+  //   ["legal-notices", "terms-of-use", "privacy-policy", "cookies"],
+  //   "slug"
+  // );
 
   const navigate = useNavigate();
   if (isLoading) return <Loading />;
@@ -42,81 +41,14 @@ export default function Footer() {
 
   const socialData = data?.social || [];
 
-  // const legalLinks = [
-  //   { label: "Legal Notices", path: "/legal-notice" },
-  //   { label: "Terms of Use", path: "/terms-use" },
-  //   { label: "Privacy Policy", path: "/privacy-policy" },
-  //   { label: "Cookies", path: "/cookie-policy" },
-  // ];
+  const sortedLegal = [
+    { label: "Legal Notices", path: "/legal-notices" },
+    { label: "Terms of Use", path: "/terms-of-use" },
+    { label: "Privacy Policy", path: "/privacy-policy" },
+    { label: "Cookies", path: "/cookie-policy" },
+  ];
 
   return (
-    // <div className="relative w-full">
-    //   <div
-    //     className="z-30"
-    //     style={{
-    //       width: "120vw",
-    //       height: "497.33px",
-    //       position: "absolute",
-    //       top: "-132px",
-    //       left: "0px",
-    //       transform: "rotate(-7.67deg)",
-    //       opacity: 1,
-    //       backgroundColor: "#E2F6F6",
-    //     }}
-    //   ></div>
-
-    //   <div
-    //     className="relative w-full h-auto lg:h-[270px] mt-4 z-30"
-    //     style={{
-    //       backgroundImage: `url(${backgroundFooter})`,
-    //       backgroundRepeat: "no-repeat",
-    //       backgroundSize: "cover",
-    //       backgroundPosition: "top",
-    //     }}
-    //   >
-    //     <div className="container pt-6! md:pt-10!">
-    //       <div className="flex flex-col md:flex-row md:space-x-20 lg:space-x-48 items-start md:items-center">
-    //         <img
-    //           className="h-10 w-10 md:h-32 md:w-32 mb-6 md:mb-0"
-    //           src={logo}
-    //           alt=""
-    //         />
-    //         <div className="flex-1 text-white font-bold">
-    //           <div className="flex flex-col gap-8 md:flex-row justify-center items-center text-center">
-    //             <div className="flex flex-col items-center">
-    //               <h3 className="text-base md:text-2xl">Our social networks</h3>
-    //               <ul className="flex gap-2 md:gap-5 mt-1 md:mt-6 justify-center">
-    //                 <li className="h-6 w-6 md:h-14 md:w-14 cursor-pointer">
-    //                   <img src={instagram} alt="" />
-    //                 </li>
-    //                 <li className="h-6 w-6 md:h-14 md:w-14 cursor-pointer">
-    //                   <img src={Tiktok} alt="" />
-    //                 </li>
-    //                 <li className="h-6 w-6 md:h-14 md:w-14 cursor-pointer">
-    //                   <img src={LinkedIn} alt="" />
-    //                 </li>
-    //                 <li className="h-6 w-6 md:h-14 md:w-14 cursor-pointer">
-    //                   <img src={Facebook} alt="" />
-    //                 </li>
-    //                 <li className="h-6 w-6 md:h-14 md:w-14 cursor-pointer">
-    //                   <img src={Youtube} alt="" />
-    //                 </li>
-    //               </ul>
-    //             </div>
-    //           </div>
-    //           <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-[60px] mb-2 mt-4 md:mt-8 text-xs md:text-base cursor-pointer">
-    //             <p onClick={() => navigate("/legal-otice")}>Legal Notices</p>
-    //             <p onClick={() => navigate("/terms-use")}>Terms of Use</p>
-    //             <p onClick={() => navigate("/privacy-policy")}>
-    //               Privacy Policy
-    //             </p>
-    //             <p onClick={() => navigate("/cookie-policy")}>Cookies</p>
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
     <footer className="relative bg-[#E2F6F6">
       <div
         className="z-30"
@@ -220,10 +152,10 @@ export default function Footer() {
                       className="text-center md:text-left"
                     >
                       <button
-                        onClick={() => navigate(link.slug)}
+                        onClick={() => navigate(link.path)}
                         className="text-white/90 hover:text-white transition-colors py-2 px-1 hover:underline underline-offset-4 w-full md:w-auto cursor-pointer"
                       >
-                        {link.title}
+                        {link.label}
                       </button>
                     </li>
                   ))}
