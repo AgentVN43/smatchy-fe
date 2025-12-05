@@ -59,22 +59,22 @@ export default function EventHeroBanner() {
   //console.log(data?.heros[0].heading);
 
   return (
-    <div className="relative z-30 overflow-hidden product-slider-container w-full md:h-[400px] lg:h-[564px] mb-10 md:mb-16 lg:mb-20">
+    <div className="relative z-30 overflow-hidden product-slider-container w-full h-full md:h-[400px] lg:h-[564px] mb-10 md:mb-16 lg:mb-20">
       <div className="absolute inset-0 z-30 bg-[#00000054] md:h-[400px] lg:h-[564px]"></div>
       <Swiper
         ref={swiperRef}
         modules={[Pagination, Autoplay]}
         className=""
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
+        // autoplay={{
+        //   delay: 2500,
+        //   disableOnInteraction: false,
+        // }}
         loop
       >
         {listBaner.map((banner: any) => (
           <SwiperSlide key={banner.id}>
             <img
-              className="w-full h-full object-cover"
+              className="w-full h-[260px] md:h-[400px] lg:h-[564px] object-cover"
               src={`${assetUrl}${banner.banner}`}
               alt=""
             />
