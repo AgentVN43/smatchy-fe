@@ -24,8 +24,8 @@ export default function Testimonials() {
 
   if (isLoadingHome) return <Loading />;
 
-  if (error) {
-    return <div>Error: {error.errorHome}</div>;
+  if (errorHome) {
+    return <div>Error: {errorHome.message}</div>;
   }
 
   console.log(titles);
