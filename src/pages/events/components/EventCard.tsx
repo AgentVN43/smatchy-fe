@@ -26,7 +26,9 @@ export default function EventCard({ event }: { event: Event }) {
             alt=""
           />
           <div className="absolute right-4 top-4">
-            {event.price && <PriceActive price={event.price} />}{" "}
+            {event.price !== null && event.price !== 0 && (
+              <PriceActive price={event.price} />
+            )}
           </div>
           <div className="w-full group-hover:duration-1000">
             <div className="flex flex-col gap-0.5 md:gap-0.5 lg:gap-1 bg-white group-hover:bg-[#0A4A608C] p-2 md:p-3 lg:p-4 rounded-b-2xl">
