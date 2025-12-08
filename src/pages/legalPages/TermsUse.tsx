@@ -3,7 +3,11 @@ import heroBanner from "/hero-banner.png";
 import Yay3 from "/Yay3.png";
 import { usePostBySlug } from "../../hooks/usePost";
 import Loading from "../../components/Loading";
+import { useLocale } from "../../contexts/LangContext";
+import { termsOfUseTexts } from "../../config/legalPagesConfig";
+
 export default function TermsUse() {
+  const { locale } = useLocale();
   const { data, isLoading, isError, error } = usePostBySlug("terms-of-use");
   const post = data?.data?.[0];
 
@@ -13,6 +17,73 @@ export default function TermsUse() {
     return <div className="container">Error: {error?.message}</div>;
   }
   console.log(post);
+  const renderContent = (text: string) => {
+    const nodes: React.ReactNode[] = [];
+    const regex =
+      /\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b|\b[a-zA-Z0-9-]+\.[a-zA-Z]{2,}\b|(?<!")Smatchy(?!")/g;
+
+    let lastIndex = 0;
+    let matchIndex = 0;
+    let match: RegExpExecArray | null;
+
+    while ((match = regex.exec(text)) !== null) {
+      const index = match.index;
+      const token = match[0];
+
+      // text trước token
+      if (index > lastIndex) {
+        nodes.push(text.slice(lastIndex, index));
+      }
+
+      // Smatchy
+      if (token === "Smatchy") {
+        nodes.push(
+          <span key={matchIndex} className="text-[#FCA13B] font-bold">
+            {token}
+          </span>
+        );
+      }
+      // Email
+      else if (token.includes("@")) {
+        nodes.push(
+          <a
+            key={matchIndex}
+            href={`mailto:${token}`}
+            className="text-[#0A4A60] font-bold underline"
+          >
+            {token}
+          </a>
+        );
+      }
+      // Domain
+      else {
+        nodes.push(
+          <a
+            key={matchIndex}
+            href={`https://${token}`}
+            target="_blank"
+            rel="noreferrer"
+            className="text-[#0A4A60] font-bold underline"
+          >
+            {token}
+          </a>
+        );
+      }
+
+      lastIndex = index + token.length;
+      matchIndex++;
+    }
+
+    // text còn lại
+    if (lastIndex < text.length) {
+      nodes.push(text.slice(lastIndex));
+    }
+
+    return nodes.map((node, i) =>
+      typeof node === "string" ? <span key={i}>{node}</span> : node
+    );
+  };
+
   return (
     <div>
       <div
@@ -40,8 +111,10 @@ export default function TermsUse() {
             data-aos-duration="1000"
           >
             <div className="relative text-center text-xl md:text-2xl lg:text-5xl text-[#0A4A60] font-bold pt-2 md:pt-3 lg:pt-4">
-              <span className="text-[#FCA13B]">TERMS OF </span>
-              USE
+              <span className="text-[#FCA13B]">
+                {(termsOfUseTexts.titleHighlight as any)[locale]}
+              </span>
+              {(termsOfUseTexts.titleEnd as any)[locale]}
               <img
                 className="absolute -top-8 -right-8 md:-top-12 md:-right-16 lg:-top-16 lg:-right-20 w-6 md:w-10 lg:w-auto"
                 src={Yay3}
@@ -50,180 +123,25 @@ export default function TermsUse() {
             </div>
           </div>
 
-          <div
-            className="flex flex-col gap-2"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-          >
-            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
-              1. Purpose
-            </h3>
-            <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
-              LBDC Organisation ("Smatchy" or "the Publisher") operates the
-              mobile application and website{" "}
-              <span className="text-[#0A4A60] font-bold underline">
-                lesbornees.com.
-              </span>{" "}
-              These Terms of Use define the rules of access, use and obligations
-              of users of the{" "}
-              <span className="text-[#FCA13B] font-bold">Smatchy</span> mobile
-              application.
-            </p>
-          </div>
-
-          <div
-            className="flex flex-col gap-1 md:gap-1.5 lg:gap-2"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-          >
-            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
-              2. Access Conditions
-            </h3>
-            <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
-              Users can browse or register with an email and password. They must
-              be 18 years or older; minors require guardian supervision.
-            </p>
-          </div>
-
-          <div
-            className="flex flex-col gap-1 md:gap-1.5 lg:gap-2"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-          >
-            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
-              3. Application Content
-            </h3>
-            <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
-              The application offers subscriptions to training sessions, events
-              and partner experiences. Purchases follow the General Terms and
-              Conditions of Sale.
-            </p>
-          </div>
-
-          <div
-            className="flex flex-col gap-1 md:gap-1.5 lg:gap-2"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-          >
-            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
-              4. Application Management
-            </h3>
-            <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
-              <span className="text-[#FCA13B] font-bold">Smatchy</span> may
-              suspend access, remove illegal content or update the application
-              at any time.
-            </p>
-          </div>
-
-          <div
-            className="flex flex-col gap-1 md:gap-1.5 lg:gap-2"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-          >
-            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
-              5. User Obligations
-            </h3>
-            <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
-              Users must maintain accurate data and account confidentiality, and
-              report any misuse to{" "}
-              <span className="text-[#0A4A60] font-bold underline">
-                support@smatchy.app
-              </span>{" "}
-              Illegal use, identity theft, multiple accounts or harmful behavior
-              are prohibited.
-            </p>
-          </div>
-
-          <div
-            className="flex flex-col gap-1 md:gap-1.5 lg:gap-2"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-          >
-            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
-              6. Liability
-            </h3>
-            <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
-              <span className="text-[#FCA13B] font-bold">Smatchy</span> is not
-              responsible for service interruptions, misuse or inaccurate
-              third-party content. Claims expire after 6 months.
-            </p>
-          </div>
-
-          <div
-            className="flex flex-col gap-1 md:gap-1.5 lg:gap-2"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-          >
-            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
-              7. Hyperlinks
-            </h3>
-            <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
-              <span className="text-[#FCA13B] font-bold">Smatchy</span> ensures
-              there are no illegal links but disclaims any responsibility beyond
-              that
-            </p>
-          </div>
-
-          <div
-            className="flex flex-col gap-1 md:gap-1.5 lg:gap-2"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-          >
-            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
-              8. Personal Data and Cookies
-            </h3>
-            <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
-              <span className="text-[#FCA13B] font-bold">Smatchy</span>is
-              responsible for data processing. Users can consult the Privacy and
-              Cookie Policies. Contact:{" "}
-              <span className="text-[#0A4A60] font-bold underline">
-                donneespersonnelles@smatchy.app
-              </span>{" "}
-            </p>
-          </div>
-
-          <div
-            className="flex flex-col gap-1 md:gap-1.5 lg:gap-2"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-          >
-            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
-              9. Intellectual Property
-            </h3>
-            <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
-              All content belongs to Smatchy or its partners. Users only obtain
-              non-transferable personal use rights.
-            </p>
-          </div>
-
-          <div
-            className="flex flex-col gap-1 md:gap-1.5 lg:gap-2"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-          >
-            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
-              10. General Provisions
-            </h3>
-            <p className="text-sm leading-relaxed text-[#0F262E]">
-              <span className="text-[#FCA13B] font-bold">Smatchy</span> may
-              modify the Terms of Use at any time. Invalid clauses do not affect
-              the others
-            </p>
-          </div>
-
-          <div
-            className="flex flex-col gap-2"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-          >
-            <h3 className="font-bold text-xl text-[#0A4A60]">
-              11. Law and Jurisdiction
-            </h3>
-            <p className="text-sm leading-relaxed text-[#0F262E]">
-              The Terms of Use are governed by French law. Disputes fall under
-              the jurisdiction of Annecy courts.
-            </p>
-          </div>
+          {(termsOfUseTexts.sections as any)[locale].map(
+            (section: any, index: number) => {
+              return (
+                <div
+                  key={index}
+                  className="flex flex-col gap-1 md:gap-1.5 lg:gap-2"
+                  data-aos="fade-up"
+                  data-aos-duration="1000"
+                >
+                  <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
+                    {section.title}
+                  </h3>
+                  <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
+                    {renderContent(section.content)}
+                  </p>
+                </div>
+              );
+            }
+          )}
 
           <div
             className="p-6 rounded-xl bg-[#0A4A6026]"
@@ -232,8 +150,10 @@ export default function TermsUse() {
           >
             <div className="leading-relaxed text-[#0F262E]">
               <p className="">
-                <span className="font-bold">Version: </span>
-                 March 12, 2025
+                <span className="font-bold">
+                  {(termsOfUseTexts.version as any)[locale]}
+                </span>
+                {" " + (termsOfUseTexts.versionDate as any)[locale]}
               </p>
             </div>
           </div>

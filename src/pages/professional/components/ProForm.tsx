@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Form, Input, Select, message, Modal, Tag } from "antd";
+import { useLocale } from "../../../contexts/LangContext";
 import {
   proFormConfig,
   roleOptions,
@@ -10,8 +11,8 @@ const { TextArea } = Input;
 const { Option } = Select;
 
 export default function ProForm() {
+  const { locale } = useLocale();
   const [form] = Form.useForm();
-  // const [loading, setLoading] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [otherRoleText, setOtherRoleText] = useState("");
 
@@ -26,7 +27,7 @@ export default function ProForm() {
       form.setFieldValue("role_description", otherRoleText);
       setIsModalOpen(false);
     } else {
-      message.warning("Please describe your role");
+      message.warning((proFormConfig.messages.warning as any)[locale]);
     }
   };
 
@@ -37,12 +38,10 @@ export default function ProForm() {
   };
 
   const onFinish = (_values: any) => {
-    // setLoading(true);
     setTimeout(() => {
-      message.success("Registration submitted!");
+      message.success((proFormConfig.messages.success as any)[locale]);
       form.resetFields();
       setOtherRoleText("");
-      // setLoading(false);
     }, 1000);
   };
 
@@ -81,14 +80,14 @@ export default function ProForm() {
           name="full_name"
           label={
             <span className="text-sm md:text-base lg:text-xl font-bold text-[#0F262E]">
-              {proFormConfig.full_name.label}
+              {(proFormConfig.full_name.label as any)[locale]}
             </span>
           }
-          rules={proFormConfig.full_name.rules as any}
+          rules={(proFormConfig.full_name.rules as any)[locale]}
         >
           <Input
             size="large"
-            placeholder={proFormConfig.full_name.placeholder}
+            placeholder={(proFormConfig.full_name.placeholder as any)[locale]}
             className="rounded-xl"
           />
         </Form.Item>
@@ -97,14 +96,14 @@ export default function ProForm() {
           name="email"
           label={
             <span className="text-xl font-bold text-[#0F262E]">
-              {proFormConfig.email.label}
+              {(proFormConfig.email.label as any)[locale]}
             </span>
           }
-          rules={proFormConfig.email.rules as any}
+          rules={(proFormConfig.email.rules as any)[locale]}
         >
           <Input
             size="large"
-            placeholder={proFormConfig.email.placeholder}
+            placeholder={(proFormConfig.email.placeholder as any)[locale]}
             className="rounded-xl"
           />
         </Form.Item>
@@ -113,18 +112,18 @@ export default function ProForm() {
           name="role"
           label={
             <span className="text-xl font-bold text-[#0F262E]">
-              {proFormConfig.role.label}
+              {(proFormConfig.role.label as any)[locale]}
             </span>
           }
-          rules={proFormConfig.role.rules as any}
+          rules={(proFormConfig.role.rules as any)[locale]}
         >
           <Select
             size="large"
-            placeholder={proFormConfig.role.placeholder}
+            placeholder={(proFormConfig.role.placeholder as any)[locale]}
             className="rounded-xl"
             onChange={handleRoleChange}
           >
-            {roleOptions.map((opt) => (
+            {roleOptions[locale as keyof typeof roleOptions]?.map((opt) => (
               <Option key={opt.value} value={opt.value}>
                 {opt.label}
               </Option>
@@ -136,20 +135,20 @@ export default function ProForm() {
           name="sport"
           label={
             <span className="text-xl font-bold text-[#0F262E]">
-              {proFormConfig.sport.label}
+              {(proFormConfig.sport.label as any)[locale]}
             </span>
           }
-          rules={proFormConfig.sport.rules as any}
+          rules={(proFormConfig.sport.rules as any)[locale]}
         >
           <Select
             size="large"
             mode="multiple"
             tagRender={tagRender}
-            placeholder={proFormConfig.sport.placeholder}
+            placeholder={(proFormConfig.sport.placeholder as any)[locale]}
             className="rounded-xl"
             maxTagCount="responsive"
           >
-            {sportOptions.map((opt) => (
+            {sportOptions[locale as keyof typeof sportOptions]?.map((opt) => (
               <Option key={opt.value} value={opt.value}>
                 {opt.label}
               </Option>
@@ -160,7 +159,9 @@ export default function ProForm() {
         <Form.Item
           name="comment"
           label={
-            <span className="text-xl font-bold text-[#0F262E]">Comment</span>
+            <span className="text-xl font-bold text-[#0F262E]">
+              {(proFormConfig.comment.label as any)[locale]}
+            </span>
           }
         >
           <TextArea
@@ -168,31 +169,34 @@ export default function ProForm() {
             rows={4}
             maxLength={300}
             showCount
-            placeholder="Tell us more about your experience, goals, or what you expect from Smatchy Pro"
+            placeholder={(proFormConfig.comment.placeholder as any)[locale]}
             className="rounded-xl mb-4"
           />
         </Form.Item>
 
         <Form.Item>
           <button className="w-full rounded-full text-white font-medium text-xl py-4 bg-[#FCA13B] border-[#FCA13B]">
-            Submit
+            {(proFormConfig.buttons.submit as any)[locale]}
           </button>
         </Form.Item>
       </Form>
 
       <Modal
         title={
-          <div className="text-2xl font-bold text-[#0A4A60]">Other Role</div>
+          <div className="text-2xl font-bold text-[#0A4A60]">
+            {(proFormConfig.modal.title as any)[locale]}
+          </div>
         }
         open={isModalOpen}
         onOk={handleModalOk}
         onCancel={handleModalCancel}
-        okText="Submit"
-        cancelText="Cancel"
+        okText={(proFormConfig.modal.okText as any)[locale]}
+        cancelText={(proFormConfig.modal.cancelText as any)[locale]}
         okButtonProps={{ disabled: !otherRoleText.trim() }}
       >
         <p className="mb-4 text-[#0F262E] text-xl font-bold">
-          Describe your role <span className="text-[#C73F3F]">*</span>
+          {(proFormConfig.modal.description as any)[locale]}{" "}
+          <span className="text-[#C73F3F]">*</span>
         </p>
         <TextArea
           rows={3}
@@ -200,7 +204,7 @@ export default function ProForm() {
           showCount
           value={otherRoleText}
           onChange={(e) => setOtherRoleText(e.target.value)}
-          placeholder="Please specify your role (e.g., Club Manager, Instructor)"
+          placeholder={(proFormConfig.modal.placeholder as any)[locale]}
           className="rounded-xl mb-8"
         />
       </Modal>

@@ -1,7 +1,12 @@
 import line from "/line_bg.svg";
 import heroBanner from "/hero-banner.png";
 import Yay3 from "/Yay3.png";
+import { useLocale } from "../../contexts/LangContext";
+import { privacyPolicyTexts } from "../../config/legalPagesConfig";
+
 export default function PrivacyPolicy() {
+  const { locale } = useLocale();
+
   return (
     <div>
       <div
@@ -29,8 +34,10 @@ export default function PrivacyPolicy() {
             data-aos-duration="1000"
           >
             <h2 className="relative text-center text-xl md:text-2xl lg:text-5xl text-[#0A4A60] font-bold pt-2 md:pt-3 lg:pt-4">
-              <span className="text-[#FCA13B]">PRIVACY </span>
-              POLICY
+              <span className="text-[#FCA13B]">
+                {(privacyPolicyTexts.titleHighlight as any)[locale]}
+              </span>
+              {(privacyPolicyTexts.titleEnd as any)[locale]}
               <img
                 className="absolute -top-10 md:-top-12 lg:-top-16 -right-12 md:-right-16 lg:-right-20 w-6 md:w-8 lg:w-auto"
                 src={Yay3}
@@ -44,108 +51,27 @@ export default function PrivacyPolicy() {
             data-aos-duration="1000"
           >
             <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
-              LBDC Organisation (Smatchy) collects and processes personal data
-              in accordance with GDPR.
+              {(privacyPolicyTexts.intro as any)[locale]}
             </p>
           </div>
 
-          <div
-            className="flex flex-col gap-1 md:gap-1.5 lg:gap-2"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-          >
-            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
-              Data Collected
-            </h3>
-            <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
-              Account information, contact details, purchases, payments,
-              interactions, device data.
-            </p>
-          </div>
-
-          <div
-            className="flex flex-col gap-1 md:gap-1.5 lg:gap-2"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-          >
-            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
-              Purpose
-            </h3>
-            <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
-              Account management, payments, communications, personalization,
-              analytics and security.
-            </p>
-          </div>
-
-          <div
-            className="flex flex-col gap-1 md:gap-1.5 lg:gap-2"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-          >
-            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
-              Legal Basis
-            </h3>
-            <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
-              Consent, contract, legal compliance, legitimate interest.
-            </p>
-          </div>
-
-          <div
-            className="flex flex-col gap-1 md:gap-1.5 lg:gap-2"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-          >
-            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
-              Recipients
-            </h3>
-            <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
-              Some data may be processed outside the EU (e.g., SurveyMonkey in
-              the United States) with standard protection clauses.
-            </p>
-          </div>
-
-          <div
-            className="flex flex-col gap-1 md:gap-1.5 lg:gap-2"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-          >
-            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
-              International Transfers
-            </h3>
-            <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
-              Users must maintain accurate data and account confidentiality, and
-              report any misuse to support@smatchy.app. Illegal use, identity
-              theft, multiple accounts or harmful behavior are prohibited.
-            </p>
-          </div>
-
-          <div
-            className="flex flex-col gap-1 md:gap-1.5 lg:gap-2"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-          >
-            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
-              Retention
-            </h3>
-            <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
-              Data is retained from 6 months to 10 years depending on purpose
-              (e.g., invoices: 10 years).
-            </p>
-          </div>
-
-          <div
-            className="flex flex-col gap-1 md:gap-1.5 lg:gap-2"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-          >
-            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
-              User Rights
-            </h3>
-            <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
-              Access, rectification, deletion, opposition, limitation,
-              portability, post-mortem directives.
-            </p>
-          </div>
+          {(privacyPolicyTexts.sections as any)[locale].map(
+            (section: any, index: number) => (
+              <div
+                key={index}
+                className="flex flex-col gap-1 md:gap-1.5 lg:gap-2"
+                data-aos="fade-up"
+                data-aos-duration="1000"
+              >
+                <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
+                  {section.title}
+                </h3>
+                <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
+                  {section.content}
+                </p>
+              </div>
+            )
+          )}
 
           <div
             className="p-6 rounded-xl bg-[#0A4A6026]"
@@ -154,18 +80,22 @@ export default function PrivacyPolicy() {
           >
             <div className="leading-relaxed text-[#0F262E] space-y-3">
               <div>
-                <h3 className="font-bold">Contact</h3>
+                <h3 className="font-bold">
+                  {(privacyPolicyTexts.contact as any)[locale]}
+                </h3>
                 <p>
                   <a
                     className="text-[#0A4A60] font-semibold underline"
-                    href="#"
+                    href="mailto:donneespersonnelles@smatchy.app"
                   >
                     donneespersonnelles@smatchy.app
                   </a>
                 </p>
               </div>
               <div>
-                <h3 className="font-bold">Supervisory Authority:</h3>
+                <h3 className="font-bold">
+                  {(privacyPolicyTexts.supervisoryAuthority as any)[locale]}
+                </h3>
                 <p>CNIL, 3 Place de Fontenoy, 75334 Paris Cedex 07</p>
               </div>
             </div>
@@ -178,7 +108,10 @@ export default function PrivacyPolicy() {
           >
             <div className="leading-relaxed text-[#0F262E]">
               <p>
-                <span className="font-bold">Last updated: </span>March 12, 2025
+                <span className="font-bold">
+                  {(privacyPolicyTexts.lastUpdated as any)[locale]}{" "}
+                </span>
+                {(privacyPolicyTexts.lastUpdatedDate as any)[locale]}
               </p>
             </div>
           </div>

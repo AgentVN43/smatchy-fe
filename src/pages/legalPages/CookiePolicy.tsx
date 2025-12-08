@@ -1,7 +1,12 @@
 import line from "/line_bg.svg";
 import heroBanner from "/hero-banner.png";
 import Yay3 from "/Yay3.png";
+import { useLocale } from "../../contexts/LangContext";
+import { cookiePolicyTexts } from "../../config/legalPagesConfig";
+
 export default function CookiePolicy() {
+  const { locale } = useLocale();
+
   return (
     <div>
       <div
@@ -29,8 +34,10 @@ export default function CookiePolicy() {
             data-aos-duration="1000"
           >
             <h2 className="relative text-center text-xl md:text-2xl lg:text-5xl text-[#0A4A60] font-bold pt-2 md:pt-3 lg:pt-4">
-              <span className="text-[#FCA13B]">COOKIE </span>
-              POLICY
+              <span className="text-[#FCA13B]">
+                {(cookiePolicyTexts.titleHighlight as any)[locale]}
+              </span>
+              {(cookiePolicyTexts.titleEnd as any)[locale]}
               <img
                 className="absolute -top-10 md:-top-12 lg:-top-16 -right-12 md:-right-16 lg:-right-20 w-6 md:w-8 lg:w-auto"
                 src={Yay3}
@@ -46,95 +53,47 @@ export default function CookiePolicy() {
           >
             <div className="inline-flex">
               <p className="">
-                <span className="font-bold text-[#0F262E]">Publisher: </span>
-                LBDC Organisation ("Smatchy")
+                <span className="font-bold text-[#0F262E]">
+                  {(cookiePolicyTexts.publisherLabel as any)[locale]}{" "}
+                </span>
+                {(cookiePolicyTexts.publisherValue as any)[locale]}
               </p>
             </div>
             <div className="inline-flex">
               <p className="">
-                Cookies are stored on users' devices to facilitate navigation
-                and improve functionality.
+                {(cookiePolicyTexts.overview as any)[locale]}
               </p>
             </div>
           </div>
 
-          <div
-            className="flex flex-col gap-2"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-          >
-            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]\">
-              Types of Cookies
-            </h3>
-            <ul className="flex flex-col gap-2 list-disc marker:text-[#0A4A60]">
-              <li className="ml-6">Session cookies (deleted after session)</li>
-              <li className="ml-6">
-                Persistent cookies (stored until expiration)
-              </li>
-              <li className="ml-6">First-party cookies (by Smatchy)</li>
-              <li className="ml-6">
-                Third-party cookies (analytics or advertising)
-              </li>
-            </ul>
-          </div>
-
-          <div
-            className="flex flex-col gap-1 md:gap-1.5 lg:gap-2"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-          >
-            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
-              Purpose
-            </h3>
-            <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
-              Ensure navigation, security, performance, traffic analysis and
-              advertising personalization.
-            </p>
-          </div>
-
-          <div
-            className="flex flex-col gap-1 md:gap-1.5 lg:gap-2"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-          >
-            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
-              Third-Party Tools
-            </h3>
-            <ul className="flex flex-col gap-2 list-disc marker:text-[#0A4A60]">
-              <li className="ml-6">Google Analytics</li>
-              <li className="ml-6">Matomo</li>
-              <li className="ml-6">Facebook Pixel</li>
-              <li className="ml-6">SendinBlue</li>
-              <li className="ml-6">Jetpack</li>
-            </ul>
-          </div>
-
-          <div
-            className="flex flex-col gap-1 md:gap-1.5 lg:gap-2"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-          >
-            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
-              Retention
-            </h3>
-            <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
-              Cookies are stored from 6 to 13 months depending on category.
-            </p>
-          </div>
-
-          <div
-            className="flex flex-col gap-1 md:gap-1.5 lg:gap-2"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-          >
-            <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
-              Consent
-            </h3>
-            <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
-              Only technical cookies are stored without consent. Users can
-              accept or refuse others via the consent tool.
-            </p>
-          </div>
+          {(cookiePolicyTexts.sections as any)[locale].map(
+            (section: any, index: number) => (
+              <div
+                key={index}
+                className="flex flex-col gap-2"
+                data-aos="fade-up"
+                data-aos-duration="1000"
+              >
+                <h3 className="font-bold text-base md:text-lg lg:text-xl text-[#0A4A60]">
+                  {section.title}
+                </h3>
+                {section.content && (
+                  <p className="text-xs md:text-sm lg:text-sm leading-relaxed text-[#0F262E]">
+                    {section.content}
+                  </p>
+                )}
+                {section.list && (
+                  <ul className="flex flex-col gap-2 list-disc marker:text-[#0A4A60]">
+                    {section.list.map((item: string, itemIndex: number) => (
+                      <li key={itemIndex} className="ml-6">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            )
+          )}
 
           <div
             className="p-6 rounded-xl bg-[#0A4A6026]"
@@ -143,7 +102,10 @@ export default function CookiePolicy() {
           >
             <div className="leading-relaxed text-[#0F262E]">
               <p>
-                <span className="font-bold">Last updated: </span>March 12, 2025
+                <span className="font-bold">
+                  {(cookiePolicyTexts.lastUpdated as any)[locale]}{" "}
+                </span>
+                {(cookiePolicyTexts.lastUpdatedDate as any)[locale]}
               </p>
             </div>
           </div>

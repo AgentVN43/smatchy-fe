@@ -1,29 +1,26 @@
 import { Form, Input, message } from "antd";
 import { useContact } from "../../../hooks/useContact";
+import { useLocale } from "../../../contexts/LangContext";
 import type { ContactForm } from "../../../services/types/contact";
 import { contactFormConfig } from "../../../config/formConfig";
 
 export default function ContactFormCard() {
+  const { locale } = useLocale();
   const [form] = Form.useForm<ContactForm>();
-  // const [loading, setLoading] = useState(false);
   const mutation = useContact();
 
   const onFinish = (values: ContactForm) => {
-    // setLoading(true);
-    // ensure status_contact exists
     const payload = {
       ...values,
       status_contact: (values as any).status_contact || "new",
     } as ContactForm;
     mutation.mutate(payload, {
       onSuccess: () => {
-        message.success("Sent successfully!");
+        message.success((contactFormConfig.messages.success as any)[locale]);
         form.resetFields();
-        // setLoading(false);
       },
       onError: () => {
-        message.error("Failed to send");
-        // setLoading(false);
+        message.error((contactFormConfig.messages.error as any)[locale]);
       },
     });
   };
@@ -39,14 +36,14 @@ export default function ContactFormCard() {
         name="full_name"
         label={
           <span className="text-sm md:text-base lg:text-xl font-bold text-[#0F262E]">
-            {contactFormConfig.full_name.label}
+            {(contactFormConfig.full_name.label as any)[locale]}
           </span>
         }
-        rules={contactFormConfig.full_name.rules as any}
+        rules={(contactFormConfig.full_name.rules as any)[locale]}
       >
         <Input
           size="large"
-          placeholder={contactFormConfig.full_name.placeholder}
+          placeholder={(contactFormConfig.full_name.placeholder as any)[locale]}
           className="rounded-xl"
         />
       </Form.Item>
@@ -55,14 +52,14 @@ export default function ContactFormCard() {
         name="email"
         label={
           <span className="text-sm md:text-base lg:text-xl font-bold text-[#0F262E]">
-            {contactFormConfig.email.label}
+            {(contactFormConfig.email.label as any)[locale]}
           </span>
         }
-        rules={contactFormConfig.email.rules as any}
+        rules={(contactFormConfig.email.rules as any)[locale]}
       >
         <Input
           size="large"
-          placeholder={contactFormConfig.email.placeholder}
+          placeholder={(contactFormConfig.email.placeholder as any)[locale]}
           className="rounded-xl"
         />
       </Form.Item>
@@ -71,14 +68,14 @@ export default function ContactFormCard() {
         name="subject"
         label={
           <span className="text-sm md:text-base lg:text-xl font-bold text-[#0F262E]">
-            {contactFormConfig.subject.label}
+            {(contactFormConfig.subject.label as any)[locale]}
           </span>
         }
-        rules={contactFormConfig.subject.rules as any}
+        rules={(contactFormConfig.subject.rules as any)[locale]}
       >
         <Input
           size="large"
-          placeholder={contactFormConfig.subject.placeholder}
+          placeholder={(contactFormConfig.subject.placeholder as any)[locale]}
           className="rounded-xl"
         />
       </Form.Item>
@@ -87,14 +84,14 @@ export default function ContactFormCard() {
         name="message"
         label={
           <span className="text-sm md:text-base lg:text-xl font-bold text-[#0F262E]">
-            {contactFormConfig.message.label}
+            {(contactFormConfig.message.label as any)[locale]}
           </span>
         }
-        rules={contactFormConfig.message.rules as any}
+        rules={(contactFormConfig.message.rules as any)[locale]}
       >
         <Input.TextArea
           size="large"
-          placeholder={contactFormConfig.message.placeholder}
+          placeholder={(contactFormConfig.message.placeholder as any)[locale]}
           rows={4}
           className="rounded-xl"
         />
@@ -102,7 +99,7 @@ export default function ContactFormCard() {
 
       <Form.Item>
         <button className="w-full rounded-full text-white font-medium text-xl py-4 bg-[#FCA13B] border-[#FCA13B]">
-          Send Message
+          {(contactFormConfig.buttons.sendMessage as any)[locale]}
         </button>
       </Form.Item>
     </Form>
