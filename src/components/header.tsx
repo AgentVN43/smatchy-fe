@@ -3,18 +3,11 @@ import logo from "/logo3.png";
 import { useLocation, useNavigate } from "react-router-dom";
 import { HiMenu, HiX } from "react-icons/hi";
 import LangSwitch from "./LangSwitch";
-
-const menu = [
-  { title: "Home", link: "/" },
-  { title: "Team", link: "/team" },
-  { title: "Investors", link: "/investors" },
-  { title: "Events", link: "/events" },
-  { title: "Professional", link: "/professional" },
-  // { title: "Blog", link: "/blog" },
-  { title: "Contact", link: "/contact" },
-];
+import { useLocale } from "../contexts/LangContext";
+import { headerTexts } from "../config/layoutConfig";
 
 export default function Header() {
+  const { locale } = useLocale();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
@@ -28,7 +21,7 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavigate = (item: (typeof menu)[0]) => {
+  const handleNavigate = (item: (typeof headerTexts.menu)[0]) => {
     navigate(item.link);
     setIsOpen(false); // close mobile menu
   };
@@ -71,13 +64,13 @@ export default function Header() {
         {/* Desktop Menu */}
         <div className="hidden xl:flex flex-1 justify-center">
           <ul className="flex flex-wrap justify-start items-center border rounded-full p-2 gap-2 sm:gap-3 md:gap-4 border-[#E2E8F0]">
-            {menu.map((item) => {
+            {headerTexts.menu.map((item) => {
               const isActive =
                 location.pathname === item.link ||
                 (item.link !== "/" && location.pathname.startsWith(item.link));
               return (
                 <li
-                  key={item.title}
+                  key={item.link}
                   className={`px-4 py-2 rounded-full cursor-pointer transition text-xs xl:text-sm
                     ${
                       isActive
@@ -86,7 +79,7 @@ export default function Header() {
                     }`}
                   onClick={() => handleNavigate(item)}
                 >
-                  {item.title}
+                  {(item.label as any)[locale]}
                 </li>
               );
             })}
@@ -99,7 +92,7 @@ export default function Header() {
             className="bg-[#FCA13B] hover:bg-[#FCA13B]/90 cursor-pointer text-white rounded-3xl py-1 md:py-3 px-4 text-sm"
             onClick={() =>handleGetAppClick()}
           >
-            Get the app
+            {(headerTexts.getApp as any)[locale]}
           </button>
           <div className="hidden md:block">
             <LangSwitch />
@@ -133,20 +126,20 @@ export default function Header() {
             <HiX />
           </button>
           <ul className="flex flex-col gap-2 text-xl">
-            {menu.map((item) => {
+            {headerTexts.menu.map((item) => {
               const isActive =
                 location.pathname === item.link ||
                 (item.link !== "/" && location.pathname.startsWith(item.link));
               return (
                 <li
-                  key={item.title}
+                  key={item.link}
                   className={`px-6 py-3 rounded-full cursor-pointer transition text-center
               ${
                 isActive ? "bg-[#D9D9D9A8] text-white" : "hover:bg-[#D9D9D9A8]"
               }`}
                   onClick={() => handleNavigate(item)}
                 >
-                  {item.title}
+                  {(item.label as any)[locale]}
                 </li>
               );
             })}

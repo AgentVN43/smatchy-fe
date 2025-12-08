@@ -1,5 +1,9 @@
 // Centralized form field configuration used across forms
 export const contactFormConfig = {
+  title: {
+    en: "Send us a message",
+    fr: "Envoyez-nous un message",
+  },
   full_name: {
     label: {
       en: "Full name",
@@ -85,6 +89,10 @@ export const contactFormConfig = {
 };
 
 export const proFormConfig = {
+  title: {
+    en: "Pre-register to become a Smatchy Pro",
+    fr: "Préinscrivez-vous pour devenir un pro Smatchy",
+  },
   full_name: {
     label: {
       en: "Full name",

@@ -3,8 +3,11 @@ import ContactHeroBanner from "./components/ContactHeroBanner";
 import line from "/line_bg.svg";
 import Yay2 from "/Yay2.png";
 import ChatBot from "./components/ChatBot";
+import { contactFormConfig } from "../../config/formConfig";
+import { useLocale } from "../../contexts/LangContext";
 
 export default function ContactPage() {
+  const { locale } = useLocale()
   return (
     <div className="relative pb-4">
       <div className="relative w-full">
@@ -39,7 +42,7 @@ export default function ContactPage() {
             data-aos-duration="1000"
             className="inline-flex items-center justify-center bg-[#0A4A60] text-white text-xs md:text-sm lg:text-xl font-bold rounded-[5px] px-6 md:px-8 lg:px-12 py-1 mb-4 md:mb-5 lg:mb-6"
           >
-            Send us a message
+            {(contactFormConfig.title as any)[locale]}
           </div>
           <div
             className="h-full -bg-conic-0 bg-white border border-[#d8d9da5c] rounded-2xl md:rounded-3xl shadow-2xl w-full lg:w-1/2"

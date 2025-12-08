@@ -73,7 +73,7 @@ export default function ProForm() {
         className="flex flex-col p-6! md:p-9! w-full lg:max-w-xl mx-auto z-40 bg-white rounded-2xl shadow-lg"
       >
         <h2 className="text-xl md:text-3xl font-bold text-[#0F262E] md:mb-4">
-          Pre-register to become a Smatchy Pro
+          {(proFormConfig.title as any)[locale]}
         </h2>
 
         <Form.Item

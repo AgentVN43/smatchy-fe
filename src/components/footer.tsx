@@ -8,8 +8,11 @@ import LinkedIn from "/LinkedIn.png";
 import logo from "/logo2.png";
 import Tiktok from "/Tiktok.png";
 import Youtube from "/Youtube.png";
+import { useLocale } from "../contexts/LangContext";
+import { footerTexts } from "../config/layoutConfig";
 
 export default function Footer() {
+  const { locale } = useLocale();
   const { data, isLoading, error } = useGlobal();
   //const { data: postsResponse } = usePost();
   //const posts = postsResponse?.data || [];
@@ -39,13 +42,6 @@ export default function Footer() {
   };
 
   const socialData = data?.social || [];
-
-  const sortedLegal = [
-    { label: "Legal Notices", path: "/legal-notices" },
-    { label: "Terms of Use", path: "/terms-of-use" },
-    { label: "Privacy Policy", path: "/privacy-policy" },
-    { label: "Cookies", path: "/cookie-policy" },
-  ];
 
   return (
     <footer className="relative bg-[#E2F6F6">
@@ -102,13 +98,13 @@ export default function Footer() {
               {/* Social networks row */}
               <div className="flex flex-col items-center md:items-start mb-6 md:mb-8">
                 <h3 className="text-base md:text-2xl mb-3 md:mb-4">
-                  Our social networks
+                  {(footerTexts.socialHeading as any)[locale]}
                 </h3>
 
                 {/* Loading state */}
                 {isLoading ? (
                   <div className="text-white/70 text-sm">
-                    Loading social links...
+                    {(footerTexts.socialLoading as any)[locale]}
                   </div>
                 ) : (
                   <nav aria-label="Social networks">
@@ -145,13 +141,13 @@ export default function Footer() {
               {/* Legal links row */}
               <nav aria-label="Legal pages" className="pt-2 md:pt-4">
                 <ul className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 text-xs md:text-sm">
-                  {sortedLegal.map((link) => (
-                    <li key={link.label} className="text-center md:text-left">
+                  {(footerTexts.legalLinks as any).map((link: any) => (
+                    <li key={link.path} className="text-center md:text-left">
                       <button
                         onClick={() => navigate(link.path)}
                         className="text-white/90 hover:text-white transition-colors py-2 px-1 hover:underline underline-offset-4 w-full md:w-auto cursor-pointer"
                       >
-                        {link.label}
+                        {(link.label as any)[locale]}
                       </button>
                     </li>
                   ))}
