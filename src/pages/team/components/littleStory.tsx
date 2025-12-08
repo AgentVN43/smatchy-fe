@@ -20,7 +20,11 @@ export default function LittleStory() {
     <div className="container flex flex-col items-center relative z-50 mt-6! md:mt-8! lg:mt-10!">
       <div className=" inline-flex" data-aos="fade-up" data-aos-duration="1000">
         <div className="relative text-center text-2xl md:text-3xl lg:text-5xl text-[#0A4A60] font-bold mb-8 md:mb-10 lg:mb-12">
-          <div dangerouslySetInnerHTML={{ __html: littleStory?.heading }} />
+          <div
+            dangerouslySetInnerHTML={{
+              __html: littleStory?.heading ? littleStory.heading : "",
+            }}
+          />
           <img
             className="absolute -top-6 -right-6 md:-top-14 md:-right-14 lg:-top-20 lg:-right-20 w-8 md:w-20 lg:w-auto"
             src={Yay}
@@ -68,7 +72,9 @@ export default function LittleStory() {
               </p>
             </div> */}
             <div
-              dangerouslySetInnerHTML={{ __html: littleStory?.sub_heading }}
+              dangerouslySetInnerHTML={{
+                __html: littleStory?.sub_heading ? littleStory.sub_heading : "",
+              }}
             />
             <img
               className="absolute right-10 h-4 lg:h-auto"

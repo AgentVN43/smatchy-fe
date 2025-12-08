@@ -52,7 +52,7 @@ export default function CreateEventBanner() {
           <div className="flex flex-col items-center gap-4 md:gap-6 lg:gap-8">
             <div className=" inline-flex">
               <div className="relative text-center text-2xl md:text-3xl lg:text-5xl text-white font-bold">
-                <div dangerouslySetInnerHTML={{ __html: heading }} />
+                <div dangerouslySetInnerHTML={{ __html: heading ? heading : "" }} />
                 <img
                   className="absolute -top-10 -right-8 md:-top-12 md:-right-10 lg:-top-20 lg:-right-20 w-12 md:w-16 lg:w-auto"
                   src={Yay}
