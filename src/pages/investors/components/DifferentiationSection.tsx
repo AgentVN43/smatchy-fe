@@ -20,7 +20,7 @@ const DifferentiationSection = () => {
   const differentiation = data?.blocks?.find(
     (block: any): block is any =>
       block.__component === "shared.media" &&
-      block.title === "Image Our Differentiation"
+      block.title === "Image Our Differentiation" || block.title === "Image: Notre différenciation"
   );
 
   return (

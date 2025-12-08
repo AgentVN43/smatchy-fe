@@ -61,12 +61,15 @@ export default function RoadmapSection() {
 
   const titleBlock = data?.blocks?.find(
     (block: any): block is any =>
-      block.__component === "blocks.title" &&
-      block.title === "Section: 12-24 MONTH ROADMAP"
+      (block.__component === "blocks.title" &&
+        block.title === "Section: 12-24 MONTH ROADMAP" ||
+      block.title === "Section: FEUILLE DE ROUTE SUR 12 À 24 MOIS")
   );
 
   const roadmap = stats?.blocks?.find(
-    (block: any): block is any => block.title === "12-24 month Roadmap"
+    (block: any): block is any =>
+      block.title === "12-24 month Roadmap" ||
+      block.title === "Item: Feuille de route sur 12 à 24 mois"
   );
 
   //console.log(roadmap);

@@ -71,12 +71,14 @@ export default function TheTeamSection() {
   if (isLoadingStats) return <Loading />;
   if (errorStats) return null;
 
-  //console.log(basic);
+  // console.log(basic);
 
   const titleBlock = basic?.blocks?.find(
     (block: any): block is any =>
-      block.__component === "shared.icon-text" && block.title === "The Team"
+      (block.__component === "shared.icon-text" &&
+        block.title === "The Team" || block.title === "L'équipe")
   );
+
 
   // const teamMembers = data.teamMembers.map((member: any) => ({
   //   name: member.name,

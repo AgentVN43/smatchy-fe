@@ -32,19 +32,23 @@ export default function WhySmatchyWins() {
 
   const titleBlock = data?.blocks?.find(
     (block: any): block is any =>
-      block.__component === "blocks.title" &&
-      block.title === "Section: Why Smatchy Wins"
+      (block.__component === "blocks.title" &&
+        block.title === "Section: Why Smatchy Wins") ||
+      block.title === "Section : Pourquoi Smatchy gagne"
   );
 
   const benefits = data?.blocks?.find(
     (block: any): block is any =>
-      block.__component === "blocks.stats" && block.title === "Why Smatchy Wins"
+      (block.__component === "blocks.stats" &&
+        block.title === "Why Smatchy Wins") ||
+      block.title === "Article : Pourquoi les tenues assorties gagnent"
   );
 
   const attachment = data?.blocks?.find(
     (block: any): block is any =>
-      block.__component === "shared.media" &&
-      block.title === "Image: Why Smatchy Wins"
+      (block.__component === "shared.media" &&
+        block.title === "Image: Why Smatchy Wins") ||
+      block.title === "Image : Pourquoi les tenues assorties gagnent"
   );
 
   //console.log(attachment.file.url);

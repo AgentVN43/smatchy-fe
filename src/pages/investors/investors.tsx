@@ -24,10 +24,11 @@ export default function InvestorsPage() {
   if (isLoading) return <Loading />;
   if (error) return null;
 
-  //console.log(data);
+  console.log(data);
 
   const block = data?.blocks?.find(
-    (b: any) => b.__component === "blocks.title"
+    (b: any) =>
+      b.__component === "blocks.title" && b.title === "Raising 1M€ for 20%"
   );
 
   if (!block) return null;
@@ -52,7 +53,7 @@ export default function InvestorsPage() {
         >
           <div className="flex items-center justify-center px-4">
             <div className="relative flex items-end justify-end text-center bg-[#F49F3F] rounded-[20px] md:rounded-[30px] text-white font-bold text-xl md:text-2xl lg:text-[32px] w-full md-[w-720px] lg:w-[930px] p-4 md:p-6">
-              {block.title}
+              {block.heading}
               <img
                 className="absolute -top-3 -left-3 md:-top-4 md:left-2 lg:left-0 w-12 md:w-20 lg:w-auto"
                 src={Yay2}

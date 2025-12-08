@@ -55,19 +55,19 @@ export default function MarketOpportunity() {
   const titleBlock = data?.blocks?.find(
     (block: any): block is any =>
       block.__component === "blocks.title" &&
-      block.title === "Title: Market Opportunity"
+      block.title === "Title: Market Opportunity" || block.title === "Title:  Opportunité de marché"
   );
 
   const marketData = stats?.blocks?.find(
     (block: any): block is any =>
       block.__component === "blocks.stats" &&
-      block.title === "Item: Market Opportunity"
+      block.title === "Item: Market Opportunity" || block.title === "Item:  Opportunité de marché"
   );
 
   const growthImages = data?.blocks?.find(
     (block: any): block is any =>
       block.__component === "hero.slider" &&
-      block.title === "Image: Market Opportunity"
+      block.title === "Image: Market Opportunity" || block.title === "Image: Opportunité de marché"
   );
 
   //console.log(growthImages);

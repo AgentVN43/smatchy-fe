@@ -32,7 +32,7 @@ export default function PeopleSay() {
   const titleBlock = data?.blocks?.find(
     (block: any): block is any =>
       block.__component === "blocks.title" &&
-      block.title === "Section: What people say"
+      block.title === "Section: What people say" || block.title === "Section: Ce que disent les gens"
   );
   const ctaButton = titleBlock?.button?.[0];
   // console.log(titleBlock.button.map((item) => item.label));

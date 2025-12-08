@@ -51,12 +51,15 @@ export default function AmbitionVisionSection() {
 
   const titleBlock = data?.blocks?.find(
     (block: any): block is any =>
-      block.__component === "shared.icon-text" &&
-      block.title === "Ambition & Long-Term Vision"
+      (block.__component === "shared.icon-text" &&
+        block.title === "Ambition & Long-Term Vision" ||
+      block.title === "Ambition et vision à long terme")
   );
 
   const ambitionVisionData = stats?.blocks?.find(
-    (block: any): block is any => block.title === "Ambition & Long-Term Vision"
+    (block: any): block is any =>
+      block.title === "Ambition & Long-Term Vision" ||
+      block.title === "Item: Ambition et vision à long terme"
   );
 
   //console.log(ambitionVisionData);
@@ -133,4 +136,3 @@ export default function AmbitionVisionSection() {
     </div>
   );
 }
-

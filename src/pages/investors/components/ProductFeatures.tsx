@@ -14,7 +14,7 @@ export default function ProductFeatures() {
   const titleBlock = data?.blocks?.find(
     (block: any): block is any =>
       block.__component === "shared.icon-text" &&
-      block.title === "PRODUCT & FEATURES"
+      block.title === "PRODUCT & FEATURES" || block.title === "PRODUIT ET FONCTIONNALITÉS"
   );
 
   // const videoBlock = data?.blocks?.find(

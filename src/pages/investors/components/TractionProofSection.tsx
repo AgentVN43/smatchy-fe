@@ -64,12 +64,12 @@ const TractionProofSection = () => {
   const titleBlock = data?.blocks?.find(
     (block: any): block is any =>
       block.__component === "blocks.title" &&
-      block.title === "Section: Traction & Proof"
+      block.title === "Section: Traction & Proof" || block.title === "Section: Traction et preuve"
   );
 
   const tractionBlock = stats?.blocks?.find(
     (block: any): block is any =>
-      block.__component === "blocks.stats" && block.title === "Traction & Proof"
+      block.__component === "blocks.stats" && block.title === "Traction & Proof" || block.title === "Traction et preuve"
   );
 
   //console.log(tractionBlock);

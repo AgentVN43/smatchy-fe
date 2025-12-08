@@ -49,12 +49,12 @@ const UserJourneySection = () => {
   const titleBlock = data?.blocks?.find(
     (block: any): block is any =>
       block.__component === "shared.icon-text" &&
-      block.title === "The User Journey"
+      block.title === "The User Journey" || block.title === "Le parcours de l'utilisateur"
   );
 
   const steps = stats?.blocks?.find(
     (block: any): block is any =>
-      block.__component === "blocks.stats" && block.title === "The User Journey"
+      block.__component === "blocks.stats" && block.title === "The User Journey"  || block.title === "Le parcours de l'utilisateur"
   );
 
   //console.log(steps);

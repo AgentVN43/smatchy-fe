@@ -13,7 +13,9 @@ const BusinessMetrics = () => {
 
   const block = data?.blocks?.find(
     (block: any): block is any =>
-      block.__component === "blocks.stats" && block.title === "Business Metrics"
+      (block.__component === "blocks.stats" &&
+        block.title === "Business Metrics") ||
+      block.title === " Mesures commerciales"
   );
 
   // const block = data?.blocks?.find((b: any) => b.id === 130);

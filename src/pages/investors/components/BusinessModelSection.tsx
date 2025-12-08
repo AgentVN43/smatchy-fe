@@ -69,13 +69,16 @@ export default function BusinessModelSection() {
 
   const titleBlock = data?.blocks?.find(
     (block: any): block is any =>
-      block.__component === "blocks.title" &&
-      block.title === "Section: Business model"
+      (block.__component === "blocks.title" &&
+        block.title === "Section: Business model") ||
+      block.title === "Section: Modèle d'entreprise"
   );
 
   const revenueStreams = stats?.blocks?.find(
     (block: any): block is any =>
-      block.__component === "blocks.stats" && block.title === "Business Model"
+      (block.__component === "blocks.stats" &&
+        block.title === "Business Model") ||
+      block.title === "Item: Modèle d'entreprise"
   );
 
   //console.log(revenueStreams);
