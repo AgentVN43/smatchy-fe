@@ -68,7 +68,7 @@ const BusinessMetrics = () => {
                   window.open(metric.btn_url, "_blank", "noopener,noreferrer")
                 }
                 disabled={!metric.btn_url}
-                className="flex justify-center items-center gap-2 text-white rounded-full px-3 md:px-4 py-2 text-xs md:text-sm lg:text-base font-semibold bg-[#D9D9D9A8] transition"
+                className="flex justify-center items-center gap-2 text-white rounded-full px-3 md:px-4 py-2 text-xs md:text-sm lg:text-base font-semibold bg-[#D9D9D9A8] transition cursor-pointer disabled:cursor-not-allowed"
               >
                 {metric.btn_label} <FaArrowRightLong />
               </button>
