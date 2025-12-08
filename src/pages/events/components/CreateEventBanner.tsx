@@ -25,6 +25,29 @@ export default function CreateEventBanner() {
   const buttonLink = eventCreate?.button?.link || "";
   const buttonLabel = eventCreate?.button?.label;
 
+  const handleGetAppClick = () => {
+    const userAgent =
+      (typeof navigator !== "undefined" &&
+        (navigator.userAgent || navigator.vendor || (window as any).opera)) ||
+      "";
+    const iosLink = "https://apps.apple.com/us/app/smatchy/id6473653332";
+    const androidLink =
+      "https://play.google.com/store/apps/details?id=com.smatchy.app&pcampaignid=web_share";
+    const fallbackLink = "/";
+
+    if (/iPad|iPhone|iPod/.test(userAgent)) {
+      window.open(iosLink, "_blank", "noopener,noreferrer");
+      return;
+    }
+
+    if (/Android/.test(userAgent)) {
+      window.open(androidLink, "_blank", "noopener,noreferrer");
+      return;
+    }
+
+    window.open(fallbackLink, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <div className="relative w-full overflow-hidden">
       <div className="relative container z-20">
@@ -52,7 +75,9 @@ export default function CreateEventBanner() {
           <div className="flex flex-col items-center gap-4 md:gap-6 lg:gap-8">
             <div className=" inline-flex">
               <div className="relative text-center text-2xl md:text-3xl lg:text-5xl text-white font-bold">
-                <div dangerouslySetInnerHTML={{ __html: heading ? heading : "" }} />
+                <div
+                  dangerouslySetInnerHTML={{ __html: heading ? heading : "" }}
+                />
                 <img
                   className="absolute -top-10 -right-8 md:-top-12 md:-right-10 lg:-top-20 lg:-right-20 w-12 md:w-16 lg:w-auto"
                   src={Yay}
@@ -67,11 +92,7 @@ export default function CreateEventBanner() {
               Download the app now
             </button> */}
             <button
-              onClick={() =>
-                buttonLink &&
-                window.open(buttonLink, "_blank", "noopener,noreferrer")
-              }
-              disabled={!buttonLink}
+              onClick={() => handleGetAppClick()}
               className="flex justify-center items-center gap-2 text-white rounded-full px-3 md:px-4 py-2 text-sm md:text-base font-semibold cursor-pointer hover:bg-[#FCA13B] bg-[#FCA13B]/90 transition"
             >
               {buttonLabel}

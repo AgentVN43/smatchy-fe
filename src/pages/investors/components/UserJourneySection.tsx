@@ -48,16 +48,46 @@ const UserJourneySection = () => {
 
   const titleBlock = data?.blocks?.find(
     (block: any): block is any =>
-      block.__component === "shared.icon-text" &&
-      block.title === "The User Journey" || block.title === "Le parcours de l'utilisateur"
+      (block.__component === "shared.icon-text" &&
+        block.title === "The User Journey") ||
+      block.title === "Le parcours de l'utilisateur"
   );
 
   const steps = stats?.blocks?.find(
     (block: any): block is any =>
-      block.__component === "blocks.stats" && block.title === "The User Journey"  || block.title === "Le parcours de l'utilisateur"
+      (block.__component === "blocks.stats" &&
+        block.title === "The User Journey") ||
+      block.title === "Le parcours de l'utilisateur"
   );
 
+  // Fallback values
+  const heading = titleBlock?.heading || "The User Journey";
+  const buttonLabel = titleBlock?.button?.label || "Get the App";
+
   //console.log(steps);
+
+  const handleGetAppClick = () => {
+    const userAgent =
+      (typeof navigator !== "undefined" &&
+        (navigator.userAgent || navigator.vendor || (window as any).opera)) ||
+      "";
+    const iosLink = "https://apps.apple.com/us/app/smatchy/id6473653332";
+    const androidLink =
+      "https://play.google.com/store/apps/details?id=com.smatchy.app&pcampaignid=web_share";
+    const fallbackLink = "/";
+
+    if (/iPad|iPhone|iPod/.test(userAgent)) {
+      window.open(iosLink, "_blank", "noopener,noreferrer");
+      return;
+    }
+
+    if (/Android/.test(userAgent)) {
+      window.open(androidLink, "_blank", "noopener,noreferrer");
+      return;
+    }
+
+    window.open(fallbackLink, "_blank", "noopener,noreferrer");
+  };
 
   return (
     <div className="relative z-30 mb-32">
@@ -70,9 +100,9 @@ const UserJourneySection = () => {
               data-aos-duration="1000"
             >
               <div
-                dangerouslySetInnerHTML={{
-                  __html: titleBlock.heading ? titleBlock.heading : "",
-                }}
+                 dangerouslySetInnerHTML={{
+                   __html: heading,
+                 }}
               />
               <img
                 className="absolute -top-8 -right-8 md:-top-10 md:-right-12 lg:-top-20 lg:-right-20 w-12 md:w-16 lg:w-auto"
@@ -91,18 +121,10 @@ const UserJourneySection = () => {
               Get the App <FaArrowRightLong />
             </button> */}
             <button
-              onClick={() =>
-                titleBlock.button.link &&
-                window.open(
-                  titleBlock.button.link,
-                  "_blank",
-                  "noopener,noreferrer"
-                )
-              }
-              disabled={!titleBlock.button.link}
+              onClick={() => handleGetAppClick()}
               className="flex justify-center items-center gap-2 text-white rounded-full px-3 md:px-4 py-2 text-sm md:text-base font-semibold cursor-pointer hover:bg-[#FCA13B] bg-[#FCA13B]/90 transition"
             >
-              {titleBlock.button.label}
+              {buttonLabel}
               <FaArrowRightLong />
             </button>
           </div>
