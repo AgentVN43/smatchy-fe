@@ -96,7 +96,7 @@ export default function UpcomingEvents() {
             </div>
           </div>
           <button
-            className={`h-10 md:h-12 w-10 md:w-12" ${
+            className={`h-10 md:h-12 w-10 md:w-12 cursor-pointer ${
               isBeginning ? "text-[#C7CDCF]/60" : "text-[#FCA13B]"
             }`}
             onClick={() => swiperRef.current?.swiper.slidePrev()}
@@ -104,7 +104,7 @@ export default function UpcomingEvents() {
             <FaArrowLeftLong className="text-2xl md:text-4xl" />
           </button>
           <button
-            className={`h-10 md:h-12 w-10 md:w-12" ${
+            className={`h-10 md:h-12 w-10 md:w-12 cursor-pointer ${
               isEnd ? "text-[#C7CDCF]/60" : "text-[#FCA13B]"
             }`}
             onClick={() => swiperRef.current?.swiper.slideNext()}
