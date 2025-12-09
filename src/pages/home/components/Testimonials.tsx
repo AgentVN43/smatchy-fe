@@ -45,28 +45,17 @@ export default function Testimonials() {
   // console.log("titleBlock:", titleBlock);
   // console.log("heading:", heading);
 
-  // const testimonials = data?.map((s) => ({
-  //   id: s.id,
-  //   name: s.author,
-  //   text: s.content,
-  //   rating: 5, // default
-  //   image: s.avatar?.url, // "/uploads/avatar1_d95a6afcff.png"
-  // }));
+  const testimonials = data?.map((s) => ({
+    id: s.id,
+    name: s.author,
+    text: s.content,
+    rating: 5, // default
+    image: s.avatar?.url, // "/uploads/avatar1_d95a6afcff.png"
+  }));
 
-  console.log(data)
+  // console.log(data);
 
-  const testimonials = [...(data ?? [])] // Tạo bản sao tránh mutate mảng gốc
-    .sort((a, b) => (a.index ?? 0) - (b.index ?? 0)) // Sắp xếp theo index (thấp → cao)
-    .map((s) => ({
-      id: s.id,
-      name: s.author,
-      text: s.content,
-      rating: 5,
-      image: s.avatar?.url,
-    }));
-
-
-  console.log(testimonials);
+  // console.log(testimonials);
 
   return (
     <div className="relative w-full overflow-hidden">
