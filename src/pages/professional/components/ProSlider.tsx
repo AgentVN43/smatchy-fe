@@ -1,16 +1,15 @@
 import { useRef } from "react";
-import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
-import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 
 // Thay bằng hình ảnh của bạn
-import phone1 from "/professional/phone1.png";
+import { usePro } from "../../../hooks/usePro";
 import badge1 from "/professional/badge1.png";
 import badge2 from "/professional/badge2.png";
 import badge3 from "/professional/badge3.png";
 import badge4 from "/professional/badge4.png";
-import { usePro } from "../../../hooks/usePro";
+import phone1 from "/professional/phone1.png";
 
 const BADGE_IMAGES = [badge1, badge2, badge3, badge4];
 
