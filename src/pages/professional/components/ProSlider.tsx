@@ -24,7 +24,8 @@ const DEFAULT_SLIDES = [
 export default function ProSlider() {
   const swiperRef = useRef<any>(null);
   const { data } = usePro();
-  const assetUrl = import.meta.env.VITE_STRAPI_ASSET_URL || "https://strapi.annk.info";
+  const assetUrl =
+    import.meta.env.VITE_STRAPI_ASSET_URL || "https://strapi.annk.info";
 
   console.log("assetUrl:", assetUrl);
   console.log("data:", data);
@@ -59,10 +60,10 @@ export default function ProSlider() {
         {slides.map((slide: any) => (
           <SwiperSlide key={slide.id}>
             <div className="relative w-full flex justify-center items-center z-50">
-              <img 
-                src={slide.image || slide.phone} 
-                alt="Phone" 
-                className="w-full h-auto object-cover" 
+              <img
+                src={slide.image || slide.phone}
+                alt="Phone"
+                className="w-full h-auto object-cover"
               />
               {/* <img
                 src={slide.badge}
@@ -75,20 +76,20 @@ export default function ProSlider() {
       </Swiper>
 
       {/* Nút điều hướng trái */}
-      <button
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white shadow-md rounded-full text-[#F49F3F] transition"
+      {/* <button
+        className="absolute cursor-pointer left-4 top-1/2 -translate-y-1/2 z-20 bg-white shadow-md rounded-full text-[#F49F3F] transition"
         onClick={() => swiperRef.current?.swiper?.slidePrev()}
       >
         <BsArrowLeftShort size={60} />
-      </button>
+      </button> */}
 
       {/* Nút điều hướng phải */}
-      <button
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white shadow-md rounded-full text-[#F49F3F] transition"
+      {/* <button
+        className="absolute cursor-pointer right-4 top-1/2 -translate-y-1/2 z-20 bg-white shadow-md rounded-full text-[#F49F3F] transition"
         onClick={() => swiperRef.current?.swiper?.slideNext()}
       >
         <BsArrowRightShort size={60} />
-      </button>
+      </button> */}
     </div>
   );
 }
