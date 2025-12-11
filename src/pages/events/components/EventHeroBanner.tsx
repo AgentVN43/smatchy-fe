@@ -8,8 +8,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // import banner4 from "/events/banner4.png";
 
 import Yay from "/Yay.png";
-import AppStoreImage from "/App_Store_Image.png";
-import image3 from "/image 3.png";
+import AppStoreImage from "/App_Store_Image.svg";
+import image3 from "/Google_Play_Image.svg";
 
 import "../event.css";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";

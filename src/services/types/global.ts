@@ -3,7 +3,7 @@
 interface IGlobalAttributes {
   siteName: string;
   siteDescription: string;
-  favicon: string;
+  favicon: any;
   defaultSeo: string;
 
   title?: string;

@@ -1,6 +1,5 @@
 import background from "/background.png";
 import line from "/line_bg.svg";
-import worldmap from "/world-map.png";
 import Yay from "/Yay.png";
 import Loading from "../../../components/Loading";
 import { useTestimonials } from "../../../hooks/useTestimonials";
@@ -11,7 +10,14 @@ import { useHome } from "../../../hooks/useHome";
 
 export default function Testimonials() {
   const { data, isLoading, error } = useTestimonials("home");
-  const { isLoading: isLoadingHome, error: errorHome, titles } = useHome();
+  const {
+    isLoading: isLoadingHome,
+    error: errorHome,
+    titles,
+    imageOnly,
+  } = useHome();
+  const assetUrl = import.meta.env.VITE_STRAPI_ASSET_URL;
+  console.log("🚀 ~ Testimonials ~ imageOnly:", imageOnly);
   const swiperRef = useRef<any>(null);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
@@ -130,7 +136,11 @@ export default function Testimonials() {
         data-aos="fade-up"
         data-aos-duration="2000"
       >
-        <img className="w-full h-auto" src={worldmap} alt="" />
+        <img
+          className="w-full h-auto"
+          src={`${assetUrl}${imageOnly[0].background_image.url}`}
+          alt=""
+        />
       </div>
     </div>
   );

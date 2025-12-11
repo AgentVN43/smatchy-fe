@@ -2,18 +2,18 @@ import { useNavigate } from "react-router-dom";
 import { useGlobal } from "../hooks/useGlobal";
 import Loading from "./Loading";
 import backgroundFooter from "/background-footer.png";
-import Facebook from "/Facebook.png";
-import instagram from "/Instagram.png";
-import LinkedIn from "/LinkedIn.png";
-import logo from "/logo2.png";
-import Tiktok from "/Tiktok.png";
-import Youtube from "/Youtube.png";
+import Facebook from "/Facebook.svg";
+import instagram from "/Instagram.svg";
+import LinkedIn from "/LinkedIn.svg";
+import Tiktok from "/Tiktok.svg";
+import Youtube from "/Youtube.svg";
 import { useLocale } from "../contexts/LangContext";
 import { footerTexts } from "../config/layoutConfig";
 
 export default function Footer() {
   const { locale } = useLocale();
   const { data, isLoading, error } = useGlobal();
+  console.log("🚀 ~ Footer ~ data:", data);
   //const { data: postsResponse } = usePost();
   //const posts = postsResponse?.data || [];
   //console.log(posts);
@@ -41,6 +41,7 @@ export default function Footer() {
     youtube: Youtube,
   };
 
+  const assetUrl = import.meta.env.VITE_STRAPI_ASSET_URL;
   const socialData = data?.social || [];
 
   return (
@@ -86,7 +87,7 @@ export default function Footer() {
             {/* Logo column */}
             <div className="w-full md:w-1/5 flex justify-center md:justify-start shrink-0">
               <img
-                src={logo}
+                src={`${assetUrl}${data?.favicon.url}`}
                 alt="Company Logo"
                 className="h-10 w-10 md:h-24 md:w-24 object-contain"
                 loading="lazy"
