@@ -5,6 +5,7 @@ import Yay from "/Yay.png";
 import line from "/line_bg.svg";
 import { Link } from "react-router-dom";
 import { usePro } from "../../../hooks/usePro";
+import HeroButton from "../../../components/HeroButton";
 export default function ComingSoon() {
   const { data } = usePro();
   console.log(data);
@@ -77,7 +78,7 @@ export default function ComingSoon() {
               data-aos-duration="1000"
               className="flex gap-2 md:gap-4 flex-wrap md:flex-nowrap w-full md:w-auto justify-center md:justify-start mb-20"
             >
-              <Link to="https://apps.apple.com/us/app/smatchy/id6473653332">
+              {/* <Link to="https://apps.apple.com/us/app/smatchy/id6473653332">
                 <img
                   src={AppStoreImage}
                   alt=""
@@ -86,7 +87,8 @@ export default function ComingSoon() {
               </Link>
               <Link to="https://play.google.com/store/apps/details?id=com.smatchy.app">
                 <img src={image3} alt="" className="h-10 lg:h-12 w-auto" />
-              </Link>
+              </Link> */}
+              <HeroButton/>
             </div>
           </div>
         </div>
