@@ -1,11 +1,8 @@
-import background from "/background.png";
-import AppStoreImage from "/App_Store_Image.svg";
-import image3 from "/Google_Play_Image.svg";
-import Yay from "/Yay.png";
-import line from "/line_bg.svg";
-import { Link } from "react-router-dom";
-import { usePro } from "../../../hooks/usePro";
 import HeroButton from "../../../components/HeroButton";
+import { usePro } from "../../../hooks/usePro";
+import Yay from "/Yay.png";
+import background from "/background.png";
+import line from "/line_bg.svg";
 export default function ComingSoon() {
   const { data } = usePro();
   console.log(data);
