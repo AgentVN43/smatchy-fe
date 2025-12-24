@@ -6,10 +6,10 @@ import Yay3 from "/Yay3.png";
 import { useState } from "react";
 export default function ProductFeatures() {
   const { data, isLoading, error } = useInvestor(InvestorPopulateType.BASIC);
+  const [videoLoaded, setVideoLoaded] = useState(true);
+
   if (isLoading) return <Loading />;
   if (error) return null;
-
-  const [videoLoaded, setVideoLoaded] = useState(true);
 
   const handleVideoError = () => {
     setVideoLoaded(false);
