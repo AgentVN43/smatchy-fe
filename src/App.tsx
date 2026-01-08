@@ -7,17 +7,21 @@ import ScrollToTop from "./components/ScrollToTop";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import AppLaunchPrompt from "./components/AppLaunchPrompt";
+import StripeConnectRedirect from "./components/StripeConnectRedirect";
 
 AOS.init();
-
 function AppContent() {
   const location = useLocation();
   const isOpenPath = location.pathname.startsWith("/open/");
-
+  const isStripeConnectPath =
+    location.pathname.startsWith("/stripe-connect/return") ||
+    location.pathname.startsWith("/stripe-connect/refresh");
+  if (isStripeConnectPath) {
+    return <StripeConnectRedirect />;
+  }
   if (isOpenPath) {
     return <AppLaunchPrompt />;
   }
-
   return (
     <div className="relative w-full min-h-screen overflow-hidden">
       {/* Main content */}
@@ -29,7 +33,6 @@ function AppContent() {
     </div>
   );
 }
-
 function App() {
   return (
     <>
@@ -40,5 +43,4 @@ function App() {
     </>
   );
 }
-
 export default App;
